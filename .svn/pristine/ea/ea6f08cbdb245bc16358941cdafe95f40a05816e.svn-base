@@ -1,0 +1,24 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using Olfrad.EscuelaSimple.Entidad;
+
+namespace Olfrad.EscuelaSimple.Negocio
+{
+    public class PersonalNegocio
+    {
+
+        private List<Personal> _personal;
+
+        public PersonalNegocio()
+        {
+            this._personal = new List<Personal>();
+        }
+
+        public List<Personal> ObtenerTodoPersonal()
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

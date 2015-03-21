@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NHibernate.Mapping.ByCode;
+using NHibernate.Mapping.ByCode.Conformist;
+
+namespace Olfrad.EscuelaSimple.Modelo
+{
+    [Serializable]
+    public class Telefono
+    {
+        public virtual uint IdTelefono { get; set; }
+        public virtual Personal PersonalAsociado { get; set; }
+        public virtual TipoTelefono Tipo { get; set; }
+        public virtual uint Numero { get; set; }
+
+        public Telefono()
+        {
+            //PersonalAsociado = new Personal();
+        }
+    }
+
+    public class TelefonoMap : ClassMapping<Telefono>
+    {
+        public TelefonoMap()
+        {
+            Table("Telefono");
+
+            Id<uint>(x => x.IdTelefono, m => 
+            {
+                m.Column("IdTelefono");
+                m.Generator(Generators.Identity);
+            });
+            ManyToOne<Personal>(x => x.PersonalAsociado, m => 
+            {
+                m.Column("IdPersonal");
+                m.ForeignKey("FK_Telefono_Personal_1");
+                m.NotNullable(true);
+                m.Cascade(Cascade.All);
+            });
+            ManyToOne<TipoTelefono>(x => x.Tipo, m =>
+            {
+                m.Column("Tipo");
+                m.ForeignKey("FK_Telefono_TipoTelefono_1");
+                m.UniqueKey("UK_Telefono_2");
+                m.NotNullable(true);
+                m.Cascade(Cascade.All);
+            });
+            Property<uint>(x => x.Numero, m =>
+            {
+                m.Column("Numero");
+                m.UniqueKey("UK_Telefono_2");
+                m.NotNullable(true);
+            });
+        }
+    }
+}

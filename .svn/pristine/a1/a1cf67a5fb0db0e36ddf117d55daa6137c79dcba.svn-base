@@ -1,0 +1,136 @@
+﻿namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+{
+    partial class frmPersonalListado
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPersonalListado));
+            this.lvPersonal = new System.Windows.Forms.ListView();
+            this.tsListadoPersonal = new System.Windows.Forms.ToolStrip();
+            this.tsbBuscarPersonal = new System.Windows.Forms.ToolStripButton();
+            this.tsbVerPersonal = new System.Windows.Forms.ToolStripButton();
+            this.tsbAltaPersonal = new System.Windows.Forms.ToolStripButton();
+            this.tsbModificacionPersonal = new System.Windows.Forms.ToolStripButton();
+            this.tsbBajaPersonal = new System.Windows.Forms.ToolStripButton();
+            this.tsListadoPersonal.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // lvPersonal
+            // 
+            this.lvPersonal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvPersonal.Location = new System.Drawing.Point(0, 25);
+            this.lvPersonal.Name = "lvPersonal";
+            this.lvPersonal.Size = new System.Drawing.Size(399, 270);
+            this.lvPersonal.TabIndex = 2;
+            this.lvPersonal.UseCompatibleStateImageBehavior = false;
+            this.lvPersonal.View = System.Windows.Forms.View.List;
+            // 
+            // tsListadoPersonal
+            // 
+            this.tsListadoPersonal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbBuscarPersonal,
+            this.tsbVerPersonal,
+            this.tsbAltaPersonal,
+            this.tsbModificacionPersonal,
+            this.tsbBajaPersonal});
+            this.tsListadoPersonal.Location = new System.Drawing.Point(0, 0);
+            this.tsListadoPersonal.Name = "tsListadoPersonal";
+            this.tsListadoPersonal.Size = new System.Drawing.Size(399, 25);
+            this.tsListadoPersonal.TabIndex = 7;
+            this.tsListadoPersonal.Text = "toolStrip1";
+            // 
+            // tsbBuscarPersonal
+            // 
+            this.tsbBuscarPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbBuscarPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBuscarPersonal.Name = "tsbBuscarPersonal";
+            this.tsbBuscarPersonal.Size = new System.Drawing.Size(23, 22);
+            this.tsbBuscarPersonal.Text = "toolStripButton1";
+            // 
+            // tsbVerPersonal
+            // 
+            this.tsbVerPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbVerPersonal.Image = ((System.Drawing.Image)(resources.GetObject("tsbVerPersonal.Image")));
+            this.tsbVerPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbVerPersonal.Name = "tsbVerPersonal";
+            this.tsbVerPersonal.Size = new System.Drawing.Size(23, 22);
+            this.tsbVerPersonal.Text = "toolStripButton2";
+            // 
+            // tsbAltaPersonal
+            // 
+            this.tsbAltaPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAltaPersonal.Image = ((System.Drawing.Image)(resources.GetObject("tsbAltaPersonal.Image")));
+            this.tsbAltaPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAltaPersonal.Name = "tsbAltaPersonal";
+            this.tsbAltaPersonal.Size = new System.Drawing.Size(23, 22);
+            this.tsbAltaPersonal.Text = "toolStripButton3";
+            // 
+            // tsbModificacionPersonal
+            // 
+            this.tsbModificacionPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbModificacionPersonal.Image = ((System.Drawing.Image)(resources.GetObject("tsbModificacionPersonal.Image")));
+            this.tsbModificacionPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModificacionPersonal.Name = "tsbModificacionPersonal";
+            this.tsbModificacionPersonal.Size = new System.Drawing.Size(23, 22);
+            this.tsbModificacionPersonal.Text = "toolStripButton4";
+            // 
+            // tsbBajaPersonal
+            // 
+            this.tsbBajaPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbBajaPersonal.Image = ((System.Drawing.Image)(resources.GetObject("tsbBajaPersonal.Image")));
+            this.tsbBajaPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBajaPersonal.Name = "tsbBajaPersonal";
+            this.tsbBajaPersonal.Size = new System.Drawing.Size(23, 22);
+            this.tsbBajaPersonal.Text = "toolStripButton5";
+            // 
+            // frmPersonalListado
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(399, 295);
+            this.Controls.Add(this.lvPersonal);
+            this.Controls.Add(this.tsListadoPersonal);
+            this.Name = "frmPersonalListado";
+            this.Text = "frmPersonalListado";
+            this.tsListadoPersonal.ResumeLayout(false);
+            this.tsListadoPersonal.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.ListView lvPersonal;
+        private System.Windows.Forms.ToolStrip tsListadoPersonal;
+        private System.Windows.Forms.ToolStripButton tsbBuscarPersonal;
+        private System.Windows.Forms.ToolStripButton tsbVerPersonal;
+        private System.Windows.Forms.ToolStripButton tsbAltaPersonal;
+        private System.Windows.Forms.ToolStripButton tsbModificacionPersonal;
+        private System.Windows.Forms.ToolStripButton tsbBajaPersonal;
+    }
+}

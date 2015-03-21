@@ -1,0 +1,35 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+
+namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+{
+    public partial class frmPersonalInasistenciaCRUD : Form
+    {
+        #region Atributos
+
+        private Entidad.Inasistencia _inasistencia;
+
+        #endregion
+
+        #region Costructores
+
+        public frmPersonalInasistenciaCRUD()
+        {
+            InitializeComponent();
+        }
+
+        public frmPersonalInasistenciaCRUD(Entidad.Inasistencia inasistencia)
+            : this()
+        {
+            this._inasistencia = inasistencia;
+        }
+
+        #endregion
+    }
+}

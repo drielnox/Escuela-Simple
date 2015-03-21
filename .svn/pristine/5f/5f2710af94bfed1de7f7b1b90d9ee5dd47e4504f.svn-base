@@ -1,0 +1,63 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NHibernate.Mapping.ByCode.Conformist;
+using NHibernate.Mapping.ByCode;
+
+namespace Olfrad.EscuelaSimple.Modelo
+{
+    public class Personal
+    {
+        public virtual uint IdPersonal { get; protected set; }
+        public virtual string Nombre { get; set; }
+        public virtual string Apellido { get; set; }
+        public virtual uint DNI { get; set; }
+        public virtual DateTime FechaNacimiento { get; set; }
+        public virtual ICollection<Telefono> Telefonos { get; set; }
+        public virtual DateTime? IngresoDocencia { get; set; }
+        public virtual string Titulo { get; set; }
+        public virtual string Cargo { get; set; }
+        public virtual string SituacionRevista { get; set; }
+        public virtual string Observacion { get; set; }
+        public virtual ICollection<Inasistencia> Inasistencias { get; set; }
+    }
+
+    class PersonalMap : ClassMapping<Personal>
+    {
+        public PersonalMap()
+        {
+            Id(x => x.IdPersonal, m => m.Generator(Generators.Identity));
+            Property(x => x.Nombre);
+            Property(x => x.Apellido);
+            Property(x => x.DNI);
+            Property(x => x.FechaNacimiento);
+            Bag(x => x.Telefonos, c => 
+            {
+                c.Key(k => 
+                {
+                    k.Column("IdTelefono");
+                    k.NotNullable(true);
+                });
+                c.Cascade(Cascade.All);
+                c.Table("Telefono");
+                c.Inverse(true);
+            }, r => r.ManyToMany(m => m.Column("IdPersonal")));
+            Property(x => x.Titulo);
+            Property(x => x.Cargo);
+            Property(x => x.SituacionRevista);
+            Property(x => x.Observacion);
+            Bag(x => x.Inasistencias, c => 
+            {
+                c.Key(k => 
+                {
+                    k.Column("IdInasistencia");
+                    k.NotNullable(true);
+                });
+                c.Cascade(Cascade.All);
+                c.Table("Inasistencia");
+                c.Inverse(true);
+            }, r => r.ManyToMany(m => m.Column("IdPersonal")));
+        }
+    }
+}

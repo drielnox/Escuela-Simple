@@ -1,0 +1,13 @@
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\Modelo.dll.config
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\Modelo.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\Modelo.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\Entidad.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\Iesi.Collections.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\MySql.Data.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\NHibernate.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\Entidad.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\Iesi.Collections.xml
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\bin\Debug\NHibernate.xml
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\obj\Debug\Modelo.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\obj\Debug\Modelo.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Modelo\obj\Debug\Modelo.pdb

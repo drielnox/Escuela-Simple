@@ -1,0 +1,90 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NHibernate.Mapping.ByCode;
+using NHibernate.Mapping.ByCode.Conformist;
+
+namespace Olfrad.EscuelaSimple.Modelo
+{
+    public class Personal
+    {
+        public Personal()
+        {
+            this.Telefonos = new List<Telefono>();
+            this.Inasistencias = new List<Inasistencia>();
+        }
+
+        public virtual uint Id { get; set; }
+        public virtual string Nombre { get; set; }
+        public virtual string Apellido { get; set; }
+        public virtual uint DNI { get; set; }
+        public virtual DateTime FechaNacimiento { get; set; }
+        public virtual IEnumerable<Telefono> Telefonos { get; set; }
+        public virtual DateTime? IngresoDocencia { get; set; }
+        public virtual DateTime? IngresoEstablecimiento { get; set; }
+        public virtual string Titulo { get; set; }
+        public virtual string Cargo { get; set; }
+        public virtual string SituacionRevista { get; set; }
+        public virtual string Observacion { get; set; }
+        public virtual IEnumerable<Inasistencia> Inasistencias { get; set; }
+    }
+
+    public class PersonalMap : ClassMapping<Personal>
+    {
+        public PersonalMap()
+        {
+            Table("Personal");
+
+            Id<uint>(x => x.Id, m =>
+            {
+                m.Column("IdPersonal");
+                m.Generator(Generators.Identity);
+            });
+
+            Property<string>(x => x.Nombre, m =>
+            {
+                m.NotNullable(true);
+            });
+            Property<string>(x => x.Apellido, m =>
+            {
+                m.NotNullable(true);
+            });
+            Property<uint>(x => x.DNI, m =>
+            {
+                m.NotNullable(true);
+            });
+            Property<DateTime>(x => x.FechaNacimiento, m =>
+            {
+                m.NotNullable(true);
+            });
+            Property<DateTime?>(x => x.IngresoDocencia);
+            Property<DateTime?>(x => x.IngresoEstablecimiento);
+            Property<string>(x => x.Titulo);
+            Property<string>(x => x.Cargo);
+            Property<string>(x => x.SituacionRevista);
+            Property<string>(x => x.Observacion);
+
+            Bag<Telefono>(x => x.Telefonos,
+                cm =>
+                {
+                    cm.Table("Telefono");
+                    cm.Key(k =>
+                    {
+                        k.Column("IdPersonal");
+                    });
+                },
+                cr =>
+                {
+                    cr.OneToMany(x => x.Class(typeof(Telefono)));
+                });
+            Bag<Inasistencia>(x => x.Inasistencias,
+                cm =>
+                {
+                    cm.Table("Inasistencia");
+                    cm.Key(k => k.Column("IdPersonal"));
+                },
+                m => m.OneToMany(x => x.Class(typeof(Inasistencia))));
+        }
+    }
+}

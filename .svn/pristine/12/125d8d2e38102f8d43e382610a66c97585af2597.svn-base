@@ -1,0 +1,30 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NHibernate.Mapping.ByCode.Conformist;
+using NHibernate.Mapping.ByCode;
+
+namespace Olfrad.EscuelaSimple.Modelo
+{
+    class Telefono
+    {
+        public uint IdTelefono { get; set; }
+        public TipoTelefono Tipo { get; set; }
+        public uint Numero { get; set; }
+    }
+
+    class TelefonoMap : ClassMapping<Telefono>
+    {
+        public TelefonoMap()
+        {
+            Id(x => x.IdTelefono, m => m.Generator(Generators.Identity));
+            ManyToOne(x => x.Tipo, m => 
+            {
+                m.Cascade(Cascade.All);
+                m.NotNullable(true);
+            });
+            Property(x => x.Numero);
+        }
+    }
+}

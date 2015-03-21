@@ -1,0 +1,38 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NHibernate.Mapping.ByCode;
+using NHibernate.Mapping.ByCode.Conformist;
+
+namespace Olfrad.EscuelaSimple.Modelo
+{
+    public class TipoTelefono
+    {
+        public TipoTelefono()
+        {
+
+        }
+
+        public virtual uint Id { get; set; }
+        public virtual string Descripcion { get; set; }
+    }
+
+    public class TipoTelefonoMap : ClassMapping<TipoTelefono>
+    {
+        public TipoTelefonoMap()
+        {
+            Table("TipoTelefono");
+
+            Id<uint>(x => x.Id, m =>
+            {
+                m.Column("IdTipoTelefono");
+                m.Generator(Generators.Identity);
+            });
+            Property<string>(x => x.Descripcion, m =>
+            {
+                m.NotNullable(true);
+            });
+        }
+    }
+}

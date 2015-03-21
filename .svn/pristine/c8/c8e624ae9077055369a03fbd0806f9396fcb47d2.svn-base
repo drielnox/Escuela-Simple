@@ -1,0 +1,14 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace Olfrad.EscuelaSimple.Entidad
+{
+    public class Telefono
+    {
+        public virtual  uint IdTelefono { get; set; }
+        public virtual  TipoTelefono Tipo { get; set; }
+        public virtual  uint Numero { get; set; }
+    }
+}

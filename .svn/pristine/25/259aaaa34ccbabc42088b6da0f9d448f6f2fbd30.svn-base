@@ -1,0 +1,89 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NHibernate.Mapping.ByCode;
+using NHibernate.Mapping.ByCode.Conformist;
+
+namespace Olfrad.EscuelaSimple.Modelo
+{
+    public class TelefonoId
+    {
+        public virtual uint IdPersonal { get; set; }
+        public virtual uint IdTelefono { get; set; }
+
+        public TelefonoId()
+        {
+
+        }
+
+        public TelefonoId(uint personal, uint telefono)
+            : base()
+        {
+            IdPersonal = personal;
+            IdTelefono = telefono;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null || GetType() != obj.GetType())
+            {
+                return false;
+            }
+
+            var telefonoId = obj as TelefonoId;
+            if (telefonoId == null)
+            {
+                return false;
+            }
+
+            return base.Equals(obj)
+                && IdPersonal.Equals(telefonoId.IdPersonal)
+                && IdTelefono.Equals(telefonoId.IdTelefono);
+        }
+
+        public override int GetHashCode()
+        {
+            return (base.GetHashCode() + '|' + IdPersonal + '|' + IdTelefono).GetHashCode();
+        }
+    }
+
+    public class Telefono
+    {
+        public virtual TelefonoId Id { get; set; }
+        public virtual TipoTelefono Tipo { get; set; }
+        public virtual uint Numero { get; set; }
+
+        public Telefono()
+        {
+            this.Id = new TelefonoId();
+        }
+    }
+
+    public class TelefonoMap : ClassMapping<Telefono>
+    {
+        public TelefonoMap()
+        {
+            Table("Telefono");
+
+            ComponentAsId<TelefonoId>(x => x.Id, m =>
+            {
+                m.Property<uint>(k => k.IdPersonal);
+                m.Property<uint>(k => k.IdTelefono);
+            });
+            ManyToOne<TipoTelefono>(x => x.Tipo, m =>
+            {
+                m.Column("Tipo");
+                m.Unique(true);
+                m.NotNullable(true);
+                m.Cascade(Cascade.All);
+            });
+            Property<uint>(x => x.Numero, m =>
+            {
+                m.Column("Numero");
+                m.Unique(true);
+                m.NotNullable(true);
+            });
+        }
+    }
+}

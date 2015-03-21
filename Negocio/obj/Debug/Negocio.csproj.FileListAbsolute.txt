@@ -1,0 +1,14 @@
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Negocio.dll.config
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Negocio.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Negocio.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Entidad.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Iesi.Collections.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Modelo.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\NHibernate.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Entidad.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Modelo.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\Iesi.Collections.xml
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\bin\Debug\NHibernate.xml
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\obj\Debug\Negocio.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Negocio\obj\Debug\Negocio.pdb

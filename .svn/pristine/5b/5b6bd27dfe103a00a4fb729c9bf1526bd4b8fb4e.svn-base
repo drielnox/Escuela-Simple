@@ -1,0 +1,36 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using NHibernate.Mapping.ByCode;
+using NHibernate.Mapping.ByCode.Conformist;
+using Olfrad.EscuelaSimple.Entidad;
+
+namespace Olfrad.EscuelaSimple.Modelo.Mapeo
+{
+    public class InasistenciaMap : ClassMapping<Inasistencia>
+    {
+        public InasistenciaMap()
+        {
+            Table("Inasistencia");
+
+            Id<uint>(x => x.Id, m => 
+            {
+                m.Column("IdInasistencia");
+                m.Generator(Generators.Identity);
+            });
+            Property<string>(x => x.Motivo, m =>
+            {
+                m.NotNullable(true);
+            });
+            Property<DateTime>(x => x.Desde, m =>
+            {
+                m.NotNullable(true);
+            });
+            Property<DateTime>(x => x.Hasta, m =>
+            {
+                m.NotNullable(true);
+            });
+        }
+    }
+}

@@ -1,0 +1,15 @@
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\TestNHibernate.exe.config
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\TestNHibernate.exe
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\TestNHibernate.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\Modelo.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\MySql.Data.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\NHibernate.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\Entidad.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\Iesi.Collections.dll
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\Modelo.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\NHibernate.xml
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\Entidad.pdb
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\bin\Debug\Iesi.Collections.xml
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\obj\x86\Debug\TestNHibernate.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\obj\x86\Debug\TestNHibernate.exe
+C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\TestNHibernate\obj\x86\Debug\TestNHibernate.pdb
