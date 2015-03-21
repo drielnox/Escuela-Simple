@@ -13,7 +13,6 @@ namespace TestNHibernate
             NHibernateWrapper.CreateDabataseSchema();
             NHibernateWrapper.ValidateSchema();
             NHibernateWrapper.InsertTestData();
-            // Comentairo
         }
     }
 }
