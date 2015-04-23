@@ -140,9 +140,9 @@
     <None Include="Resources\Filter.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entidad\Entidad.csproj">
+    <ProjectReference Include="..\Entidad\Modelos.csproj">
       <Project>{0B1EEC1F-062A-410E-992E-15A6B5175A74}</Project>
-      <Name>Entidad</Name>
+      <Name>Modelos</Name>
     </ProjectReference>
     <ProjectReference Include="..\Negocio\Negocio.csproj">
       <Project>{A9E5D75C-0BD7-4309-A648-E8E1619050D2}</Project>

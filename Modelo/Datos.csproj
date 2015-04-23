@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EscuelaSimple.Datos</RootNamespace>
-    <AssemblyName>Datos</AssemblyName>
+    <AssemblyName>dal</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <PublishUrl>publish\</PublishUrl>
@@ -136,9 +136,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entidad\Entidad.csproj">
+    <ProjectReference Include="..\Entidad\Modelos.csproj">
       <Project>{0B1EEC1F-062A-410E-992E-15A6B5175A74}</Project>
-      <Name>Entidad</Name>
+      <Name>Modelos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

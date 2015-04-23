@@ -52,13 +52,13 @@
     <Compile Include="TipoTelefonoNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entidad\Entidad.csproj">
+    <ProjectReference Include="..\Entidad\Modelos.csproj">
       <Project>{0B1EEC1F-062A-410E-992E-15A6B5175A74}</Project>
-      <Name>Entidad</Name>
+      <Name>Modelos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modelo\Modelo.csproj">
+    <ProjectReference Include="..\Modelo\Datos.csproj">
       <Project>{31F789B0-4846-4528-8302-391AAA1D5BF0}</Project>
-      <Name>Modelo</Name>
+      <Name>Datos</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

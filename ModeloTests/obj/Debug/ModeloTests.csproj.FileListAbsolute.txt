@@ -1,4 +1,0 @@
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\ModeloTests\bin\Debug\ModeloTests.dll
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\ModeloTests\bin\Debug\ModeloTests.pdb
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\ModeloTests\obj\Debug\ModeloTests.dll
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\ModeloTests\obj\Debug\ModeloTests.pdb
