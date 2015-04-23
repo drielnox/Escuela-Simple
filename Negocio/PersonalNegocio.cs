@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Olfrad.EscuelaSimple.Entidad;
-using Olfrad.EscuelaSimple.Modelo;
-using Olfrad.EscuelaSimple.Modelo.Repositorio;
-using Olfrad.EscuelaSimple.Modelo.UnidadDeTrabajo;
+using EscuelaSimple.Entidad;
+using EscuelaSimple.Modelo;
+using EscuelaSimple.Modelo.Repositorio;
+using EscuelaSimple.Modelo.UnidadDeTrabajo;
 
-namespace Olfrad.EscuelaSimple.Negocio
+namespace EscuelaSimple.Negocio
 {
     public class PersonalNegocio
     {
-        private IUnitOfWork _unitOfWork;
-        private IPersonalRepository _repoPersonal;
+        private IUnidadDeTrabajo _unitOfWork;
+        private IPersonalRepositorio _repoPersonal;
 
         public PersonalNegocio()
         {
-            this._unitOfWork = new NHibernateUnitOfWork(NHibernateWrapper.CurrentSession);
-            this._repoPersonal = new PersonalRepository(NHibernateWrapper.CurrentSession);
+            this._unitOfWork = new NHibernateUnidadDeTrabajo(NHibernateWrapper.CurrentSession);
+            this._repoPersonal = new PersonalRepositorio(NHibernateWrapper.CurrentSession);
         }
 
         public List<Personal> ObtenerTodoPersonal()
@@ -65,6 +65,7 @@ namespace Olfrad.EscuelaSimple.Negocio
             try
             {
                 this._repoPersonal.Create(personalAGuardar);
+                this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)
             {

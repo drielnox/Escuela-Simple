@@ -1,4 +1,4 @@
-﻿namespace Olfrad.EscuelaSimple.InterfazDeUsuario
+﻿namespace EscuelaSimple.InterfazDeUsuario
 {
     partial class frmPrincipal
     {
@@ -33,6 +33,8 @@
             this.tsmiConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
             this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiAyuda = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInicializar = new System.Windows.Forms.ToolStripMenuItem();
             this.msPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -40,7 +42,8 @@
             // 
             this.msPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsmiPersonal,
-            this.tsmiConfiguracion});
+            this.tsmiConfiguracion,
+            this.tsmiAyuda});
             this.msPrincipal.Location = new System.Drawing.Point(0, 0);
             this.msPrincipal.Name = "msPrincipal";
             this.msPrincipal.Size = new System.Drawing.Size(624, 24);
@@ -66,14 +69,29 @@
             // importarToolStripMenuItem
             // 
             this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.importarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.importarToolStripMenuItem.Text = "Importar";
             // 
             // exportarToolStripMenuItem
             // 
             this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.exportarToolStripMenuItem.Text = "Exportar";
+            // 
+            // tsmiAyuda
+            // 
+            this.tsmiAyuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiInicializar});
+            this.tsmiAyuda.Name = "tsmiAyuda";
+            this.tsmiAyuda.Size = new System.Drawing.Size(53, 20);
+            this.tsmiAyuda.Text = "Ayuda";
+            // 
+            // tsmiInicializar
+            // 
+            this.tsmiInicializar.Name = "tsmiInicializar";
+            this.tsmiInicializar.Size = new System.Drawing.Size(152, 22);
+            this.tsmiInicializar.Text = "Inicializar";
+            this.tsmiInicializar.Click += new System.EventHandler(this.tsmiInicializar_Click);
             // 
             // frmPrincipal
             // 
@@ -99,6 +117,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiConfiguracion;
         private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiAyuda;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInicializar;
     }
 }
 

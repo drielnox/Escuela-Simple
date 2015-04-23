@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Olfrad.EscuelaSimple.Negocio;
+using EscuelaSimple.Negocio;
 
-namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.Personal
 {
     public partial class frmPersonalTelefonoCRUD : Form
     {
@@ -71,7 +71,7 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
                 this._telefono.Tipo = this.cboTipoTelefono.SelectedItem as Entidad.TipoTelefono;
                 this._telefono.Numero = Convert.ToUInt32(this.mskNumero.Text);
                 this.Tag = this._telefono;
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
         }
@@ -79,7 +79,7 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Validate(false);
-            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
 

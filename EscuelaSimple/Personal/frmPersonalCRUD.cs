@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Olfrad.EscuelaSimple.Negocio;
+using EscuelaSimple.Negocio;
 
-namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.Personal
 {
     public partial class frmPersonalCRUD : Form
     {
@@ -43,11 +43,29 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
 
         }
 
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            bool valido = this.ValidateChildren();
+            if (valido)
+            {
+                Entidad.Personal personalAGuardar = this.ObtenerPersonal();
+                this._negocioPersonal.GuardarPersonal(personalAGuardar);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Validate(false);
+            this.DialogResult = DialogResult.Cancel;
+        }
+
         private void tsbAltaTelefono_Click(object sender, EventArgs e)
         {
             frmPersonalTelefonoCRUD frm = new frmPersonalTelefonoCRUD();
             DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == System.Windows.Forms.DialogResult.OK)
+            if (resultado == DialogResult.OK)
             {
                 Entidad.Telefono telefonoNuevo = frm.Tag as Entidad.Telefono;
                 this.CargarGrillaConTelefono(telefonoNuevo);
@@ -56,14 +74,10 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
 
         private void tsbModificacionTelefono_Click(object sender, EventArgs e)
         {
-            if (this.lvTelefonos.SelectedItems.Count <= 0)
-            {
-                return;
-            }
             Entidad.Telefono telefonoSelecionado = this.lvTelefonos.SelectedItems[0].Tag as Entidad.Telefono;
             frmPersonalTelefonoCRUD frm = new frmPersonalTelefonoCRUD(telefonoSelecionado);
             DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == System.Windows.Forms.DialogResult.OK)
+            if (resultado == DialogResult.OK)
             {
                 Entidad.Telefono telefonoModificado = frm.Tag as Entidad.Telefono;
                 this.CargarGrillaConTelefono(telefonoModificado);
@@ -72,12 +86,8 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
 
         private void tsbBajaTelefono_Click(object sender, EventArgs e)
         {
-            if (this.lvTelefonos.SelectedItems.Count <= 0)
-            {
-                return;
-            }
             DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este telefono?", "Borrar telefono", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (resultado == System.Windows.Forms.DialogResult.OK)
+            if (resultado == DialogResult.OK)
             {
                 ListViewItem itemSeleccionado = this.lvTelefonos.SelectedItems[0];
                 this.lvTelefonos.Items.Remove(itemSeleccionado);
@@ -88,7 +98,7 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
         {
             frmPersonalInasistenciaCRUD frm = new frmPersonalInasistenciaCRUD();
             DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == System.Windows.Forms.DialogResult.OK)
+            if (resultado == DialogResult.OK)
             {
                 Entidad.Inasistencia inasistenciaNueva = frm.Tag as Entidad.Inasistencia;
                 this.CargarGrillaConInasistencia(inasistenciaNueva);
@@ -97,14 +107,10 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
 
         private void tsbModificacionInasistencia_Click(object sender, EventArgs e)
         {
-            if (this.lvInasistencia.SelectedItems.Count <= 0)
-            {
-                return;
-            }
             Entidad.Inasistencia inasistenciaSeleccionada = this.lvInasistencia.SelectedItems[0].Tag as Entidad.Inasistencia;
             frmPersonalInasistenciaCRUD frm = new frmPersonalInasistenciaCRUD(inasistenciaSeleccionada);
             DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == System.Windows.Forms.DialogResult.OK)
+            if (resultado == DialogResult.OK)
             {
                 Entidad.Inasistencia inasistenciaModificada = frm.Tag as Entidad.Inasistencia;
                 this.CargarGrillaConInasistencia(inasistenciaModificada);
@@ -113,22 +119,88 @@ namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
 
         private void tsbBajaInasistencia_Click(object sender, EventArgs e)
         {
-            if (this.lvInasistencia.SelectedItems.Count <= 0)
-            {
-                return;
-            }
             DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar esta inasistencia?", "Borrar inasistencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (resultado == System.Windows.Forms.DialogResult.OK)
+            if (resultado == DialogResult.OK)
             {
                 ListViewItem itemSeleccionado = this.lvInasistencia.SelectedItems[0];
                 this.lvInasistencia.Items.Remove(itemSeleccionado);
             }
         }
 
-        private void btnAceptar_Click(object sender, EventArgs e)
+        #region Validaciones
+
+        private void txtNombre_Validating(object sender, CancelEventArgs e)
         {
-            Entidad.Personal personalAGuardar = this.ObtenerPersonal();
-            this._negocioPersonal.GuardarPersonal(personalAGuardar);
+            if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
+            {
+                e.Cancel = true;
+                this.txtNombre.Select(0, this.txtNombre.Text.Length);
+                this.errorProvider.SetError(this.txtNombre, "El contenido no es valido.");
+            }
+        }
+
+        private void txtNombre_Validated(object sender, EventArgs e)
+        {
+            this.errorProvider.SetError(this.txtNombre, string.Empty);
+        }
+
+        private void txtApellido_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(this.txtApellido.Text))
+            {
+                e.Cancel = true;
+                this.txtApellido.Select(0, this.txtApellido.Text.Length);
+                this.errorProvider.SetError(this.txtApellido, "El contenido no es valido.");
+            }
+        }
+
+        private void txtApellido_Validated(object sender, EventArgs e)
+        {
+            this.errorProvider.SetError(this.txtApellido, string.Empty);
+        }
+
+        private void dtpIngresoDocencia_Validating(object sender, CancelEventArgs e)
+        {
+            if (this.dtpIngresoDocencia.Value <= this.dtpFechaNacimiento.Value)
+            {
+                e.Cancel = true;
+                this.dtpIngresoDocencia.Select();
+                this.errorProvider.SetError(this.dtpIngresoDocencia, "La fecha de ingreso a la docencia no puede ser menor o igual a fecha de nacimiento.");
+            }
+        }
+
+        private void dtpIngresoDocencia_Validated(object sender, EventArgs e)
+        {
+            this.errorProvider.SetError(this.dtpIngresoDocencia, string.Empty);
+        }
+
+        private void dtpIngresoEstablecimiento_Validating(object sender, CancelEventArgs e)
+        {
+            if (this.dtpIngresoEstablecimiento.Value <= this.dtpFechaNacimiento.Value || this.dtpIngresoEstablecimiento.Value < this.dtpIngresoDocencia.Value)
+            {
+                e.Cancel = true;
+                this.dtpIngresoEstablecimiento.Select();
+                this.errorProvider.SetError(this.dtpIngresoEstablecimiento, "La fecha de ingreso al establecimiento no puede ser menor a la fecha de nacimiento o la fecha de ingreso a la docencia.");
+            }
+        }
+
+        private void dtpIngresoEstablecimiento_Validated(object sender, EventArgs e)
+        {
+            this.errorProvider.SetError(this.dtpIngresoEstablecimiento, string.Empty);
+        }
+
+        #endregion
+
+        private void lvTelefonos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            this.tsbModificacionTelefono.Enabled = e.IsSelected;
+            this.tsbBajaTelefono.Enabled = e.IsSelected;
+        }
+
+        private void lvInasistencia_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            this.tsbModificacionInasistencia.Enabled = e.IsSelected;
+            this.tsbBajaInasistencia.Enabled = e.IsSelected;
         }
 
         #endregion

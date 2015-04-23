@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Olfrad.EscuelaSimple.Entidad
+namespace EscuelaSimple.Entidad
 {
     public interface IEntity<TKey> 
         where TKey : struct

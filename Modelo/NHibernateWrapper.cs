@@ -11,10 +11,10 @@ using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Tool.hbm2ddl;
-using Olfrad.EscuelaSimple.Modelo.Mapeo;
-using Olfrad.EscuelaSimple.Entidad;
+using EscuelaSimple.Modelo.Mapeo.NHibernate;
+using EscuelaSimple.Entidad;
 
-namespace Olfrad.EscuelaSimple.Modelo
+namespace EscuelaSimple.Modelo
 {
     public class NHibernateWrapper
     {
@@ -51,7 +51,7 @@ namespace Olfrad.EscuelaSimple.Modelo
                 db.Driver<MySqlDataDriver>();
                 db.KeywordsAutoImport = Hbm2DDLKeyWords.AutoQuote;
                 db.IsolationLevel = IsolationLevel.ReadCommitted;
-                db.ConnectionString = "Server=localhost;Database=escuela;Uid=escuela;Pwd=escuela;";
+                db.ConnectionString = "Server=localhost;Database=escuelasimple;Uid=escuela;Pwd=escuela;";
                 db.Timeout = 10;
                 db.ConnectionReleaseMode = ConnectionReleaseMode.OnClose;
                 db.SchemaAction = SchemaAutoAction.Update;

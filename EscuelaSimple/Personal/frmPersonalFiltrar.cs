@@ -6,9 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using Olfrad.EscuelaSimple.Negocio;
+using EscuelaSimple.Negocio;
 
-namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.Personal
 {
     public partial class frmPersonalFiltrar : Form
     {

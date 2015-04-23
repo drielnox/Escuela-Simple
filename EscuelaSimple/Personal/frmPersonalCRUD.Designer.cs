@@ -1,4 +1,4 @@
-﻿namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+﻿namespace EscuelaSimple.InterfazDeUsuario.Personal
 {
     partial class frmPersonalCRUD
     {
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewGroup listViewGroup1 = new System.Windows.Forms.ListViewGroup("Año", System.Windows.Forms.HorizontalAlignment.Left);
+            this.components = new System.ComponentModel.Container();
             this.tcDatosPersonal = new System.Windows.Forms.TabControl();
             this.tpBasico = new System.Windows.Forms.TabPage();
             this.gbTelefonos = new System.Windows.Forms.GroupBox();
@@ -74,8 +74,11 @@
             this.tsbAltaInasistencia = new System.Windows.Forms.ToolStripButton();
             this.tsbModificacionInasistencia = new System.Windows.Forms.ToolStripButton();
             this.tsbBajaInasistencia = new System.Windows.Forms.ToolStripButton();
+            this.tss1 = new System.Windows.Forms.ToolStripSeparator();
+            this.tscbAño = new System.Windows.Forms.ToolStripComboBox();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.tcDatosPersonal.SuspendLayout();
             this.tpBasico.SuspendLayout();
             this.gbTelefonos.SuspendLayout();
@@ -84,6 +87,7 @@
             this.gbObservacion.SuspendLayout();
             this.tpInasistencia.SuspendLayout();
             this.tsABMInasistencia.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // tcDatosPersonal
@@ -150,6 +154,7 @@
             this.lvTelefonos.TabIndex = 1;
             this.lvTelefonos.UseCompatibleStateImageBehavior = false;
             this.lvTelefonos.View = System.Windows.Forms.View.Details;
+            this.lvTelefonos.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvTelefonos_ItemSelectionChanged);
             // 
             // chTipo
             // 
@@ -177,7 +182,7 @@
             // tsbAltaTelefono
             // 
             this.tsbAltaTelefono.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAltaTelefono.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
+            this.tsbAltaTelefono.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
             this.tsbAltaTelefono.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAltaTelefono.Name = "tsbAltaTelefono";
             this.tsbAltaTelefono.Size = new System.Drawing.Size(23, 22);
@@ -187,7 +192,8 @@
             // tsbModificacionTelefono
             // 
             this.tsbModificacionTelefono.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificacionTelefono.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
+            this.tsbModificacionTelefono.Enabled = false;
+            this.tsbModificacionTelefono.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
             this.tsbModificacionTelefono.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbModificacionTelefono.Name = "tsbModificacionTelefono";
             this.tsbModificacionTelefono.Size = new System.Drawing.Size(23, 22);
@@ -197,7 +203,8 @@
             // tsbBajaTelefono
             // 
             this.tsbBajaTelefono.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbBajaTelefono.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
+            this.tsbBajaTelefono.Enabled = false;
+            this.tsbBajaTelefono.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
             this.tsbBajaTelefono.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBajaTelefono.Name = "tsbBajaTelefono";
             this.tsbBajaTelefono.Size = new System.Drawing.Size(23, 22);
@@ -223,6 +230,7 @@
             // txtDomicilio
             // 
             this.txtDomicilio.Location = new System.Drawing.Point(89, 58);
+            this.txtDomicilio.MaxLength = 255;
             this.txtDomicilio.Name = "txtDomicilio";
             this.txtDomicilio.Size = new System.Drawing.Size(100, 20);
             this.txtDomicilio.TabIndex = 9;
@@ -255,8 +263,13 @@
             // 
             // mskDNI
             // 
+            this.mskDNI.AllowPromptAsInput = false;
+            this.mskDNI.AsciiOnly = true;
+            this.mskDNI.HidePromptOnLeave = true;
             this.mskDNI.Location = new System.Drawing.Point(89, 32);
+            this.mskDNI.Mask = "99999999";
             this.mskDNI.Name = "mskDNI";
+            this.mskDNI.RejectInputOnFirstFailure = true;
             this.mskDNI.Size = new System.Drawing.Size(100, 20);
             this.mskDNI.TabIndex = 5;
             // 
@@ -275,6 +288,8 @@
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(100, 20);
             this.txtApellido.TabIndex = 3;
+            this.txtApellido.Validating += new System.ComponentModel.CancelEventHandler(this.txtApellido_Validating);
+            this.txtApellido.Validated += new System.EventHandler(this.txtApellido_Validated);
             // 
             // lblApellido
             // 
@@ -288,9 +303,12 @@
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(89, 6);
+            this.txtNombre.MaxLength = 255;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(100, 20);
             this.txtNombre.TabIndex = 1;
+            this.txtNombre.Validating += new System.ComponentModel.CancelEventHandler(this.txtNombre_Validating);
+            this.txtNombre.Validated += new System.EventHandler(this.txtNombre_Validated);
             // 
             // lblNombre
             // 
@@ -348,6 +366,8 @@
             this.dtpIngresoEstablecimiento.Name = "dtpIngresoEstablecimiento";
             this.dtpIngresoEstablecimiento.Size = new System.Drawing.Size(100, 20);
             this.dtpIngresoEstablecimiento.TabIndex = 9;
+            this.dtpIngresoEstablecimiento.Validating += new System.ComponentModel.CancelEventHandler(this.dtpIngresoEstablecimiento_Validating);
+            this.dtpIngresoEstablecimiento.Validated += new System.EventHandler(this.dtpIngresoEstablecimiento_Validated);
             // 
             // lblIngresoEstablecimiento
             // 
@@ -381,6 +401,8 @@
             this.dtpIngresoDocencia.Name = "dtpIngresoDocencia";
             this.dtpIngresoDocencia.Size = new System.Drawing.Size(100, 20);
             this.dtpIngresoDocencia.TabIndex = 5;
+            this.dtpIngresoDocencia.Validating += new System.ComponentModel.CancelEventHandler(this.dtpIngresoDocencia_Validating);
+            this.dtpIngresoDocencia.Validated += new System.EventHandler(this.dtpIngresoDocencia_Validated);
             // 
             // lblIngresoDocencia
             // 
@@ -445,17 +467,16 @@
             this.lvInasistencia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lvInasistencia.FullRowSelect = true;
             this.lvInasistencia.GridLines = true;
-            listViewGroup1.Header = "Año";
-            listViewGroup1.Name = "lvgPorAnio";
-            this.lvInasistencia.Groups.AddRange(new System.Windows.Forms.ListViewGroup[] {
-            listViewGroup1});
             this.lvInasistencia.Location = new System.Drawing.Point(3, 28);
             this.lvInasistencia.MultiSelect = false;
             this.lvInasistencia.Name = "lvInasistencia";
+            this.lvInasistencia.ShowGroups = false;
             this.lvInasistencia.Size = new System.Drawing.Size(472, 194);
+            this.lvInasistencia.Sorting = System.Windows.Forms.SortOrder.Descending;
             this.lvInasistencia.TabIndex = 1;
             this.lvInasistencia.UseCompatibleStateImageBehavior = false;
             this.lvInasistencia.View = System.Windows.Forms.View.Details;
+            this.lvInasistencia.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvInasistencia_ItemSelectionChanged);
             // 
             // chArticulo
             // 
@@ -482,7 +503,9 @@
             this.tsABMInasistencia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tsbAltaInasistencia,
             this.tsbModificacionInasistencia,
-            this.tsbBajaInasistencia});
+            this.tsbBajaInasistencia,
+            this.tss1,
+            this.tscbAño});
             this.tsABMInasistencia.Location = new System.Drawing.Point(3, 3);
             this.tsABMInasistencia.Name = "tsABMInasistencia";
             this.tsABMInasistencia.Size = new System.Drawing.Size(472, 25);
@@ -492,7 +515,7 @@
             // tsbAltaInasistencia
             // 
             this.tsbAltaInasistencia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAltaInasistencia.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
+            this.tsbAltaInasistencia.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
             this.tsbAltaInasistencia.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAltaInasistencia.Name = "tsbAltaInasistencia";
             this.tsbAltaInasistencia.Size = new System.Drawing.Size(23, 22);
@@ -502,7 +525,8 @@
             // tsbModificacionInasistencia
             // 
             this.tsbModificacionInasistencia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificacionInasistencia.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
+            this.tsbModificacionInasistencia.Enabled = false;
+            this.tsbModificacionInasistencia.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
             this.tsbModificacionInasistencia.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbModificacionInasistencia.Name = "tsbModificacionInasistencia";
             this.tsbModificacionInasistencia.Size = new System.Drawing.Size(23, 22);
@@ -512,12 +536,28 @@
             // tsbBajaInasistencia
             // 
             this.tsbBajaInasistencia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbBajaInasistencia.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
+            this.tsbBajaInasistencia.Enabled = false;
+            this.tsbBajaInasistencia.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
             this.tsbBajaInasistencia.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBajaInasistencia.Name = "tsbBajaInasistencia";
             this.tsbBajaInasistencia.Size = new System.Drawing.Size(23, 22);
             this.tsbBajaInasistencia.Text = "Borrar";
             this.tsbBajaInasistencia.Click += new System.EventHandler(this.tsbBajaInasistencia_Click);
+            // 
+            // tss1
+            // 
+            this.tss1.Name = "tss1";
+            this.tss1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // tscbAño
+            // 
+            this.tscbAño.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
+            this.tscbAño.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.tscbAño.MaxDropDownItems = 3;
+            this.tscbAño.MaxLength = 4;
+            this.tscbAño.Name = "tscbAño";
+            this.tscbAño.Size = new System.Drawing.Size(121, 25);
+            this.tscbAño.Sorted = true;
             // 
             // btnAceptar
             // 
@@ -540,6 +580,11 @@
             this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmPersonalCRUD
             // 
@@ -568,6 +613,7 @@
             this.tpInasistencia.PerformLayout();
             this.tsABMInasistencia.ResumeLayout(false);
             this.tsABMInasistencia.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -621,5 +667,8 @@
         private System.Windows.Forms.ColumnHeader chTipo;
         private System.Windows.Forms.ColumnHeader chNumero;
         private System.Windows.Forms.ToolStripButton tsbAltaTelefono;
+        private System.Windows.Forms.ErrorProvider errorProvider;
+        private System.Windows.Forms.ToolStripSeparator tss1;
+        private System.Windows.Forms.ToolStripComboBox tscbAño;
     }
 }

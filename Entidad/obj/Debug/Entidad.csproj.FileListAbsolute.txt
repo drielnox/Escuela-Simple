@@ -3,3 +3,8 @@ C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\bin\D
 C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\obj\Debug\Entidad.dll
 C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\obj\Debug\Entidad.pdb
 C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\obj\Debug\Entidad.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\bin\Debug\model.dll
+C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\bin\Debug\model.pdb
+C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\obj\Debug\Entidad.csprojResolveAssemblyReference.cache
+C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\obj\Debug\model.dll
+C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\obj\Debug\model.pdb

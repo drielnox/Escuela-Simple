@@ -1,4 +1,4 @@
-﻿namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+﻿namespace EscuelaSimple.InterfazDeUsuario.Personal
 {
     partial class frmPersonalTelefonoCRUD
     {

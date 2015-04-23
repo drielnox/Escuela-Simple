@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Olfrad.EscuelaSimple.Modelo.Repositorio;
-using Olfrad.EscuelaSimple.Modelo;
+using EscuelaSimple.Modelo.Repositorio;
+using EscuelaSimple.Modelo;
 
-namespace Olfrad.EscuelaSimple.Negocio
+namespace EscuelaSimple.Negocio
 {
     public class TipoTelefonoNegocio
     {
         #region Atributos
 
-        private TipoTelefonoRepository _repoTipoTelfonos;
+        private TipoTelefonoRepositorio _repoTipoTelfonos;
 
         #endregion
 
@@ -19,7 +19,7 @@ namespace Olfrad.EscuelaSimple.Negocio
 
         public TipoTelefonoNegocio()
         {
-            this._repoTipoTelfonos = new TipoTelefonoRepository(NHibernateWrapper.CurrentSession);
+            this._repoTipoTelfonos = new TipoTelefonoRepositorio(NHibernateWrapper.CurrentSession);
         }
 
         #endregion

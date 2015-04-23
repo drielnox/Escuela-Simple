@@ -1,4 +1,4 @@
-﻿namespace Olfrad.EscuelaSimple.InterfazDeUsuario.Personal
+﻿namespace EscuelaSimple.InterfazDeUsuario.Personal
 {
     partial class frmPersonalListado
     {
@@ -57,7 +57,7 @@
             // tsbFiltrarPersonal
             // 
             this.tsbFiltrarPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbFiltrarPersonal.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources.Filter;
+            this.tsbFiltrarPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.Filter;
             this.tsbFiltrarPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFiltrarPersonal.Name = "tsbFiltrarPersonal";
             this.tsbFiltrarPersonal.Size = new System.Drawing.Size(23, 22);
@@ -67,7 +67,8 @@
             // tsbVerPersonal
             // 
             this.tsbVerPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbVerPersonal.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources.Zoom_32x32;
+            this.tsbVerPersonal.Enabled = false;
+            this.tsbVerPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.Zoom_32x32;
             this.tsbVerPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVerPersonal.Name = "tsbVerPersonal";
             this.tsbVerPersonal.Size = new System.Drawing.Size(23, 22);
@@ -77,7 +78,7 @@
             // tsbAltaPersonal
             // 
             this.tsbAltaPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAltaPersonal.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
+            this.tsbAltaPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
             this.tsbAltaPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAltaPersonal.Name = "tsbAltaPersonal";
             this.tsbAltaPersonal.Size = new System.Drawing.Size(23, 22);
@@ -87,7 +88,8 @@
             // tsbModificarPersonal
             // 
             this.tsbModificarPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificarPersonal.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
+            this.tsbModificarPersonal.Enabled = false;
+            this.tsbModificarPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
             this.tsbModificarPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbModificarPersonal.Name = "tsbModificarPersonal";
             this.tsbModificarPersonal.Size = new System.Drawing.Size(23, 22);
@@ -97,7 +99,8 @@
             // tsbBajaPersonal
             // 
             this.tsbBajaPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbBajaPersonal.Image = global::Olfrad.EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
+            this.tsbBajaPersonal.Enabled = false;
+            this.tsbBajaPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
             this.tsbBajaPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBajaPersonal.Name = "tsbBajaPersonal";
             this.tsbBajaPersonal.Size = new System.Drawing.Size(23, 22);
@@ -121,6 +124,7 @@
             this.lvPersonal.TabIndex = 1;
             this.lvPersonal.UseCompatibleStateImageBehavior = false;
             this.lvPersonal.View = System.Windows.Forms.View.Details;
+            this.lvPersonal.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvPersonal_ItemSelectionChanged);
             // 
             // chApellido
             // 
