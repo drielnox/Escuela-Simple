@@ -1,9 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using EscuelaSimple.Modelo;
 using EscuelaSimple.Modelo.Repositorio;
-using EscuelaSimple.Modelo;
+using System;
+using System.Collections.Generic;
 
 namespace EscuelaSimple.Negocio
 {

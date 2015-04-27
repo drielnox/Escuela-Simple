@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-//using System.Linq;
-using System.Text;
+﻿//using System.Linq;
 using EscuelaSimple.Entidad;
 using NHibernate;
+using System;
+using System.Collections.Generic;
 
 namespace EscuelaSimple.Modelo.Repositorio
 {

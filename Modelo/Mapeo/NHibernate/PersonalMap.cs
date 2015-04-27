@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using EscuelaSimple.Entidad;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
-using EscuelaSimple.Entidad;
 using NHibernate.Type;
+using System;
 
 namespace EscuelaSimple.Modelo.Mapeo.NHibernate
 {

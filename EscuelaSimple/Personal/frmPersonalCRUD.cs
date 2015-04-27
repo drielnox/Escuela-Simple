@@ -1,19 +1,23 @@
-﻿using System;
+﻿using EscuelaSimple.Negocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
-using EscuelaSimple.Negocio;
 
 namespace EscuelaSimple.InterfazDeUsuario.Personal
 {
     public partial class frmPersonalCRUD : Form
     {
+        #region Delegados y Eventos
+        private event RealizarPersistenciaMetodo PersistirEvento;
+        private delegate void RealizarPersistenciaMetodo(Entidad.Personal persona);
+
+        #endregion
+
         #region Atributos
 
+        private ModoFormulario _modo;
         private Entidad.Personal _personal;
         private PersonalNegocio _negocioPersonal;
 
@@ -21,14 +25,15 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         #region Constructores
 
-        public frmPersonalCRUD()
+        public frmPersonalCRUD(ModoFormulario modo)
         {
             InitializeComponent();
+            this._modo = modo;
             this._negocioPersonal = new PersonalNegocio();
         }
 
-        public frmPersonalCRUD(Entidad.Personal personal)
-            : this()
+        public frmPersonalCRUD(ModoFormulario modo, Entidad.Personal personal)
+            : this(modo)
         {
             this._personal = personal;
             this.CargarPersonal();
@@ -40,7 +45,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void frmPersonalCRUD_Load(object sender, EventArgs e)
         {
-
+            this.EstablecerModoFormulario();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
@@ -49,7 +54,10 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             if (valido)
             {
                 Entidad.Personal personalAGuardar = this.ObtenerPersonal();
-                this._negocioPersonal.GuardarPersonal(personalAGuardar);
+                if (this.PersistirEvento != null)
+                {
+                    this.PersistirEvento(personalAGuardar);
+                }
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -134,7 +142,6 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
             {
                 e.Cancel = true;
-                this.txtNombre.Select(0, this.txtNombre.Text.Length);
                 this.errorProvider.SetError(this.txtNombre, "El contenido no es valido.");
             }
         }
@@ -149,7 +156,6 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             if (string.IsNullOrWhiteSpace(this.txtApellido.Text))
             {
                 e.Cancel = true;
-                this.txtApellido.Select(0, this.txtApellido.Text.Length);
                 this.errorProvider.SetError(this.txtApellido, "El contenido no es valido.");
             }
         }
@@ -164,7 +170,6 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             if (this.dtpIngresoDocencia.Value <= this.dtpFechaNacimiento.Value)
             {
                 e.Cancel = true;
-                this.dtpIngresoDocencia.Select();
                 this.errorProvider.SetError(this.dtpIngresoDocencia, "La fecha de ingreso a la docencia no puede ser menor o igual a fecha de nacimiento.");
             }
         }
@@ -179,7 +184,6 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             if (this.dtpIngresoEstablecimiento.Value <= this.dtpFechaNacimiento.Value || this.dtpIngresoEstablecimiento.Value < this.dtpIngresoDocencia.Value)
             {
                 e.Cancel = true;
-                this.dtpIngresoEstablecimiento.Select();
                 this.errorProvider.SetError(this.dtpIngresoEstablecimiento, "La fecha de ingreso al establecimiento no puede ser menor a la fecha de nacimiento o la fecha de ingreso a la docencia.");
             }
         }
@@ -206,6 +210,57 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         #endregion
 
         #region Metodos Privados
+
+        private void EstablecerModoFormulario()
+        {
+            switch (this._modo)
+            {
+                case ModoFormulario.Ver:
+                    this.EstadoControl(this, false);
+                    break;
+                case ModoFormulario.Crear:
+                    this.EstadoControl(this, true);
+                    this.PersistirEvento += this._negocioPersonal.GuardarPersonal;
+                    break;
+                case ModoFormulario.Modificar:
+                    this.EstadoControl(this, true);
+                    this.PersistirEvento += this._negocioPersonal.ActualizarPersonal;
+                    break;
+            }
+        }
+
+        private void EstadoControl(Control control, bool estado)
+        {
+            if (control.HasChildren)
+            {
+                foreach (Control item in control.Controls)
+                {
+                    this.EstadoControl(item, estado);
+                }
+            }
+
+            if (control is Form)
+            {
+                return;
+            }
+
+            if (control is Button)
+            {
+                return;
+            }
+
+            if (control is TabControl)
+            {
+                return;
+            }
+
+            if (control is TabPage)
+            {
+                return;
+            }
+
+            control.Enabled = estado;
+        }
 
         private void CargarPersonal()
         {
@@ -310,7 +365,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private Entidad.Personal ObtenerPersonal()
         {
-            Entidad.Personal nuevoPersonal = new Entidad.Personal();
+            Entidad.Personal nuevoPersonal = this._personal ?? new Entidad.Personal();
             nuevoPersonal.Apellido = this.txtApellido.Text.Trim();
             nuevoPersonal.Cargo = this.txtCargo.Text.Trim();
             nuevoPersonal.DNI = Convert.ToUInt32(this.mskDNI.Text.Trim());

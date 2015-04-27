@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Entidad;
 
 namespace EscuelaSimple.Modelo.Repositorio
 {

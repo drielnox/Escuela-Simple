@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EscuelaSimple.InterfazDeUsuario.Properties {
-    using System;
-    
-    
+namespace EscuelaSimple.InterfazDeUsuario.Properties
+{
+
+
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>

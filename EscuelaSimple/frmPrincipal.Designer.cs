@@ -89,7 +89,7 @@
             // tsmiInicializar
             // 
             this.tsmiInicializar.Name = "tsmiInicializar";
-            this.tsmiInicializar.Size = new System.Drawing.Size(152, 22);
+            this.tsmiInicializar.Size = new System.Drawing.Size(123, 22);
             this.tsmiInicializar.Text = "Inicializar";
             this.tsmiInicializar.Click += new System.EventHandler(this.tsmiInicializar_Click);
             // 
@@ -97,12 +97,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 442);
+            this.ClientSize = new System.Drawing.Size(624, 441);
             this.Controls.Add(this.msPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.msPrincipal;
             this.Name = "frmPrincipal";
-            this.Text = "Form1";
+            this.Text = "Escuela Simple";
             this.msPrincipal.ResumeLayout(false);
             this.msPrincipal.PerformLayout();
             this.ResumeLayout(false);

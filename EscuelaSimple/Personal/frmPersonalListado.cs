@@ -51,13 +51,13 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         private void tsbVerPersonal_Click(object sender, EventArgs e)
         {
             Entidad.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Entidad.Personal;
-            frmPersonalCRUD frm = new frmPersonalCRUD(personalSeleccionado);
+            frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Ver, personalSeleccionado);
             frm.ShowDialog(this);
         }
 
         private void tsbAltaPersonal_Click(object sender, EventArgs e)
         {
-            frmPersonalCRUD frm = new frmPersonalCRUD();
+            frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Crear);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
@@ -68,7 +68,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         private void tsbModificarPersonal_Click(object sender, EventArgs e)
         {
             Entidad.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Entidad.Personal;
-            frmPersonalCRUD frm = new frmPersonalCRUD(personalSeleccionado);
+            frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Modificar, personalSeleccionado);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {

@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
+﻿using EscuelaSimple.Entidad;
+using EscuelaSimple.Modelo.Mapeo.NHibernate;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Cfg.MappingSchema;
@@ -11,8 +8,9 @@ using NHibernate.Dialect;
 using NHibernate.Driver;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Tool.hbm2ddl;
-using EscuelaSimple.Modelo.Mapeo.NHibernate;
-using EscuelaSimple.Entidad;
+using System;
+using System.Collections.Generic;
+using System.Data;
 
 namespace EscuelaSimple.Modelo
 {

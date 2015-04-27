@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Entidad;
 using EscuelaSimple.Modelo;
 using EscuelaSimple.Modelo.Repositorio;
 using EscuelaSimple.Modelo.UnidadDeTrabajo;
+using System;
+using System.Collections.Generic;
 
 namespace EscuelaSimple.Negocio
 {
@@ -24,7 +22,9 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                return this._repoPersonal.GetAll() as List<Personal>;
+                IEnumerable<Personal> listaPersonal = this._repoPersonal.GetAll();
+                //this._unitOfWork.SaveChanges();
+                return listaPersonal as List<Personal>;
             }
             catch (Exception ex)
             {
@@ -36,11 +36,13 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                return this._repoPersonal.FilterBy(x =>
+                IEnumerable<Personal> listaPersonal = this._repoPersonal.FilterBy(x =>
                 {
                     return x.Apellido.ToLower().StartsWith(personal.Apellido.ToLower()) ||
                         x.DNI.ToString().ToLower().StartsWith(personal.DNI.ToString().ToLower());
-                }) as List<Personal>;
+                });
+                //this._unitOfWork.SaveChanges();
+                return listaPersonal as List<Personal>;
             }
             catch (Exception ex)
             {
@@ -53,6 +55,7 @@ namespace EscuelaSimple.Negocio
             try
             {
                 this._repoPersonal.Delete(personalSeleccionado);
+                //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -65,7 +68,20 @@ namespace EscuelaSimple.Negocio
             try
             {
                 this._repoPersonal.Create(personalAGuardar);
-                this._unitOfWork.SaveChanges();
+                //this._unitOfWork.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void ActualizarPersonal(Personal personalAGuardar)
+        {
+            try
+            {
+                this._repoPersonal.Update(personalAGuardar);
+                //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)
             {
