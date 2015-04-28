@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.msPrincipal = new System.Windows.Forms.MenuStrip();
+            this.tsmiArchivo = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiImportar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiExportar = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiPersonal = new System.Windows.Forms.ToolStripMenuItem();
-            this.tsmiConfiguracion = new System.Windows.Forms.ToolStripMenuItem();
-            this.importarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiInicializar = new System.Windows.Forms.ToolStripMenuItem();
             this.msPrincipal.SuspendLayout();
@@ -41,8 +41,8 @@
             // msPrincipal
             // 
             this.msPrincipal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiArchivo,
             this.tsmiPersonal,
-            this.tsmiConfiguracion,
             this.tsmiAyuda});
             this.msPrincipal.Location = new System.Drawing.Point(0, 0);
             this.msPrincipal.Name = "msPrincipal";
@@ -50,33 +50,33 @@
             this.msPrincipal.TabIndex = 1;
             this.msPrincipal.Text = "menuStrip1";
             // 
+            // tsmiArchivo
+            // 
+            this.tsmiArchivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiImportar,
+            this.tsmiExportar});
+            this.tsmiArchivo.Name = "tsmiArchivo";
+            this.tsmiArchivo.Size = new System.Drawing.Size(60, 20);
+            this.tsmiArchivo.Text = "Archivo";
+            // 
+            // tsmiImportar
+            // 
+            this.tsmiImportar.Name = "tsmiImportar";
+            this.tsmiImportar.Size = new System.Drawing.Size(152, 22);
+            this.tsmiImportar.Text = "Importar";
+            // 
+            // tsmiExportar
+            // 
+            this.tsmiExportar.Name = "tsmiExportar";
+            this.tsmiExportar.Size = new System.Drawing.Size(152, 22);
+            this.tsmiExportar.Text = "Exportar";
+            // 
             // tsmiPersonal
             // 
             this.tsmiPersonal.Name = "tsmiPersonal";
             this.tsmiPersonal.Size = new System.Drawing.Size(64, 20);
             this.tsmiPersonal.Text = "Personal";
             this.tsmiPersonal.Click += new System.EventHandler(this.tsmiPersonal_Click);
-            // 
-            // tsmiConfiguracion
-            // 
-            this.tsmiConfiguracion.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importarToolStripMenuItem,
-            this.exportarToolStripMenuItem});
-            this.tsmiConfiguracion.Name = "tsmiConfiguracion";
-            this.tsmiConfiguracion.Size = new System.Drawing.Size(95, 20);
-            this.tsmiConfiguracion.Text = "Configuracion";
-            // 
-            // importarToolStripMenuItem
-            // 
-            this.importarToolStripMenuItem.Name = "importarToolStripMenuItem";
-            this.importarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.importarToolStripMenuItem.Text = "Importar";
-            // 
-            // exportarToolStripMenuItem
-            // 
-            this.exportarToolStripMenuItem.Name = "exportarToolStripMenuItem";
-            this.exportarToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
-            this.exportarToolStripMenuItem.Text = "Exportar";
             // 
             // tsmiAyuda
             // 
@@ -114,9 +114,9 @@
 
         private System.Windows.Forms.MenuStrip msPrincipal;
         private System.Windows.Forms.ToolStripMenuItem tsmiPersonal;
-        private System.Windows.Forms.ToolStripMenuItem tsmiConfiguracion;
-        private System.Windows.Forms.ToolStripMenuItem importarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmiArchivo;
+        private System.Windows.Forms.ToolStripMenuItem tsmiImportar;
+        private System.Windows.Forms.ToolStripMenuItem tsmiExportar;
         private System.Windows.Forms.ToolStripMenuItem tsmiAyuda;
         private System.Windows.Forms.ToolStripMenuItem tsmiInicializar;
     }

@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EscuelaSimple.InterfazDeUsuario.Properties
-{
-
-
+namespace EscuelaSimple.InterfazDeUsuario.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   Clase de recurso fuertemente tipado, para buscar cadenas traducidas, etc.
     /// </summary>
@@ -97,6 +97,16 @@ namespace EscuelaSimple.InterfazDeUsuario.Properties
             get {
                 object obj = ResourceManager.GetObject("Filter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon Mattahan_Buuf_MDI_Text_Editor_1 {
+            get {
+                object obj = ResourceManager.GetObject("Mattahan_Buuf_MDI_Text_Editor_1", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
             }
         }
         
