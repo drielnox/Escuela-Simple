@@ -1,6 +1,10 @@
 ﻿
+using System;
+using System.Xml.Serialization;
+
 namespace EscuelaSimple.Entidad
 {
+    [Serializable()]
     public class TipoTelefono : IEntity<uint>
     {
         public virtual uint Id { get; set; }

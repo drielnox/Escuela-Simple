@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 
 namespace EscuelaSimple.Entidad
 {
+    [Serializable()]
     public class Personal : IEntity<uint>
     {
         public virtual uint Id { get; set; }

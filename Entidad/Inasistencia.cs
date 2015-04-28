@@ -1,19 +1,16 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace EscuelaSimple.Entidad
 {
+    [Serializable()]
     public class Inasistencia : IEntity<uint>
     {
         public virtual uint Id { get; set; }
         public virtual string Motivo { get; set; }
         public virtual DateTime Desde { get; set; }
         public virtual DateTime Hasta { get; set; }
-
-        public Inasistencia()
-        {
-
-        }
-
+        
         public override bool Equals(object obj)
         {
             if (obj == null)
