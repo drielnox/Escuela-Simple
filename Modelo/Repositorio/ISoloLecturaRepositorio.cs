@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace EscuelaSimple.Modelo.Repositorio
 {
-    public interface ISoloLecturaRepositorio<TEntity, in TKey>
-        where TEntity : IEntity<TKey>
-        where TKey : struct
+    public interface ISoloLecturaRepositorio<TEntidad, in TClavePrimaria>
+        where TEntidad : IEntidad<TClavePrimaria>
+        where TClavePrimaria : struct
     {
-        IEnumerable<TEntity> GetAll();
-        TEntity GetById(TKey id);
-        TEntity GetBy(Predicate<TEntity> predicate);
-        IEnumerable<TEntity> FilterBy(Predicate<TEntity> predicate);
+        IEnumerable<TEntidad> ObtenerTodo();
+        TEntidad ObtenerPorIdentificador(TClavePrimaria identificador);
+        TEntidad ObtenerPor(Predicate<TEntidad> predicado);
+        IEnumerable<TEntidad> FiltrarPor(Predicate<TEntidad> predicado);
     }
 }

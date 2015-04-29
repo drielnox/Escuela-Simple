@@ -6,51 +6,51 @@ using System.Collections.Generic;
 
 namespace EscuelaSimple.Modelo.Repositorio
 {
-    public abstract class NHibernateRepositorio<TEntity, TKey> : IRepositorio<TEntity, TKey>
-        where TEntity : class, IEntity<TKey>
-        where TKey : struct
+    public abstract class NHibernateRepositorio<TEntidad, TClavePrimaria> : IRepositorio<TEntidad, TClavePrimaria>
+        where TEntidad : class, IEntidad<TClavePrimaria>
+        where TClavePrimaria : struct
     {
-        ISession Session { get; set; }
+        ISession Sesion { get; set; }
 
-        public NHibernateRepositorio(ISession session)
+        public NHibernateRepositorio(ISession sesion)
         {
-            this.Session = session;
+            this.Sesion = sesion;
         }
 
-        public TEntity GetById(TKey id)
+        public TEntidad ObtenerPorIdentificador(TClavePrimaria id)
         {
-            return this.Session.Get<TEntity>(id);
+            return this.Sesion.Get<TEntidad>(id);
         }
 
-        public IEnumerable<TEntity> GetAll()
+        public IEnumerable<TEntidad> ObtenerTodo()
         {
-            return this.Session.QueryOver<TEntity>().List();
+            return this.Sesion.QueryOver<TEntidad>().List();
         }
 
-        public void Create(TEntity entity)
+        public void Crear(TEntidad entity)
         {
-            this.Session.Save(entity);
+            this.Sesion.Save(entity);
         }
 
-        public void Update(TEntity entity)
+        public void Actualizar(TEntidad entity)
         {
-            this.Session.Update(entity);
+            this.Sesion.Update(entity);
         }
 
-        public void Delete(TEntity entity)
+        public void Borrar(TEntidad entity)
         {
-            this.Session.Delete(entity);
+            this.Sesion.Delete(entity);
         }
 
-        public TEntity GetBy(Predicate<TEntity> predicate)
+        public TEntidad ObtenerPor(Predicate<TEntidad> predicate)
         {
-            List<TEntity> result = this.FilterBy(predicate) as List<TEntity>;
+            List<TEntidad> result = this.FiltrarPor(predicate) as List<TEntidad>;
             return result.Count > 0 ? result[0] : null;
         }
 
-        public IEnumerable<TEntity> FilterBy(Predicate<TEntity> predicate)
+        public IEnumerable<TEntidad> FiltrarPor(Predicate<TEntidad> predicate)
         {
-            List<TEntity> result = this.GetAll() as List<TEntity>;
+            List<TEntidad> result = this.ObtenerTodo() as List<TEntidad>;
             return result.FindAll(predicate);
         }
     }
