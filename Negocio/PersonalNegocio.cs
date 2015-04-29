@@ -22,7 +22,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                IEnumerable<Personal> listaPersonal = this._repoPersonal.GetAll();
+                IEnumerable<Personal> listaPersonal = this._repoPersonal.ObtenerTodo();
                 //this._unitOfWork.SaveChanges();
                 return listaPersonal as List<Personal>;
             }
@@ -36,7 +36,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                IEnumerable<Personal> listaPersonal = this._repoPersonal.FilterBy(x =>
+                IEnumerable<Personal> listaPersonal = this._repoPersonal.FiltrarPor(x =>
                 {
                     return x.Apellido.ToLower().StartsWith(personal.Apellido.ToLower()) ||
                         x.DNI.ToString().ToLower().StartsWith(personal.DNI.ToString().ToLower());
@@ -54,7 +54,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                this._repoPersonal.Delete(personalSeleccionado);
+                this._repoPersonal.Borrar(personalSeleccionado);
                 //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)
@@ -67,7 +67,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                this._repoPersonal.Create(personalAGuardar);
+                this._repoPersonal.Crear(personalAGuardar);
                 //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)
@@ -80,7 +80,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                this._repoPersonal.Update(personalAGuardar);
+                this._repoPersonal.Actualizar(personalAGuardar);
                 //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)

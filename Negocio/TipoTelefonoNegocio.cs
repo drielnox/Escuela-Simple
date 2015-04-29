@@ -26,7 +26,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                return this._repoTipoTelfonos.GetAll();
+                return this._repoTipoTelfonos.ObtenerTodo();
             }
             catch (Exception ex)
             {
