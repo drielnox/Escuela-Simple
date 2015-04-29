@@ -4,9 +4,9 @@ using System.Xml.Serialization;
 namespace EscuelaSimple.Entidad
 {
     [Serializable()]
-    public class Inasistencia : IEntity<uint>
+    public class Inasistencia : IEntidad<uint>
     {
-        public virtual uint Id { get; set; }
+        public virtual uint Identificador { get; set; }
         public virtual string Motivo { get; set; }
         public virtual DateTime Desde { get; set; }
         public virtual DateTime Hasta { get; set; }
@@ -24,7 +24,7 @@ namespace EscuelaSimple.Entidad
                 return false;
             }
 
-            return this.Id.Equals(inasistencia.Id) &&
+            return this.Identificador.Equals(inasistencia.Identificador) &&
                 this.Motivo.Equals(inasistencia.Motivo) &&
                 this.Desde.Equals(inasistencia.Desde) &&
                 this.Hasta.Equals(inasistencia.Hasta);
@@ -32,7 +32,7 @@ namespace EscuelaSimple.Entidad
 
         public override int GetHashCode()
         {
-            string hashCode = this.Id + "|" + this.Motivo + "|" + this.Desde + "|" + this.Hasta;
+            string hashCode = this.Identificador + "|" + this.Motivo + "|" + this.Desde + "|" + this.Hasta;
             return hashCode.GetHashCode();
         }
     }

@@ -1,19 +1,22 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace EscuelaSimple.Entidad
 {
     [Serializable()]
-    public class Personal : IEntity<uint>
+    public class Personal : IEntidad<uint>
     {
-        public virtual uint Id { get; set; }
+        public virtual uint Identificador { get; set; }
         public virtual string Nombre { get; set; }
         public virtual string Apellido { get; set; }
         public virtual uint DNI { get; set; }
         public virtual DateTime FechaNacimiento { get; set; }
         public virtual string Domicilio { get; set; }
         public virtual string Localidad { get; set; }
+        [XmlIgnore]
         public virtual IEnumerable<Telefono> Telefonos { get; set; }
         public virtual DateTime? IngresoDocencia { get; set; }
         public virtual DateTime? IngresoEstablecimiento { get; set; }
@@ -21,6 +24,7 @@ namespace EscuelaSimple.Entidad
         public virtual string Cargo { get; set; }
         public virtual string SituacionRevista { get; set; }
         public virtual string Observacion { get; set; }
+        [XmlIgnore]
         public virtual IEnumerable<Inasistencia> Inasistencias { get; set; }
 
         public Personal()
@@ -28,6 +32,40 @@ namespace EscuelaSimple.Entidad
             this.Telefonos = new List<Telefono>();
             this.Inasistencias = new List<Inasistencia>();
         }
+
+        #region Surrogacion a XMLSerializer
+
+        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlArray(ElementName = "Telefonos"), XmlArrayItem(typeof(Telefono))]
+        public virtual List<Telefono> TelefonosSurrogado
+        {
+            get
+            {
+                return this.Telefonos.ToList();
+            }
+            set 
+            {
+                this.Telefonos = value;
+            }
+        }
+
+        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
+        [XmlArray(ElementName = "Inasistencias"), XmlArrayItem(typeof(Inasistencia))]
+        public virtual List<Inasistencia> InasistenciasSurrogada
+        {
+            get 
+            {
+                return this.Inasistencias.ToList();
+            }
+            set
+            {
+                this.Inasistencias = value;
+            }
+        }
+
+        #endregion
+
+        #region Sobrecarga a Object
 
         public override bool Equals(object obj)
         {
@@ -42,7 +80,7 @@ namespace EscuelaSimple.Entidad
                 return false;
             }
 
-            return this.Id.Equals(personal.Id) &&
+            return this.Identificador.Equals(personal.Identificador) &&
                 this.Nombre.Equals(personal.Nombre) &&
                 this.Apellido.Equals(personal.Apellido) &&
                 this.DNI.Equals(personal.DNI) &&
@@ -51,12 +89,14 @@ namespace EscuelaSimple.Entidad
 
         public override int GetHashCode()
         {
-            string hashCode = this.Id + "|" + this.Nombre + "|" + this.Apellido + "|" +
+            string hashCode = this.Identificador + "|" + this.Nombre + "|" + this.Apellido + "|" +
                 this.DNI + "|" + this.FechaNacimiento + "|" + this.Domicilio + "|" +
                 this.Localidad + "|" + this.Telefonos + "|" + this.IngresoDocencia + "|" +
                 this.IngresoEstablecimiento + "|" + this.Titulo + "|" + this.Cargo + "|" +
                 this.SituacionRevista + "|" + this.Observacion + "|" + this.Inasistencias;
             return hashCode.GetHashCode();
         }
+
+        #endregion
     }
 }
