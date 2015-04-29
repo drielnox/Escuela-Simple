@@ -61,15 +61,21 @@
             // 
             // tsmiImportar
             // 
+            this.tsmiImportar.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.import;
             this.tsmiImportar.Name = "tsmiImportar";
-            this.tsmiImportar.Size = new System.Drawing.Size(152, 22);
+            this.tsmiImportar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.tsmiImportar.Size = new System.Drawing.Size(157, 22);
             this.tsmiImportar.Text = "Importar";
+            this.tsmiImportar.Click += new System.EventHandler(this.tsmiImportar_Click);
             // 
             // tsmiExportar
             // 
+            this.tsmiExportar.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.export_16x16;
             this.tsmiExportar.Name = "tsmiExportar";
-            this.tsmiExportar.Size = new System.Drawing.Size(152, 22);
+            this.tsmiExportar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+            this.tsmiExportar.Size = new System.Drawing.Size(157, 22);
             this.tsmiExportar.Text = "Exportar";
+            this.tsmiExportar.Click += new System.EventHandler(this.tsmiExportar_Click);
             // 
             // tsmiPersonal
             // 
@@ -89,7 +95,7 @@
             // tsmiInicializar
             // 
             this.tsmiInicializar.Name = "tsmiInicializar";
-            this.tsmiInicializar.Size = new System.Drawing.Size(123, 22);
+            this.tsmiInicializar.Size = new System.Drawing.Size(152, 22);
             this.tsmiInicializar.Text = "Inicializar";
             this.tsmiInicializar.Click += new System.EventHandler(this.tsmiInicializar_Click);
             // 

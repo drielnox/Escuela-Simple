@@ -85,7 +85,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void CargarTelefono()
         {
-            this.cboTipoTelefono.SelectedItem = this._telefono.Tipo.Id;
+            this.cboTipoTelefono.SelectedItem = this._telefono.Tipo.Identificador;
             this.mskNumero.Text = this._telefono.Numero.ToString();
         }
 

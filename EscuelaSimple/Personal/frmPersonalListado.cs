@@ -61,7 +61,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                this.OnLoad(new EventArgs());
+                this.OnLoad(EventArgs.Empty);
             }
         }
 
@@ -72,7 +72,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                this.OnLoad(new EventArgs());
+                this.OnLoad(EventArgs.Empty);
             }
         }
 
@@ -83,7 +83,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             if (resultado == DialogResult.OK)
             {
                 this._personalNegocio.BorrarPersonal(personalSeleccionado);
-                this.OnLoad(new EventArgs());
+                this.OnLoad(EventArgs.Empty);
             }
         }
 

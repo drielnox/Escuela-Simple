@@ -167,7 +167,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="WinForms_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\077_AddFile_48x48_72.png" />
@@ -218,6 +217,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Mattahan-Buuf-MDI-Text-Editor-1.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\export_16x16.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
