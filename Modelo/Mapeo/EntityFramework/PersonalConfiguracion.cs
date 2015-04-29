@@ -6,15 +6,15 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace EscuelaSimple.Modelo.Mapeo.EntityFramework
 {
-    public class PersonalMap : EntityTypeConfiguration<Personal>
+    public class PersonalConfiguracion : EntityTypeConfiguration<Personal>
     {
-        public PersonalMap()
+        public PersonalConfiguracion()
         {
             ToTable("Personal");
 
-            HasKey<uint>(x => x.Id);
+            HasKey<uint>(x => x.Identificador);
 
-            Property<uint>(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property<uint>(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Nombre).IsRequired();
             Property(x => x.Apellido).IsRequired();
             Property<uint>(x => x.DNI).IsRequired().HasColumnAnnotation("UK_Personal_DNI_1", new IndexAnnotation(new IndexAttribute() { IsUnique = true }));

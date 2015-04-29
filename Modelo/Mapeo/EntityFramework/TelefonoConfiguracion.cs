@@ -4,15 +4,15 @@ using System.Data.Entity.ModelConfiguration;
 
 namespace EscuelaSimple.Modelo.Mapeo.EntityFramework
 {
-    public class TelefonoMap : EntityTypeConfiguration<Telefono>
+    public class TelefonoConfiguracion : EntityTypeConfiguration<Telefono>
     {
-        public TelefonoMap()
+        public TelefonoConfiguracion()
         {
             ToTable("Telefono");
                 
-            HasKey<uint>(x => x.Id);
+            HasKey<uint>(x => x.Identificador);
 
-            Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Numero);
 
             HasRequired<TipoTelefono>(x => x.Tipo).WithRequiredDependent();
