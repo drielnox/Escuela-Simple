@@ -60,6 +60,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.6.9.6\lib\net40\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data.Entity.EF6">
+      <HintPath>..\packages\MySql.Data.Entity.6.9.6\lib\net40\MySql.Data.Entity.EF6.dll</HintPath>
+    </Reference>
     <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\NHibernate.4.0.3.4000\lib\net40\NHibernate.dll</HintPath>
@@ -75,11 +78,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EscuelaSimpleContext.cs" />
-    <Compile Include="Mapeo\EntityFramework\InasistenciaMap.cs" />
-    <Compile Include="Mapeo\EntityFramework\PersonalMap.cs" />
-    <Compile Include="Mapeo\EntityFramework\TelefonoMap.cs" />
-    <Compile Include="Mapeo\EntityFramework\TipoTelefonoMap.cs" />
+    <Compile Include="Mapeo\EntityFramework\InasistenciaConfiguracion.cs" />
+    <Compile Include="Mapeo\EntityFramework\PersonalConfiguracion.cs" />
+    <Compile Include="Mapeo\EntityFramework\TelefonoConfiguracion.cs" />
+    <Compile Include="Mapeo\EntityFramework\TipoTelefonoConfiguracion.cs" />
     <Compile Include="Mapeo\NHibernate\InasistenciaMap.cs" />
+    <Compile Include="MySQLConfiguration.cs" />
+    <Compile Include="MySQLHistoryContext.cs" />
+    <Compile Include="MySQLInitializer.cs" />
     <Compile Include="NHibernateWrapper.cs" />
     <Compile Include="Mapeo\NHibernate\PersonalMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

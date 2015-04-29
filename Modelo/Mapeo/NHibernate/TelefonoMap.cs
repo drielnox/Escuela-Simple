@@ -10,7 +10,7 @@ namespace EscuelaSimple.Modelo.Mapeo.NHibernate
         {
             Table("Telefono");
 
-            Id<uint>(x => x.Id, m => 
+            Id<uint>(x => x.Identificador, m => 
             {
                 m.Column("IdTelefono");
                 m.Generator(Generators.Identity);

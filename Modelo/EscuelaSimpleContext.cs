@@ -1,4 +1,5 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Datos;
+using EscuelaSimple.Entidad;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -12,8 +13,13 @@ namespace EscuelaSimple.Modelo
     {
         public DbSet<Personal> Personal { get; set; }
 
+        static EscuelaSimpleContext()
+        {
+            Database.SetInitializer(new MySQLInitializer());
+        }
+
         public EscuelaSimpleContext() 
-            : base("name=ConnectionString")
+            : base("MySQLConx")
         {
             
         }
