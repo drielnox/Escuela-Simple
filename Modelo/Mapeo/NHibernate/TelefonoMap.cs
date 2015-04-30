@@ -1,13 +1,15 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Modelos;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 
-namespace EscuelaSimple.Modelo.Mapeo.NHibernate
+namespace EscuelaSimple.Datos.Mapeo.NHibernate
 {
     public class TelefonoMap : ClassMapping<Telefono>
     {
         public TelefonoMap()
         {
+            Lazy(false);
+
             Table("Telefono");
 
             Id<uint>(x => x.Identificador, m => 

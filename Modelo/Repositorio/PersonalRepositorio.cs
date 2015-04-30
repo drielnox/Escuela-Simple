@@ -1,7 +1,7 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Modelos;
 using NHibernate;
 
-namespace EscuelaSimple.Modelo.Repositorio
+namespace EscuelaSimple.Datos.Repositorio
 {
     public class PersonalRepositorio : NHibernateRepositorio<Personal, uint>, IPersonalRepositorio
     {

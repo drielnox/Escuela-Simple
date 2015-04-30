@@ -1,6 +1,6 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Modelos;
 
-namespace EscuelaSimple.Modelo.Repositorio
+namespace EscuelaSimple.Datos.Repositorio
 {
     public interface IRepositorio<TEntidad, in TClavePrimaria> : ISoloLecturaRepositorio<TEntidad, TClavePrimaria>
         where TEntidad : IEntidad<TClavePrimaria>

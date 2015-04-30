@@ -1,7 +1,7 @@
 ﻿using NHibernate;
 using System;
 
-namespace EscuelaSimple.Modelo.UnidadDeTrabajo
+namespace EscuelaSimple.Datos.UnidadDeTrabajo
 {
     public class NHibernateUnidadDeTrabajo : IUnidadDeTrabajo
     {

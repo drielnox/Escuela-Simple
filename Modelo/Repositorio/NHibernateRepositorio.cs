@@ -1,10 +1,10 @@
 ﻿//using System.Linq;
-using EscuelaSimple.Entidad;
+using EscuelaSimple.Modelos;
 using NHibernate;
 using System;
 using System.Collections.Generic;
 
-namespace EscuelaSimple.Modelo.Repositorio
+namespace EscuelaSimple.Datos.Repositorio
 {
     public abstract class NHibernateRepositorio<TEntidad, TClavePrimaria> : IRepositorio<TEntidad, TClavePrimaria>
         where TEntidad : class, IEntidad<TClavePrimaria>
@@ -24,7 +24,8 @@ namespace EscuelaSimple.Modelo.Repositorio
 
         public IEnumerable<TEntidad> ObtenerTodo()
         {
-            return this.Sesion.QueryOver<TEntidad>().List();
+            IQueryOver<TEntidad> asd = this.Sesion.QueryOver<TEntidad>();
+            return asd.List();
         }
 
         public void Crear(TEntidad entity)

@@ -1,8 +1,8 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Modelos;
 using System;
 using System.Collections.Generic;
 
-namespace EscuelaSimple.Modelo.Repositorio
+namespace EscuelaSimple.Datos.Repositorio
 {
     public interface ISoloLecturaRepositorio<TEntidad, in TClavePrimaria>
         where TEntidad : IEntidad<TClavePrimaria>

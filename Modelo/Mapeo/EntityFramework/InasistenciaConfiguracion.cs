@@ -1,8 +1,8 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Modelos;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
-namespace EscuelaSimple.Modelo.Mapeo.EntityFramework
+namespace EscuelaSimple.Datos.Mapeo.EntityFramework
 {
     public class InasistenciaConfiguracion : EntityTypeConfiguration<Inasistencia>
     {

@@ -1,15 +1,17 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Modelos;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
 using NHibernate.Type;
 using System;
 
-namespace EscuelaSimple.Modelo.Mapeo.NHibernate
+namespace EscuelaSimple.Datos.Mapeo.NHibernate
 {
     public class InasistenciaMap : ClassMapping<Inasistencia>
     {
         public InasistenciaMap()
         {
+            Lazy(false);
+
             Table("Inasistencia");
 
             Id<uint>(x => x.Identificador, m => 

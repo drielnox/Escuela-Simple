@@ -1,4 +1,4 @@
-﻿using EscuelaSimple.Modelo;
+﻿using EscuelaSimple.Datos;
 using System;
 using System.Collections.Generic;
 using System.Data.Common;

@@ -1,10 +1,10 @@
-﻿using EscuelaSimple.Entidad;
+﻿using EscuelaSimple.Modelos;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
-namespace EscuelaSimple.Modelo.Mapeo.EntityFramework
+namespace EscuelaSimple.Datos.Mapeo.EntityFramework
 {
     public class PersonalConfiguracion : EntityTypeConfiguration<Personal>
     {

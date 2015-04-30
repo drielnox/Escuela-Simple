@@ -1,5 +1,5 @@
-﻿using EscuelaSimple.Entidad;
-using EscuelaSimple.Modelo.Mapeo.NHibernate;
+﻿using EscuelaSimple.Modelos;
+using EscuelaSimple.Datos.Mapeo.NHibernate;
 using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Cfg.MappingSchema;
@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
-namespace EscuelaSimple.Modelo
+namespace EscuelaSimple.Datos
 {
     public class NHibernateWrapper
     {
@@ -40,7 +40,7 @@ namespace EscuelaSimple.Modelo
         protected static Configuration ConfigurarNHibernate()
         {
             Configuration configuration = new Configuration();
-            configuration.SessionFactoryName("BuildIt");
+            configuration.SessionFactoryName("NHEscuelaSimple");
 
             configuration.DataBaseIntegration(db =>
             {
@@ -50,10 +50,11 @@ namespace EscuelaSimple.Modelo
                 db.KeywordsAutoImport = Hbm2DDLKeyWords.AutoQuote;
                 db.IsolationLevel = IsolationLevel.ReadCommitted;
                 db.ConnectionString = "Server=localhost;Database=escuelasimple;Uid=escuela;Pwd=escuela;";
+                db.PrepareCommands = true;
                 db.Timeout = 10;
                 db.ConnectionReleaseMode = ConnectionReleaseMode.OnClose;
                 db.SchemaAction = SchemaAutoAction.Update;
-
+                
                 db.LogFormattedSql = true;
                 db.LogSqlInConsole = true;
             });
@@ -116,11 +117,13 @@ namespace EscuelaSimple.Modelo
                     var inas3 = new Inasistencia() { Motivo = "F5", Desde = new DateTime(2010, 7, 21), Hasta = new DateTime(2001, 9, 8) };
 
                     var pers1 = new Personal() { Nombre = "Pablo", Apellido = "Leiros", DNI = 34624421, FechaNacimiento = new DateTime(1989, 6, 30) };
-                    pers1.Telefonos = new[] { tel1, tel2 };
-                    pers1.Inasistencias = new[] { inas1 };
+                    pers1.AgregarTelefono(tel1);
+                    pers1.AgregarTelefono(tel2);
+                    pers1.AgregarInasistencia(inas1);
                     var pers2 = new Personal() { Nombre = "Jesica", Apellido = "Genovese", DNI = 34517157, FechaNacimiento = new DateTime(1989, 5, 4) };
-                    pers2.Telefonos = new[] { tel3 };
-                    pers2.Inasistencias = new[] { inas2, inas3 };
+                    pers2.AgregarTelefono(tel3);
+                    pers2.AgregarInasistencia(inas2);
+                    pers2.AgregarInasistencia(inas3);
 
                     Personal pers3 = new Personal()
                     {
@@ -129,42 +132,37 @@ namespace EscuelaSimple.Modelo
                         DNI = 13456789,
                         Domicilio = "25 de Mayo de 1810 787",
                         FechaNacimiento = new DateTime(1961, 7, 21),
-                        Inasistencias = new List<Inasistencia>() 
-                        { 
-                            new Inasistencia() 
-                            {
-                                Motivo = "A1",
-                                Desde = new DateTime(2011, 2, 3),
-                                Hasta = new DateTime(2011, 2, 15),
-                            },
-                            new Inasistencia() 
-                            {
-                                Motivo = "A2",
-                                Desde = new DateTime(2012, 4, 6),
-                                Hasta = new DateTime(2012, 4, 12),
-                            },
-                        },
                         IngresoDocencia = new DateTime(1987, 2, 17),
                         IngresoEstablecimiento = new DateTime(1989, 5, 25),
                         Localidad = "Florencio Varela",
                         Nombre = "Mercedes",
                         Observacion = "Esta es una observacion.",
                         SituacionRevista = "Una situacion de revista",
-                        Telefonos = new List<Telefono>() 
-                        { 
-                            new Telefono() 
-                            {
-                                Numero = 42555896,
-                                Tipo = tipoTel1,
-                            },
-                            new Telefono() 
-                            {
-                                Numero = 1598875465,
-                                Tipo = tipoTel2,
-                            },
-                        },
                         Titulo = "Titulo de grado",
                     };
+                    pers3.AgregarTelefono(new Telefono()
+                    {
+                        Numero = 42555896,
+                        Tipo = tipoTel1,
+                    });
+                    pers3.AgregarTelefono(new Telefono()
+                    {
+                        Numero = 1598875465,
+                        Tipo = tipoTel2,
+                    });
+                    pers3.AgregarInasistencia(new Inasistencia()
+                    {
+                        Motivo = "A1",
+                        Desde = new DateTime(2011, 2, 3),
+                        Hasta = new DateTime(2011, 2, 15),
+                    });
+                    pers3.AgregarInasistencia(new Inasistencia()
+                    {
+                        Motivo = "A2",
+                        Desde = new DateTime(2012, 4, 6),
+                        Hasta = new DateTime(2012, 4, 12),
+                    });
+
 
                     foreach (object item in new object[] { pers1, pers2, pers3 })
                     {
