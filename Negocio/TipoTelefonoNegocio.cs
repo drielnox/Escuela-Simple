@@ -1,5 +1,5 @@
-﻿using EscuelaSimple.Modelo;
-using EscuelaSimple.Modelo.Repositorio;
+﻿using EscuelaSimple.Datos;
+using EscuelaSimple.Datos.Repositorio;
 using System;
 using System.Collections.Generic;
 
@@ -22,7 +22,7 @@ namespace EscuelaSimple.Negocio
 
         #endregion
 
-        public IEnumerable<Entidad.TipoTelefono> ObtenerTelefonoTipos()
+        public IEnumerable<Modelos.TipoTelefono> ObtenerTelefonoTipos()
         {
             try
             {

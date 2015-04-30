@@ -1,7 +1,7 @@
-﻿using EscuelaSimple.Entidad;
-using EscuelaSimple.Modelo;
-using EscuelaSimple.Modelo.Repositorio;
-using EscuelaSimple.Modelo.UnidadDeTrabajo;
+﻿using EscuelaSimple.Modelos;
+using EscuelaSimple.Datos;
+using EscuelaSimple.Datos.Repositorio;
+using EscuelaSimple.Datos.UnidadDeTrabajo;
 using System;
 using System.Collections.Generic;
 

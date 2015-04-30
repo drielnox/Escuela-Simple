@@ -1,4 +1,4 @@
-﻿using EscuelaSimple.Modelo;
+﻿using EscuelaSimple.Datos;
 
 namespace EscuelaSimple.Negocio
 {
