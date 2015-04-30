@@ -10,7 +10,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
     {
         #region Atributos
 
-        private Entidad.Telefono _telefono;
+        private Modelos.Telefono _telefono;
         private TipoTelefonoNegocio _tipoTelefonoNegocio;
 
         #endregion
@@ -20,11 +20,11 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         public frmPersonalTelefonoCRUD()
         {
             InitializeComponent();
-            this._telefono = new Entidad.Telefono();
+            this._telefono = new Modelos.Telefono();
             this._tipoTelefonoNegocio = new TipoTelefonoNegocio();
         }
 
-        public frmPersonalTelefonoCRUD(Entidad.Telefono telefonoSelecionado)
+        public frmPersonalTelefonoCRUD(Modelos.Telefono telefonoSelecionado)
             : this()
         {
             this._telefono = telefonoSelecionado;
@@ -37,7 +37,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void frmPersonalTelefonoCRUD_Load(object sender, EventArgs e)
         {
-            IEnumerable<Entidad.TipoTelefono> tiposTelefonos = this._tipoTelefonoNegocio.ObtenerTelefonoTipos();
+            IEnumerable<Modelos.TipoTelefono> tiposTelefonos = this._tipoTelefonoNegocio.ObtenerTelefonoTipos();
             this.cboTipoTelefono.DataSource = tiposTelefonos;
             this.cboTipoTelefono.ValueMember = "Id";
             this.cboTipoTelefono.DisplayMember = "Descripcion";
@@ -64,7 +64,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             bool valido = this.ValidateChildren();
             if (valido)
             {
-                this._telefono.Tipo = this.cboTipoTelefono.SelectedItem as Entidad.TipoTelefono;
+                this._telefono.Tipo = this.cboTipoTelefono.SelectedItem as Modelos.TipoTelefono;
                 this._telefono.Numero = Convert.ToUInt32(this.mskNumero.Text);
                 this.Tag = this._telefono;
                 this.DialogResult = DialogResult.OK;

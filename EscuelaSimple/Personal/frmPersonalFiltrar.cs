@@ -22,16 +22,16 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            List<Entidad.Personal> personal = new List<Entidad.Personal>();
-            Entidad.Personal personalABuscar;
+            List<Modelos.Personal> personal = new List<Modelos.Personal>();
+            Modelos.Personal personalABuscar;
 
             switch ((string)this.cboTipoFiltro.SelectedItem)
             {
                 case "Apellido":
-                    personalABuscar = new Entidad.Personal() { Apellido = this.txtFiltro.Text.Trim() };
+                    personalABuscar = new Modelos.Personal() { Apellido = this.txtFiltro.Text.Trim() };
                     break;
                 case "DNI":
-                    personalABuscar = new Entidad.Personal() { DNI = Convert.ToUInt32(this.txtFiltro.Text.Trim()) };
+                    personalABuscar = new Modelos.Personal() { DNI = Convert.ToUInt32(this.txtFiltro.Text.Trim()) };
                     break;
                 default:
                     throw new Exception("Tipo de filtro no definido.");

@@ -8,7 +8,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
     {
         #region Atributos
 
-        private Entidad.Inasistencia _inasistencia;
+        private Modelos.Inasistencia _inasistencia;
 
         #endregion
 
@@ -17,10 +17,10 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         public frmPersonalInasistenciaCRUD()
         {
             InitializeComponent();
-            this._inasistencia = new Entidad.Inasistencia();
+            this._inasistencia = new Modelos.Inasistencia();
         }
 
-        public frmPersonalInasistenciaCRUD(Entidad.Inasistencia inasistencia)
+        public frmPersonalInasistenciaCRUD(Modelos.Inasistencia inasistencia)
             : this()
         {
             this._inasistencia = inasistencia;

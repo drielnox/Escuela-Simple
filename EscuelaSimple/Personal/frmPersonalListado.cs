@@ -27,7 +27,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void frmListadoPersonal_Load(object sender, EventArgs e)
         {
-            List<Entidad.Personal> personal = this._personalNegocio.ObtenerTodoPersonal();
+            List<Modelos.Personal> personal = this._personalNegocio.ObtenerTodoPersonal();
             this.CargarGrilla(personal);
         }
 
@@ -43,14 +43,14 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             frmPersonalFiltrar frm = new frmPersonalFiltrar();
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                List<Entidad.Personal> personal = frm.Tag as List<Entidad.Personal>;
+                List<Modelos.Personal> personal = frm.Tag as List<Modelos.Personal>;
                 this.CargarGrilla(personal);
             }
         }
 
         private void tsbVerPersonal_Click(object sender, EventArgs e)
         {
-            Entidad.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Entidad.Personal;
+            Modelos.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Modelos.Personal;
             frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Ver, personalSeleccionado);
             frm.ShowDialog(this);
         }
@@ -67,7 +67,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void tsbModificarPersonal_Click(object sender, EventArgs e)
         {
-            Entidad.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Entidad.Personal;
+            Modelos.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Modelos.Personal;
             frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Modificar, personalSeleccionado);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
@@ -78,7 +78,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void tsbBajaPersonal_Click(object sender, EventArgs e)
         {
-            Entidad.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Entidad.Personal;
+            Modelos.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as Modelos.Personal;
             DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este personal?", "Borrar personal", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (resultado == DialogResult.OK)
             {
@@ -91,10 +91,10 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         #region Metodos Privados
 
-        private void CargarGrilla(List<Entidad.Personal> personal)
+        private void CargarGrilla(List<Modelos.Personal> personal)
         {
             this.lvPersonal.Items.Clear();
-            foreach (Entidad.Personal item in personal)
+            foreach (Modelos.Personal item in personal)
             {
                 ListViewItem fila = new ListViewItem(new string[] { item.Apellido, item.Nombre });
                 fila.Tag = item;

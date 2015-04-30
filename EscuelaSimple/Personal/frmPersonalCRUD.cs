@@ -11,14 +11,14 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
     {
         #region Delegados y Eventos
         private event RealizarPersistenciaMetodo PersistirEvento;
-        private delegate void RealizarPersistenciaMetodo(Entidad.Personal persona);
+        private delegate void RealizarPersistenciaMetodo(Modelos.Personal persona);
 
         #endregion
 
         #region Atributos
 
         private ModoFormulario _modo;
-        private Entidad.Personal _personal;
+        private Modelos.Personal _personal;
         private PersonalNegocio _negocioPersonal;
 
         #endregion
@@ -32,7 +32,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this._negocioPersonal = new PersonalNegocio();
         }
 
-        public frmPersonalCRUD(ModoFormulario modo, Entidad.Personal personal)
+        public frmPersonalCRUD(ModoFormulario modo, Modelos.Personal personal)
             : this(modo)
         {
             this._personal = personal;
@@ -53,7 +53,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             bool valido = this.ValidateChildren();
             if (valido)
             {
-                Entidad.Personal personalAGuardar = this.ObtenerPersonal();
+                Modelos.Personal personalAGuardar = this.ObtenerPersonal();
                 if (this.PersistirEvento != null)
                 {
                     this.PersistirEvento(personalAGuardar);
@@ -75,19 +75,19 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                Entidad.Telefono telefonoNuevo = frm.Tag as Entidad.Telefono;
+                Modelos.Telefono telefonoNuevo = frm.Tag as Modelos.Telefono;
                 this.CargarGrillaConTelefono(telefonoNuevo);
             }
         }
 
         private void tsbModificacionTelefono_Click(object sender, EventArgs e)
         {
-            Entidad.Telefono telefonoSelecionado = this.lvTelefonos.SelectedItems[0].Tag as Entidad.Telefono;
+            Modelos.Telefono telefonoSelecionado = this.lvTelefonos.SelectedItems[0].Tag as Modelos.Telefono;
             frmPersonalTelefonoCRUD frm = new frmPersonalTelefonoCRUD(telefonoSelecionado);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                Entidad.Telefono telefonoModificado = frm.Tag as Entidad.Telefono;
+                Modelos.Telefono telefonoModificado = frm.Tag as Modelos.Telefono;
                 this.CargarGrillaConTelefono(telefonoModificado);
             }
         }
@@ -108,19 +108,19 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                Entidad.Inasistencia inasistenciaNueva = frm.Tag as Entidad.Inasistencia;
+                Modelos.Inasistencia inasistenciaNueva = frm.Tag as Modelos.Inasistencia;
                 this.CargarGrillaConInasistencia(inasistenciaNueva);
             }
         }
 
         private void tsbModificacionInasistencia_Click(object sender, EventArgs e)
         {
-            Entidad.Inasistencia inasistenciaSeleccionada = this.lvInasistencia.SelectedItems[0].Tag as Entidad.Inasistencia;
+            Modelos.Inasistencia inasistenciaSeleccionada = this.lvInasistencia.SelectedItems[0].Tag as Modelos.Inasistencia;
             frmPersonalInasistenciaCRUD frm = new frmPersonalInasistenciaCRUD(inasistenciaSeleccionada);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                Entidad.Inasistencia inasistenciaModificada = frm.Tag as Entidad.Inasistencia;
+                Modelos.Inasistencia inasistenciaModificada = frm.Tag as Modelos.Inasistencia;
                 this.CargarGrillaConInasistencia(inasistenciaModificada);
             }
         }
@@ -282,17 +282,17 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.CargarGrillaConInasistencias(this._personal.Inasistencias);
         }
 
-        private void BorrarTelefonoEnGrilla(Entidad.Telefono telefono)
+        private void BorrarTelefonoEnGrilla(Modelos.Telefono telefono)
         {
             ListViewItem item = this.lvTelefonos.Items.Cast<ListViewItem>().Where(x =>
             {
-                var unTelefono = x.Tag as Entidad.Telefono;
+                var unTelefono = x.Tag as Modelos.Telefono;
                 return unTelefono.Equals(telefono);
             }).SingleOrDefault();
             this.lvTelefonos.Items.Remove(item);
         }
 
-        private void CargarGrillaConTelefono(Entidad.Telefono telefono)
+        private void CargarGrillaConTelefono(Modelos.Telefono telefono)
         {
             BorrarTelefonoEnGrilla(telefono);
 
@@ -301,17 +301,17 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.lvTelefonos.Items.Add(fila);
         }
 
-        private void BorrarInasistenciaEnGrilla(Entidad.Inasistencia inasistencia)
+        private void BorrarInasistenciaEnGrilla(Modelos.Inasistencia inasistencia)
         {
             ListViewItem item = this.lvInasistencia.Items.Cast<ListViewItem>().Where(x =>
             {
-                var unaInasistencia = x.Tag as Entidad.Inasistencia;
+                var unaInasistencia = x.Tag as Modelos.Inasistencia;
                 return unaInasistencia.Equals(inasistencia);
             }).SingleOrDefault();
             this.lvInasistencia.Items.Remove(item);
         }
 
-        private void CargarGrillaConInasistencia(Entidad.Inasistencia inasistencia)
+        private void CargarGrillaConInasistencia(Modelos.Inasistencia inasistencia)
         {
             BorrarInasistenciaEnGrilla(inasistencia);
 
@@ -321,64 +321,64 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.lvInasistencia.Items.Add(fila);
         }
 
-        private void CargarGrillaConTelefonos(IEnumerable<Entidad.Telefono> telefonos)
+        private void CargarGrillaConTelefonos(IEnumerable<Modelos.Telefono> telefonos)
         {
             this.lvTelefonos.Items.Clear();
-            foreach (Entidad.Telefono item in telefonos)
+            foreach (Modelos.Telefono item in telefonos)
             {
                 this.CargarGrillaConTelefono(item);
             }
             this.lvTelefonos.Refresh();
         }
 
-        private void CargarGrillaConInasistencias(IEnumerable<Entidad.Inasistencia> inasistencias)
+        private void CargarGrillaConInasistencias(IEnumerable<Modelos.Inasistencia> inasistencias)
         {
             this.lvInasistencia.Items.Clear();
-            foreach (Entidad.Inasistencia item in inasistencias)
+            foreach (Modelos.Inasistencia item in inasistencias)
             {
                 this.CargarGrillaConInasistencia(item);
             }
             this.lvInasistencia.Refresh();
         }
 
-        private IEnumerable<Entidad.Telefono> ObtenerTelefonosDelPersonal()
+        private IEnumerable<Modelos.Telefono> ObtenerTelefonosDelPersonal()
         {
-            List<Entidad.Telefono> telefonosRegistrados = new List<Entidad.Telefono>();
+            List<Modelos.Telefono> telefonosRegistrados = new List<Modelos.Telefono>();
             foreach (ListViewItem fila in this.lvTelefonos.Items)
             {
-                Entidad.Telefono telefono = fila.Tag as Entidad.Telefono;
+                Modelos.Telefono telefono = fila.Tag as Modelos.Telefono;
                 telefonosRegistrados.Add(telefono);
             }
             return telefonosRegistrados;
         }
 
-        private IEnumerable<Entidad.Inasistencia> ObtenerInasistenciasDelPersonal()
+        private IEnumerable<Modelos.Inasistencia> ObtenerInasistenciasDelPersonal()
         {
-            List<Entidad.Inasistencia> inasistenciasRegistradas = new List<Entidad.Inasistencia>();
+            List<Modelos.Inasistencia> inasistenciasRegistradas = new List<Modelos.Inasistencia>();
             foreach (ListViewItem fila in this.lvInasistencia.Items)
             {
-                Entidad.Inasistencia inasistencia = fila.Tag as Entidad.Inasistencia;
+                Modelos.Inasistencia inasistencia = fila.Tag as Modelos.Inasistencia;
                 inasistenciasRegistradas.Add(inasistencia);
             }
             return inasistenciasRegistradas;
         }
 
-        private Entidad.Personal ObtenerPersonal()
+        private Modelos.Personal ObtenerPersonal()
         {
-            Entidad.Personal nuevoPersonal = this._personal ?? new Entidad.Personal();
+            Modelos.Personal nuevoPersonal = this._personal ?? new Modelos.Personal();
             nuevoPersonal.Apellido = this.txtApellido.Text.Trim();
             nuevoPersonal.Cargo = this.txtCargo.Text.Trim();
             nuevoPersonal.DNI = Convert.ToUInt32(this.mskDNI.Text.Trim());
             nuevoPersonal.Domicilio = this.txtDomicilio.Text.Trim();
             nuevoPersonal.FechaNacimiento = this.dtpFechaNacimiento.Value;
-            nuevoPersonal.Inasistencias = this.ObtenerInasistenciasDelPersonal();
+            ((List<Modelos.Inasistencia>)this.ObtenerInasistenciasDelPersonal()).ForEach(x => nuevoPersonal.AgregarInasistencia(x));
             nuevoPersonal.IngresoDocencia = this.dtpIngresoDocencia.Value;
             nuevoPersonal.IngresoEstablecimiento = this.dtpIngresoEstablecimiento.Value;
             nuevoPersonal.Localidad = this.txtLocalidad.Text.Trim();
             nuevoPersonal.Nombre = this.txtNombre.Text.Trim();
             nuevoPersonal.Observacion = this.rtbObservacion.Text.Trim();
             nuevoPersonal.SituacionRevista = this.txtSituacionRevista.Text.Trim();
-            nuevoPersonal.Telefonos = this.ObtenerTelefonosDelPersonal();
+            ((List<Modelos.Telefono>)this.ObtenerTelefonosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTelefono(x));
             nuevoPersonal.Titulo = this.txtTitulo.Text.Trim();
 
             return nuevoPersonal;

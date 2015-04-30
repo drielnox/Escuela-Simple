@@ -53,8 +53,8 @@ namespace EscuelaSimple.InterfazDeUsuario
             {
                 string FileName = saveFileDialog.FileName;
 
-                List<Entidad.Personal> listaPersonal = this._personalNegocio.Value.ObtenerTodoPersonal();
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Entidad.Personal>));
+                List<Modelos.Personal> listaPersonal = this._personalNegocio.Value.ObtenerTodoPersonal();
+                XmlSerializer serializer = new XmlSerializer(typeof(List<Modelos.Personal>));
                 using (StreamWriter myWriter = new StreamWriter(FileName))
                 {
                     serializer.Serialize(myWriter, listaPersonal);
