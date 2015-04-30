@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Linq;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.Entidad
+namespace EscuelaSimple.Modelos
 {
     [Serializable()]
     public class Personal : IEntidad<uint>
     {
+        [XmlAttribute]
         public virtual uint Identificador { get; set; }
         public virtual string Nombre { get; set; }
         public virtual string Apellido { get; set; }
@@ -17,15 +17,17 @@ namespace EscuelaSimple.Entidad
         public virtual string Domicilio { get; set; }
         public virtual string Localidad { get; set; }
         [XmlIgnore]
-        public virtual IEnumerable<Telefono> Telefonos { get; set; }
+        public virtual ICollection<Telefono> Telefonos { get; protected set; }
+        [XmlElementAttribute(IsNullable = true)]
         public virtual DateTime? IngresoDocencia { get; set; }
+        [XmlElementAttribute(IsNullable = true)]
         public virtual DateTime? IngresoEstablecimiento { get; set; }
         public virtual string Titulo { get; set; }
         public virtual string Cargo { get; set; }
         public virtual string SituacionRevista { get; set; }
         public virtual string Observacion { get; set; }
         [XmlIgnore]
-        public virtual IEnumerable<Inasistencia> Inasistencias { get; set; }
+        public virtual ICollection<Inasistencia> Inasistencias { get; protected set; }
 
         public Personal()
         {
@@ -33,29 +35,73 @@ namespace EscuelaSimple.Entidad
             this.Inasistencias = new List<Inasistencia>();
         }
 
+        public void AgregarTelefono(Telefono telefono)
+        {
+            if (!this.Telefonos.Contains(telefono))
+            {
+                this.Telefonos.Add(telefono);
+            }
+        }
+
+        public void QuitarTelefono(Telefono telefono)
+        {
+            if (this.Telefonos.Contains(telefono))
+            {
+                this.Telefonos.Remove(telefono);
+            }
+        }
+
+        public void AgregarInasistencia(Inasistencia inasistencia)
+        {
+            if (!this.Inasistencias.Contains(inasistencia))
+            {
+                this.Inasistencias.Add(inasistencia);
+            }
+        }
+
+        public void QuitarInasistencia(Inasistencia inasistencia)
+        {
+            if (this.Inasistencias.Contains(inasistencia))
+            {
+                this.Inasistencias.Remove(inasistencia);
+            }
+        }
+
         #region Surrogacion a XMLSerializer
 
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        [XmlArray(ElementName = "Telefonos"), XmlArrayItem(typeof(Telefono))]
-        public virtual List<Telefono> TelefonosSurrogado
+        [XmlArray(ElementName = "Telefonos"), XmlArrayItem("Telefono", typeof(Telefono))]
+        public List<Telefono> ListaDeTelefonosSurrogado
         {
             get
             {
-                return this.Telefonos.ToList();
+                List<Telefono> proxy = this.Telefonos as List<Telefono>;
+                if (proxy == null && this.Telefonos != null)
+                {
+                    proxy = (List<Telefono>)this.Telefonos;
+                }
+
+                return proxy;
             }
-            set 
+            set
             {
                 this.Telefonos = value;
             }
         }
 
         [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        [XmlArray(ElementName = "Inasistencias"), XmlArrayItem(typeof(Inasistencia))]
-        public virtual List<Inasistencia> InasistenciasSurrogada
+        [XmlArray(ElementName = "Inasistencias"), XmlArrayItem("Inasistencia", typeof(Inasistencia))]
+        public List<Inasistencia> ListaDeInasistenciasSurrogada
         {
-            get 
+            get
             {
-                return this.Inasistencias.ToList();
+                List<Inasistencia> proxy = this.Inasistencias as List<Inasistencia>;
+                if (proxy == null && this.Inasistencias != null)
+                {
+                    proxy = (List<Inasistencia>)this.Inasistencias;
+                }
+
+                return proxy;
             }
             set
             {

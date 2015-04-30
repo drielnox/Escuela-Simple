@@ -1,12 +1,11 @@
 ﻿
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.Entidad
+namespace EscuelaSimple.Modelos
 {
     public interface IEntidad<TClavePrimaria>
         where TClavePrimaria : struct
     {
-        [XmlAttribute]
         TClavePrimaria Identificador { get; set; }
     }
 }

@@ -2,11 +2,12 @@
 using System;
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.Entidad
+namespace EscuelaSimple.Modelos
 {
     [Serializable()]
     public class TipoTelefono : IEntidad<uint>
     {
+        [XmlAttribute]
         public virtual uint Identificador { get; set; }
         public virtual string Descripcion { get; set; }
 
