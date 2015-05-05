@@ -1,4 +1,5 @@
 ﻿using EscuelaSimple.Modelos;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;
 
@@ -10,12 +11,12 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
         {
             ToTable("Inasistencia");
             
-            HasKey<uint>(x => x.Identificador);
+            HasKey<int>(x => x.Identificador);
 
-            Property(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property<int>(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Motivo);
-            Property(x => x.Desde);
-            Property(x => x.Hasta);
+            Property<DateTime>(x => x.Desde);
+            Property<DateTime>(x => x.Hasta);
         }
     }
 }

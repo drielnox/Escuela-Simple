@@ -31,7 +31,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
                     personalABuscar = new Modelos.Personal() { Apellido = this.txtFiltro.Text.Trim() };
                     break;
                 case "DNI":
-                    personalABuscar = new Modelos.Personal() { DNI = Convert.ToUInt32(this.txtFiltro.Text.Trim()) };
+                    personalABuscar = new Modelos.Personal() { DNI = Convert.ToInt32(this.txtFiltro.Text.Trim()) };
                     break;
                 default:
                     throw new Exception("Tipo de filtro no definido.");

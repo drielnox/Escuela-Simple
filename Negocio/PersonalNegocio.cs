@@ -4,6 +4,8 @@ using EscuelaSimple.Datos.Repositorio;
 using EscuelaSimple.Datos.UnidadDeTrabajo;
 using System;
 using System.Collections.Generic;
+using NHibernate.Engine;
+using System.Collections.ObjectModel;
 
 namespace EscuelaSimple.Negocio
 {

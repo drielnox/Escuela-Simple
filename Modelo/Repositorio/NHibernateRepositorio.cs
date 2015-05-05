@@ -1,5 +1,4 @@
-﻿//using System.Linq;
-using EscuelaSimple.Modelos;
+﻿using EscuelaSimple.Modelos;
 using NHibernate;
 using System;
 using System.Collections.Generic;
@@ -10,7 +9,7 @@ namespace EscuelaSimple.Datos.Repositorio
         where TEntidad : class, IEntidad<TClavePrimaria>
         where TClavePrimaria : struct
     {
-        ISession Sesion { get; set; }
+        public ISession Sesion { get; set; }
 
         public NHibernateRepositorio(ISession sesion)
         {
@@ -24,8 +23,8 @@ namespace EscuelaSimple.Datos.Repositorio
 
         public IEnumerable<TEntidad> ObtenerTodo()
         {
-            IQueryOver<TEntidad> asd = this.Sesion.QueryOver<TEntidad>();
-            return asd.List();
+            IQueryOver<TEntidad> result = this.Sesion.QueryOver<TEntidad>();
+            return result.List(); // <<< Aca tira ProxyAccessException!!!
         }
 
         public void Crear(TEntidad entity)

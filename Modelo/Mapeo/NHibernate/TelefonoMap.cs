@@ -1,6 +1,7 @@
 ﻿using EscuelaSimple.Modelos;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
+using NHibernate.Type;
 
 namespace EscuelaSimple.Datos.Mapeo.NHibernate
 {
@@ -12,11 +13,19 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
 
             Table("Telefono");
 
-            Id<uint>(x => x.Identificador, m => 
+            Id<int>(x => x.Identificador, m =>
             {
                 m.Column("IdTelefono");
                 m.Generator(Generators.Identity);
             });
+
+            Property<int>(x => x.Numero, m =>
+            {
+                m.Column("Numero");
+                m.UniqueKey("UK_Telefono_2");
+                m.NotNullable(true);
+            });
+
             ManyToOne<TipoTelefono>(x => x.Tipo, m =>
             {
                 m.Column("Tipo");
@@ -24,12 +33,6 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
                 m.UniqueKey("UK_Telefono_2");
                 m.NotNullable(true);
                 m.Cascade(Cascade.All);
-            });
-            Property<uint>(x => x.Numero, m =>
-            {
-                m.Column("Numero");
-                m.UniqueKey("UK_Telefono_2");
-                m.NotNullable(true);
             });
         }
     }

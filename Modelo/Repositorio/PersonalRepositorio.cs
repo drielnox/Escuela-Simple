@@ -3,7 +3,7 @@ using NHibernate;
 
 namespace EscuelaSimple.Datos.Repositorio
 {
-    public class PersonalRepositorio : NHibernateRepositorio<Personal, uint>, IPersonalRepositorio
+    public class PersonalRepositorio : NHibernateRepositorio<Personal, int>, IPersonalRepositorio
     {
         public PersonalRepositorio(ISession session)
             : base(session)
@@ -12,7 +12,7 @@ namespace EscuelaSimple.Datos.Repositorio
         }
     }
 
-    public interface IPersonalRepositorio : IRepositorio<Personal, uint>
+    public interface IPersonalRepositorio : IRepositorio<Personal, int>
     {
     }
 }

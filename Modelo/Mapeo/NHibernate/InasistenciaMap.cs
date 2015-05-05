@@ -14,7 +14,7 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
 
             Table("Inasistencia");
 
-            Id<uint>(x => x.Identificador, m => 
+            Id<int>(x => x.Identificador, m => 
             {
                 m.Column("IdInasistencia");
                 m.Generator(Generators.Identity);

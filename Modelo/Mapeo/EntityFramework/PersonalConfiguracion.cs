@@ -12,12 +12,12 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
         {
             ToTable("Personal");
 
-            HasKey<uint>(x => x.Identificador);
+            HasKey<int>(x => x.Identificador);
 
-            Property<uint>(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property<int>(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Nombre).IsRequired();
             Property(x => x.Apellido).IsRequired();
-            Property<uint>(x => x.DNI).IsRequired().HasColumnAnnotation("UK_Personal_DNI_1", new IndexAnnotation(new IndexAttribute() { IsUnique = true }));
+            Property<int>(x => x.DNI).IsRequired().HasColumnAnnotation("UK_Personal_DNI_1", new IndexAnnotation(new IndexAttribute() { IsUnique = true }));
             Property<DateTime>(x => x.FechaNacimiento).IsRequired();
             Property(x => x.Domicilio).IsOptional();
             Property(x => x.Localidad).IsOptional();

@@ -368,7 +368,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             Modelos.Personal nuevoPersonal = this._personal ?? new Modelos.Personal();
             nuevoPersonal.Apellido = this.txtApellido.Text.Trim();
             nuevoPersonal.Cargo = this.txtCargo.Text.Trim();
-            nuevoPersonal.DNI = Convert.ToUInt32(this.mskDNI.Text.Trim());
+            nuevoPersonal.DNI = Convert.ToInt32(this.mskDNI.Text.Trim());
             nuevoPersonal.Domicilio = this.txtDomicilio.Text.Trim();
             nuevoPersonal.FechaNacimiento = this.dtpFechaNacimiento.Value;
             ((List<Modelos.Inasistencia>)this.ObtenerInasistenciasDelPersonal()).ForEach(x => nuevoPersonal.AgregarInasistencia(x));

@@ -10,9 +10,9 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
         {
             ToTable("TipoTelefono");
             
-            HasKey<uint>(x => x.Identificador);
+            HasKey<int>(x => x.Identificador);
 
-            Property(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property<int>(x => x.Identificador).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Descripcion).IsRequired();
         }
     }

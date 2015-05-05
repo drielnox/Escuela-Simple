@@ -45,13 +45,13 @@ namespace EscuelaSimple.Datos
             configuration.DataBaseIntegration(db =>
             {
                 db.ConnectionProvider<DriverConnectionProvider>();
-                db.Dialect<MySQL55InnoDBDialect>();
-                db.Driver<MySqlDataDriver>();
+                db.Dialect<MsSql2008Dialect>();
+                db.Driver<SqlClientDriver>();
                 db.KeywordsAutoImport = Hbm2DDLKeyWords.AutoQuote;
                 db.IsolationLevel = IsolationLevel.ReadCommitted;
-                db.ConnectionString = "Server=localhost;Database=escuelasimple;Uid=escuela;Pwd=escuela;";
+                db.ConnectionString = Properties.Settings.Default.LocalDB;
                 db.PrepareCommands = true;
-                db.Timeout = 10;
+                db.Timeout = 5;
                 db.ConnectionReleaseMode = ConnectionReleaseMode.OnClose;
                 db.SchemaAction = SchemaAutoAction.Update;
                 

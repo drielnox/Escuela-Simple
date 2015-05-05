@@ -5,13 +5,13 @@ using System.Xml.Serialization;
 namespace EscuelaSimple.Modelos
 {
     [Serializable()]
-    public class Telefono : IEntidad<uint>
+    public class Telefono : IEntidad<int>
     {
         [XmlAttribute]
-        public virtual uint Identificador { get; set; }
+        public virtual int Identificador { get; set; }
         [XmlElementAttribute(IsNullable = false)]
         public virtual TipoTelefono Tipo { get; set; }
-        public virtual uint Numero { get; set; }
+        public virtual int Numero { get; set; }
 
         public override bool Equals(object obj)
         {

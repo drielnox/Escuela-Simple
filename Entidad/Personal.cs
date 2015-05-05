@@ -1,18 +1,19 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
 namespace EscuelaSimple.Modelos
 {
-    [Serializable()]
-    public class Personal : IEntidad<uint>
+    [Serializable]
+    public class Personal : IEntidad<int>
     {
         [XmlAttribute]
-        public virtual uint Identificador { get; set; }
+        public virtual int Identificador { get; set; }
         public virtual string Nombre { get; set; }
         public virtual string Apellido { get; set; }
-        public virtual uint DNI { get; set; }
+        public virtual int DNI { get; set; }
         public virtual DateTime FechaNacimiento { get; set; }
         public virtual string Domicilio { get; set; }
         public virtual string Localidad { get; set; }
@@ -66,50 +67,6 @@ namespace EscuelaSimple.Modelos
                 this.Inasistencias.Remove(inasistencia);
             }
         }
-
-        #region Surrogacion a XMLSerializer
-
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        [XmlArray(ElementName = "Telefonos"), XmlArrayItem("Telefono", typeof(Telefono))]
-        public List<Telefono> ListaDeTelefonosSurrogado
-        {
-            get
-            {
-                List<Telefono> proxy = this.Telefonos as List<Telefono>;
-                if (proxy == null && this.Telefonos != null)
-                {
-                    proxy = (List<Telefono>)this.Telefonos;
-                }
-
-                return proxy;
-            }
-            set
-            {
-                this.Telefonos = value;
-            }
-        }
-
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        [XmlArray(ElementName = "Inasistencias"), XmlArrayItem("Inasistencia", typeof(Inasistencia))]
-        public List<Inasistencia> ListaDeInasistenciasSurrogada
-        {
-            get
-            {
-                List<Inasistencia> proxy = this.Inasistencias as List<Inasistencia>;
-                if (proxy == null && this.Inasistencias != null)
-                {
-                    proxy = (List<Inasistencia>)this.Inasistencias;
-                }
-
-                return proxy;
-            }
-            set
-            {
-                this.Inasistencias = value;
-            }
-        }
-
-        #endregion
 
         #region Sobrecarga a Object
 

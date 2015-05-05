@@ -4,10 +4,10 @@ using System.Xml.Serialization;
 namespace EscuelaSimple.Modelos
 {
     [Serializable()]
-    public class Inasistencia : IEntidad<uint>
+    public class Inasistencia : IEntidad<int>
     {
         [XmlAttribute]
-        public virtual uint Identificador { get; set; }
+        public virtual int Identificador { get; set; }
         public virtual string Motivo { get; set; }
         public virtual DateTime Desde { get; set; }
         public virtual DateTime Hasta { get; set; }

@@ -5,10 +5,10 @@ using System.Xml.Serialization;
 namespace EscuelaSimple.Modelos
 {
     [Serializable()]
-    public class TipoTelefono : IEntidad<uint>
+    public class TipoTelefono : IEntidad<int>
     {
         [XmlAttribute]
-        public virtual uint Identificador { get; set; }
+        public virtual int Identificador { get; set; }
         public virtual string Descripcion { get; set; }
 
         public override bool Equals(object obj)

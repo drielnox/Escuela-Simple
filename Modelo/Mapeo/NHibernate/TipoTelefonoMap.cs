@@ -1,6 +1,7 @@
 ﻿using EscuelaSimple.Modelos;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
+using NHibernate.Type;
 
 namespace EscuelaSimple.Datos.Mapeo.NHibernate
 {
@@ -12,7 +13,7 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
 
             Table("TipoTelefono");
 
-            Id<uint>(x => x.Identificador, m =>
+            Id<int>(x => x.Identificador, m =>
             {
                 m.Column("IdTipoTelefono");
                 m.Generator(Generators.Identity);

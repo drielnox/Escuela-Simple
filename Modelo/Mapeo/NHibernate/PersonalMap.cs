@@ -15,7 +15,7 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
 
             Table("Personal");
 
-            Id<uint>(x => x.Identificador, m =>
+            Id<int>(x => x.Identificador, m =>
             {
                 m.Access(Accessor.Property);
                 m.Column("IdPersonal");
@@ -34,7 +34,7 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
                 m.Column("Apellido");
                 m.NotNullable(true);
             });
-            Property<uint>(x => x.DNI, m =>
+            Property<int>(x => x.DNI, m =>
             {
                 m.Access(Accessor.Property);
                 m.Column("DNI");

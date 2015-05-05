@@ -46,20 +46,20 @@ namespace EscuelaSimple.InterfazDeUsuario
 
         private void tsmiExportar_Click(object sender, EventArgs e)
         {
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            saveFileDialog.Filter = "Archivo XML (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
-            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
-            {
-                string FileName = saveFileDialog.FileName;
+            //SaveFileDialog saveFileDialog = new SaveFileDialog();
+            //saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            //saveFileDialog.Filter = "Archivo XML (*.xml)|*.xml|Todos los archivos (*.*)|*.*";
+            //if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            //{
+            //    string FileName = saveFileDialog.FileName;
 
-                List<Modelos.Personal> listaPersonal = this._personalNegocio.Value.ObtenerTodoPersonal();
-                XmlSerializer serializer = new XmlSerializer(typeof(List<Modelos.Personal>));
-                using (StreamWriter myWriter = new StreamWriter(FileName))
-                {
-                    serializer.Serialize(myWriter, listaPersonal);
-                }
-            }
+            //    List<Modelos.PersonalSerializable> listaPersonal = this._personalNegocio.Value.ObtenerTodoPersonalSerializable();
+            //    XmlSerializer serializer = new XmlSerializer(typeof(List<Modelos.PersonalSerializable>));
+            //    using (StreamWriter myWriter = new StreamWriter(FileName))
+            //    {
+            //        serializer.Serialize(myWriter, listaPersonal);
+            //    }
+            //}
         }
     }
 }

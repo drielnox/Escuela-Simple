@@ -65,7 +65,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             if (valido)
             {
                 this._telefono.Tipo = this.cboTipoTelefono.SelectedItem as Modelos.TipoTelefono;
-                this._telefono.Numero = Convert.ToUInt32(this.mskNumero.Text);
+                this._telefono.Numero = Convert.ToInt32(this.mskNumero.Text);
                 this.Tag = this._telefono;
                 this.DialogResult = DialogResult.OK;
                 this.Close();
