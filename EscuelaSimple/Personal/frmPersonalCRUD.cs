@@ -272,9 +272,9 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.txtLocalidad.Text = this._personal.Localidad;
             this.CargarGrillaConTelefonos(this._personal.Telefonos);
 
-            this.txtTitulo.Text = this._personal.Titulo;
-            this.txtCargo.Text = this._personal.Cargo;
-            this.txtSituacionRevista.Text = this._personal.SituacionRevista;
+            //this.txtTitulo.Text = this._personal.Titulo;
+            //this.txtCargo.Text = this._personal.Cargo;
+            //this.txtSituacionRevista.Text = this._personal.SituacionRevista;
             this.dtpIngresoDocencia.Value = this._personal.IngresoDocencia.GetValueOrDefault(DateTime.Now);
             this.dtpIngresoEstablecimiento.Value = this._personal.IngresoEstablecimiento.GetValueOrDefault(DateTime.Now);
             this.rtbObservacion.Text = this._personal.Observacion;
@@ -367,7 +367,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         {
             Modelos.Personal nuevoPersonal = this._personal ?? new Modelos.Personal();
             nuevoPersonal.Apellido = this.txtApellido.Text.Trim();
-            nuevoPersonal.Cargo = this.txtCargo.Text.Trim();
+            //nuevoPersonal.Cargo = this.txtCargo.Text.Trim();
             nuevoPersonal.DNI = Convert.ToInt32(this.mskDNI.Text.Trim());
             nuevoPersonal.Domicilio = this.txtDomicilio.Text.Trim();
             nuevoPersonal.FechaNacimiento = this.dtpFechaNacimiento.Value;
@@ -377,9 +377,9 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             nuevoPersonal.Localidad = this.txtLocalidad.Text.Trim();
             nuevoPersonal.Nombre = this.txtNombre.Text.Trim();
             nuevoPersonal.Observacion = this.rtbObservacion.Text.Trim();
-            nuevoPersonal.SituacionRevista = this.txtSituacionRevista.Text.Trim();
+            //nuevoPersonal.SituacionRevista = this.txtSituacionRevista.Text.Trim();
             ((List<Modelos.Telefono>)this.ObtenerTelefonosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTelefono(x));
-            nuevoPersonal.Titulo = this.txtTitulo.Text.Trim();
+            //nuevoPersonal.Titulo = this.txtTitulo.Text.Trim();
 
             return nuevoPersonal;
         }

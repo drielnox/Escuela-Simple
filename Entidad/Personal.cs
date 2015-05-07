@@ -6,37 +6,33 @@ using System.Xml.Serialization;
 
 namespace EscuelaSimple.Modelos
 {
-    [Serializable]
     public class Personal : IEntidad<int>
     {
-        [XmlAttribute]
         public virtual int Identificador { get; set; }
         public virtual string Nombre { get; set; }
         public virtual string Apellido { get; set; }
         public virtual int DNI { get; set; }
         public virtual DateTime FechaNacimiento { get; set; }
         public virtual string Domicilio { get; set; }
+        public virtual string Barrio { get; set; }
         public virtual string Localidad { get; set; }
-        [XmlIgnore]
         public virtual ICollection<Telefono> Telefonos { get; protected set; }
-        [XmlElementAttribute(IsNullable = true)]
         public virtual DateTime? IngresoDocencia { get; set; }
-        [XmlElementAttribute(IsNullable = true)]
         public virtual DateTime? IngresoEstablecimiento { get; set; }
-        public virtual string Titulo { get; set; }
-        public virtual string Cargo { get; set; }
-        public virtual string SituacionRevista { get; set; }
+        public virtual ICollection<Titulo> Titulos { get; protected set; }
+        public virtual ICollection<Cargo> Cargos { get; protected set; }
         public virtual string Observacion { get; set; }
-        [XmlIgnore]
         public virtual ICollection<Inasistencia> Inasistencias { get; protected set; }
 
         public Personal()
         {
             this.Telefonos = new List<Telefono>();
+            this.Titulos = new List<Titulo>();
+            this.Cargos = new List<Cargo>();
             this.Inasistencias = new List<Inasistencia>();
         }
 
-        public void AgregarTelefono(Telefono telefono)
+        public virtual void AgregarTelefono(Telefono telefono)
         {
             if (!this.Telefonos.Contains(telefono))
             {
@@ -44,7 +40,7 @@ namespace EscuelaSimple.Modelos
             }
         }
 
-        public void QuitarTelefono(Telefono telefono)
+        public virtual void QuitarTelefono(Telefono telefono)
         {
             if (this.Telefonos.Contains(telefono))
             {
@@ -52,7 +48,39 @@ namespace EscuelaSimple.Modelos
             }
         }
 
-        public void AgregarInasistencia(Inasistencia inasistencia)
+        public virtual void AgregarTitulo(Titulo titulo)
+        {
+            if (!this.Titulos.Contains(titulo))
+            {
+                this.Titulos.Add(titulo);
+            }
+        }
+
+        public virtual void QuitarTitulo(Titulo titulo)
+        {
+            if (this.Titulos.Contains(titulo))
+            {
+                this.Titulos.Remove(titulo);
+            }
+        }
+
+        public virtual void AgregarCargo(Cargo cargo)
+        {
+            if (!this.Cargos.Contains(cargo))
+            {
+                this.Cargos.Add(cargo);
+            }
+        }
+
+        public virtual void QuitarCargo(Cargo cargo)
+        {
+            if (this.Cargos.Contains(cargo))
+            {
+                this.Cargos.Remove(cargo);
+            }
+        }
+
+        public virtual void AgregarInasistencia(Inasistencia inasistencia)
         {
             if (!this.Inasistencias.Contains(inasistencia))
             {
@@ -60,7 +88,7 @@ namespace EscuelaSimple.Modelos
             }
         }
 
-        public void QuitarInasistencia(Inasistencia inasistencia)
+        public virtual void QuitarInasistencia(Inasistencia inasistencia)
         {
             if (this.Inasistencias.Contains(inasistencia))
             {
@@ -95,8 +123,8 @@ namespace EscuelaSimple.Modelos
             string hashCode = this.Identificador + "|" + this.Nombre + "|" + this.Apellido + "|" +
                 this.DNI + "|" + this.FechaNacimiento + "|" + this.Domicilio + "|" +
                 this.Localidad + "|" + this.Telefonos + "|" + this.IngresoDocencia + "|" +
-                this.IngresoEstablecimiento + "|" + this.Titulo + "|" + this.Cargo + "|" +
-                this.SituacionRevista + "|" + this.Observacion + "|" + this.Inasistencias;
+                this.IngresoEstablecimiento + "|" + this.Titulos + "|" + this.Cargos + "|" +
+                this.Observacion + "|" + this.Inasistencias;
             return hashCode.GetHashCode();
         }
 

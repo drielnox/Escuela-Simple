@@ -1,7 +1,7 @@
 ﻿using EscuelaSimple.Modelos;
 using NHibernate;
 
-namespace EscuelaSimple.Datos.Repositorio
+namespace EscuelaSimple.Datos.Repositorio.NHibernate
 {
     public class InasistenciaRepositorio : NHibernateRepositorio<Inasistencia, int>, IInasistenciaRepositorio
     {

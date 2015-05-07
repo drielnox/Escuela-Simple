@@ -1,5 +1,5 @@
 ﻿using EscuelaSimple.Datos;
-using EscuelaSimple.Datos.Repositorio;
+using EscuelaSimple.Datos.Repositorio.NHibernate;
 using System;
 using System.Collections.Generic;
 

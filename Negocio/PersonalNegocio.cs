@@ -1,6 +1,6 @@
 ﻿using EscuelaSimple.Modelos;
 using EscuelaSimple.Datos;
-using EscuelaSimple.Datos.Repositorio;
+using EscuelaSimple.Datos.Repositorio.NHibernate;
 using EscuelaSimple.Datos.UnidadDeTrabajo;
 using System;
 using System.Collections.Generic;
@@ -62,7 +62,7 @@ namespace EscuelaSimple.Negocio
             catch (Exception ex)
             {
                 throw ex;
-            }            
+            }
         }
 
         public void GuardarPersonal(Personal personalAGuardar)

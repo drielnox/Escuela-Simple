@@ -3,7 +3,7 @@ using NHibernate;
 using System;
 using System.Collections.Generic;
 
-namespace EscuelaSimple.Datos.Repositorio
+namespace EscuelaSimple.Datos.Repositorio.NHibernate
 {
     public abstract class NHibernateRepositorio<TEntidad, TClavePrimaria> : IRepositorio<TEntidad, TClavePrimaria>
         where TEntidad : class, IEntidad<TClavePrimaria>
@@ -24,7 +24,7 @@ namespace EscuelaSimple.Datos.Repositorio
         public IEnumerable<TEntidad> ObtenerTodo()
         {
             IQueryOver<TEntidad> result = this.Sesion.QueryOver<TEntidad>();
-            return result.List(); // <<< Aca tira ProxyAccessException!!!
+            return result.List();
         }
 
         public void Crear(TEntidad entity)

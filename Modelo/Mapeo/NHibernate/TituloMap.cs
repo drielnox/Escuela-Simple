@@ -1,26 +1,32 @@
 ﻿using EscuelaSimple.Modelos;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
-using NHibernate.Type;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 
 namespace EscuelaSimple.Datos.Mapeo.NHibernate
 {
-    public class TipoTelefonoMap : ClassMapping<TipoTelefono>
+    public class TituloMap : ClassMapping<Titulo>
     {
-        public TipoTelefonoMap()
+        public TituloMap()
         {
-            Table("TipoTelefono");
+            Table("Titulo");
 
             Id<int>(x => x.Identificador,
                 m =>
                 {
-                    m.Column("IdTipoTelefono");
+                    m.Column("IdTitulo");
                     m.Generator(Generators.Identity);
                 });
+
             Property<string>(x => x.Descripcion,
                 m =>
                 {
+                    m.Column("Titulo");
                     m.NotNullable(true);
+                    m.Length(255);
                 });
         }
     }

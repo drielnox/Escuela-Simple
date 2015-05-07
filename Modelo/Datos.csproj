@@ -56,6 +56,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MySql.Data.6.9.6\lib\net40\MySql.Data.dll</HintPath>
@@ -84,7 +87,12 @@
     <Compile Include="Mapeo\EntityFramework\PersonalConfiguracion.cs" />
     <Compile Include="Mapeo\EntityFramework\TelefonoConfiguracion.cs" />
     <Compile Include="Mapeo\EntityFramework\TipoTelefonoConfiguracion.cs" />
+    <Compile Include="Mapeo\NHibernate\CargoMap.cs" />
+    <Compile Include="Mapeo\NHibernate\FuncionMap.cs" />
     <Compile Include="Mapeo\NHibernate\InasistenciaMap.cs" />
+    <Compile Include="Mapeo\NHibernate\SituacionRevistaMap.cs" />
+    <Compile Include="Mapeo\NHibernate\TareaMap.cs" />
+    <Compile Include="Mapeo\NHibernate\TituloMap.cs" />
     <Compile Include="MySQLConfiguration.cs" />
     <Compile Include="MySQLHistoryContext.cs" />
     <Compile Include="MySQLInitializer.cs" />
@@ -96,13 +104,18 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repositorio\InasistenciaRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\CargoRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\FuncionRepostorio.cs" />
+    <Compile Include="Repositorio\NHibernate\InasistenciaRepositorio.cs" />
     <Compile Include="Repositorio\ISoloLecturaRepositorio.cs" />
     <Compile Include="Repositorio\IRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernateRepositorio.cs" />
-    <Compile Include="Repositorio\PersonalRepositorio.cs" />
-    <Compile Include="Repositorio\TelefonoRepositorio.cs" />
-    <Compile Include="Repositorio\TipoTelefonoRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\NHibernateRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\PersonalRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\SituacionRevistaRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\TareaRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\TelefonoRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\TipoTelefonoRepositorio.cs" />
+    <Compile Include="Repositorio\NHibernate\TituloRepositorio.cs" />
     <Compile Include="UnidadDeTrabajo\IUnidadDeTrabajo.cs" />
     <Compile Include="Mapeo\NHibernate\TelefonoMap.cs" />
     <Compile Include="Mapeo\NHibernate\TipoTelefonoMap.cs" />

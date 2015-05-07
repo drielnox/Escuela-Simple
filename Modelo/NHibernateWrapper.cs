@@ -22,6 +22,7 @@ namespace EscuelaSimple.Datos
 
         static NHibernateWrapper()
         {
+            log4net.Config.XmlConfigurator.Configure();
             Configuration = ConfigurarNHibernate();
             HbmMapping mapping = GetMappings();
             Configuration.AddDeserializedMapping(mapping, "EscuelaSimple");
@@ -54,7 +55,7 @@ namespace EscuelaSimple.Datos
                 db.Timeout = 5;
                 db.ConnectionReleaseMode = ConnectionReleaseMode.OnClose;
                 db.SchemaAction = SchemaAutoAction.Update;
-                
+
                 db.LogFormattedSql = true;
                 db.LogSqlInConsole = true;
             });
@@ -71,6 +72,11 @@ namespace EscuelaSimple.Datos
                 typeof(TelefonoMap),
                 typeof(InasistenciaMap),
                 typeof(TipoTelefonoMap),
+                typeof(CargoMap),
+                typeof(FuncionMap),
+                typeof(TareaMap),
+                typeof(SituacionRevistaMap),
+                typeof(TituloMap)
             });
 
             HbmMapping mapping = mapper.CompileMappingForAllExplicitlyAddedEntities();
@@ -98,6 +104,19 @@ namespace EscuelaSimple.Datos
             new SchemaExport(Configuration).Create(true, true);
         }
 
+        public static void InsertBaseData()
+        {
+            using (ISession sesion = SessionFactory.OpenSession())
+            {
+                using (ITransaction transaction = sesion.BeginTransaction())
+                {
+                    var tipoTel1 = new TipoTelefono() { Descripcion = "Linea" };
+                    var tipoTel2 = new TipoTelefono() { Descripcion = "Celular" };
+                    var tipoTel3 = new TipoTelefono() { Descripcion = "Fax" };
+                }
+            }
+        }
+
         public static void InsertTestData()
         {
             using (ISession session = SessionFactory.OpenSession())
@@ -116,57 +135,51 @@ namespace EscuelaSimple.Datos
                     var inas2 = new Inasistencia() { Motivo = "A1", Desde = new DateTime(2002, 6, 13), Hasta = new DateTime(2003, 4, 2) };
                     var inas3 = new Inasistencia() { Motivo = "F5", Desde = new DateTime(2010, 7, 21), Hasta = new DateTime(2001, 9, 8) };
 
+                    var tar1 = new Tarea() { Abreviacion = "MG", Descripcion = "Maestra de Grado" };
+                    var tar2 = new Tarea() { Abreviacion = "DIR", Descripcion = "Director" };
+                    var tar3 = new Tarea() { Abreviacion = "VD", Descripcion = "Vicedirector" };
+                    var tar4 = new Tarea() { Abreviacion = "SEC", Descripcion = "Secreatario" };
+
+                    var sit1 = new SituacionRevista() { Abreviacion = "TIT", Descripcion = "Titular" };
+                    var sit2 = new SituacionRevista() { Abreviacion = "SUP", Descripcion = "Suplente" };
+                    var sit3 = new SituacionRevista() { Abreviacion = "AUX", Descripcion = "Auxiliar" };
+                    var sit4 = new SituacionRevista() { Abreviacion = "TII", Descripcion = "Titular Interino" };
+                    var sit5 = new SituacionRevista() { Abreviacion = "TIP", Descripcion = "Titular Provisional" };
+                    var sit6 = new SituacionRevista() { Abreviacion = "TMP", Descripcion = "Temporario" };
+
+                    var fnc1 = new Funcion() { Tarea = tar1, TomaDePosesion = new DateTime(2001, 5, 13), SituacionDeRevista = sit1 };
+                    var fnc2 = new Funcion() { Tarea = tar1, TomaDePosesion = new DateTime(2004, 8, 5), SituacionDeRevista = sit2 };
+                    var fnc3 = new Funcion() { Tarea = tar3, TomaDePosesion = new DateTime(1998, 11, 1), SituacionDeRevista = sit1 };
+
+                    var tit1 = new Titulo() { Descripcion = "Tecnico Superior en Electromecanica" };
+                    var tit2 = new Titulo() { Descripcion = "Bachiller en Bienes y Servicios" };
+                    var tit3 = new Titulo() { Descripcion = "Licenciatura en Kinesiologia" };
+                    var tit4 = new Titulo() { Descripcion = "Ingeniero Hidraulico" };
+
+                    var car1 = new Cargo();
+                    car1.AgregarFuncion(fnc1);
+                    car1.AgregarFuncion(fnc2);
+                    var car2 = new Cargo();
+                    car2.AgregarFuncion(fnc3);
+
                     var pers1 = new Personal() { Nombre = "Pablo", Apellido = "Leiros", DNI = 34624421, FechaNacimiento = new DateTime(1989, 6, 30) };
                     pers1.AgregarTelefono(tel1);
                     pers1.AgregarTelefono(tel2);
                     pers1.AgregarInasistencia(inas1);
+                    pers1.AgregarCargo(car1);
+                    pers1.AgregarCargo(car2);
+                    pers1.AgregarTitulo(tit1);
+                    pers1.AgregarTitulo(tit3);
                     var pers2 = new Personal() { Nombre = "Jesica", Apellido = "Genovese", DNI = 34517157, FechaNacimiento = new DateTime(1989, 5, 4) };
                     pers2.AgregarTelefono(tel3);
                     pers2.AgregarInasistencia(inas2);
                     pers2.AgregarInasistencia(inas3);
+                    pers2.AgregarTitulo(tit2);
+                    pers2.AgregarTitulo(tit4);
 
-                    Personal pers3 = new Personal()
+                    foreach (object item in new object[] { pers1, pers2 })
                     {
-                        Apellido = "Giorgetta",
-                        Cargo = "MG",
-                        DNI = 13456789,
-                        Domicilio = "25 de Mayo de 1810 787",
-                        FechaNacimiento = new DateTime(1961, 7, 21),
-                        IngresoDocencia = new DateTime(1987, 2, 17),
-                        IngresoEstablecimiento = new DateTime(1989, 5, 25),
-                        Localidad = "Florencio Varela",
-                        Nombre = "Mercedes",
-                        Observacion = "Esta es una observacion.",
-                        SituacionRevista = "Una situacion de revista",
-                        Titulo = "Titulo de grado",
-                    };
-                    pers3.AgregarTelefono(new Telefono()
-                    {
-                        Numero = 42555896,
-                        Tipo = tipoTel1,
-                    });
-                    pers3.AgregarTelefono(new Telefono()
-                    {
-                        Numero = 1598875465,
-                        Tipo = tipoTel2,
-                    });
-                    pers3.AgregarInasistencia(new Inasistencia()
-                    {
-                        Motivo = "A1",
-                        Desde = new DateTime(2011, 2, 3),
-                        Hasta = new DateTime(2011, 2, 15),
-                    });
-                    pers3.AgregarInasistencia(new Inasistencia()
-                    {
-                        Motivo = "A2",
-                        Desde = new DateTime(2012, 4, 6),
-                        Hasta = new DateTime(2012, 4, 12),
-                    });
-
-
-                    foreach (object item in new object[] { pers1, pers2, pers3 })
-                    {
-                        session.SaveOrUpdate(item);
+                        session.Save(item);
                     }
 
                     transaction.Commit();

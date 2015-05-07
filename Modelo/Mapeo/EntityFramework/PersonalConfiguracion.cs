@@ -23,9 +23,8 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
             Property(x => x.Localidad).IsOptional();
             Property<DateTime>(x => x.IngresoDocencia).IsOptional();
             Property<DateTime>(x => x.IngresoEstablecimiento).IsOptional();
-            Property(x => x.Titulo).IsOptional();
-            Property(x => x.Cargo).IsOptional();
-            Property(x => x.SituacionRevista).IsOptional();
+            //Property(x => x.Titulos).IsOptional();
+            //Property(x => x.Cargos).IsOptional();
             Property(x => x.Observacion).IsOptional();
 
             HasRequired(x => x.Telefonos).WithMany();

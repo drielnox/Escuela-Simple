@@ -9,31 +9,37 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
     {
         public TelefonoMap()
         {
-            Lazy(false);
-
             Table("Telefono");
 
-            Id<int>(x => x.Identificador, m =>
-            {
-                m.Column("IdTelefono");
-                m.Generator(Generators.Identity);
-            });
+            Id<int>(x => x.Identificador,
+                m =>
+                {
+                    m.Access(Accessor.Property);
+                    m.Column("IdTelefono");
+                    m.Generator(Generators.Identity);
+                });
 
-            Property<int>(x => x.Numero, m =>
-            {
-                m.Column("Numero");
-                m.UniqueKey("UK_Telefono_2");
-                m.NotNullable(true);
-            });
+            Property<int>(x => x.Numero,
+                m =>
+                {
+                    m.Column("Numero");
+                    m.UniqueKey("UK_Telefono_2");
+                    m.NotNullable(true);
+                });
 
-            ManyToOne<TipoTelefono>(x => x.Tipo, m =>
-            {
-                m.Column("Tipo");
-                m.ForeignKey("FK_Telefono_TipoTelefono_1");
-                m.UniqueKey("UK_Telefono_2");
-                m.NotNullable(true);
-                m.Cascade(Cascade.All);
-            });
+            ManyToOne<TipoTelefono>(x => x.Tipo,
+                m =>
+                {
+                    m.Column(c =>
+                    {
+                        c.Name("Tipo");
+                        c.NotNullable(true);
+                    });
+                    m.ForeignKey("FK_Telefono_TipoTelefono_1");
+                    m.UniqueKey("UK_Telefono_2");
+                    m.NotNullable(true);
+                    m.Cascade(Cascade.Persist);
+                });
         }
     }
 }
