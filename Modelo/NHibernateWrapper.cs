@@ -16,7 +16,7 @@ namespace EscuelaSimple.Datos
 {
     public class NHibernateWrapper
     {
-        public static ISession CurrentSession { get; protected set; }
+        public static ISession SesionActual { get; protected set; }
         protected static Configuration Configuration { get; set; }
         protected static ISessionFactory SessionFactory { get; set; }
 
@@ -27,14 +27,14 @@ namespace EscuelaSimple.Datos
             HbmMapping mapping = GetMappings();
             Configuration.AddDeserializedMapping(mapping, "EscuelaSimple");
             SessionFactory = Configuration.BuildSessionFactory();
-            CurrentSession = SessionFactory.OpenSession();
+            SesionActual = SessionFactory.OpenSession();
         }
 
         public static void Close()
         {
-            if (CurrentSession != null && CurrentSession.IsOpen)
+            if (SesionActual != null && SesionActual.IsOpen)
             {
-                CurrentSession.Close();
+                SesionActual.Close();
             }
         }
 
@@ -56,8 +56,9 @@ namespace EscuelaSimple.Datos
                 db.ConnectionReleaseMode = ConnectionReleaseMode.OnClose;
                 db.SchemaAction = SchemaAutoAction.Update;
 
-                db.LogFormattedSql = true;
-                db.LogSqlInConsole = true;
+                // Comentado por que log4net ya hace esta tarea.
+                //db.LogFormattedSql = true;
+                //db.LogSqlInConsole = true;
             });
 
             return configuration;

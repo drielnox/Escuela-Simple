@@ -8,6 +8,7 @@ namespace EscuelaSimple.Modelos
     public class Cargo : IEntidad<int>
     {
         public virtual int Identificador { get; set; }
+        public virtual byte Secuencia { get; set; }
         public virtual ICollection<Funcion> Funciones { get; protected set; }
 
         public Cargo()
@@ -78,6 +79,7 @@ namespace EscuelaSimple.Modelos
             }
 
             return this.Identificador.Equals(cargo.Identificador) &&
+                this.Secuencia.Equals(cargo.Secuencia) &&
                 this.Funciones.Equals(cargo.Funciones);
         }
 
@@ -85,6 +87,7 @@ namespace EscuelaSimple.Modelos
         public override int GetHashCode()
         {
             string hashCode = this.Identificador + "|" +
+                this.Secuencia + "|" +
                 this.Funciones;
             return hashCode.GetHashCode();
         }

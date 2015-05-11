@@ -135,6 +135,39 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             }
         }
 
+        private void tsbAltaTitulo_Click(object sender, EventArgs e)
+        {
+            frmPersonalTituloCRUD frm = new frmPersonalTituloCRUD();
+            DialogResult resultado = frm.ShowDialog(this);
+            if (resultado == DialogResult.OK)
+            {
+                Modelos.Titulo tituloNuevo = frm.Tag as Modelos.Titulo;
+                this.CargarGrillaConTitulo(tituloNuevo);
+            }
+        }
+
+        private void tsbModificacionTitulo_Click(object sender, EventArgs e)
+        {
+            Modelos.Titulo tituloSeleccionado = this.lvTitulos.SelectedItems[0].Tag as Modelos.Titulo;
+            frmPersonalTituloCRUD frm = new frmPersonalTituloCRUD(tituloSeleccionado);
+            DialogResult resultado = frm.ShowDialog(this);
+            if (resultado == System.Windows.Forms.DialogResult.OK)
+            {
+                Modelos.Titulo tituloModificado = frm.Tag as Modelos.Titulo;
+                this.CargarGrillaConTitulo(tituloModificado);
+            }
+        }
+
+        private void tsbBajaTitulo_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este titulo?", "Borrar titulo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (resultado == DialogResult.OK)
+            {
+                ListViewItem itemSeleccionado = this.lvTitulos.SelectedItems[0];
+                this.lvTitulos.Items.Remove(itemSeleccionado);
+            }
+        }
+
         #region Validaciones
 
         private void txtNombre_Validating(object sender, CancelEventArgs e)
@@ -207,6 +240,12 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.tsbBajaInasistencia.Enabled = e.IsSelected;
         }
 
+        private void lvTitulos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            this.tsbModificacionTitulo.Enabled = e.IsSelected;
+            this.tsbBajaTitulo.Enabled = e.IsSelected;
+        }
+
         #endregion
 
         #region Metodos Privados
@@ -271,8 +310,8 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.txtDomicilio.Text = this._personal.Domicilio;
             this.txtLocalidad.Text = this._personal.Localidad;
             this.CargarGrillaConTelefonos(this._personal.Telefonos);
+            this.CargarGrillaConTitulos(this._personal.Titulos);
 
-            //this.txtTitulo.Text = this._personal.Titulo;
             //this.txtCargo.Text = this._personal.Cargo;
             //this.txtSituacionRevista.Text = this._personal.SituacionRevista;
             this.dtpIngresoDocencia.Value = this._personal.IngresoDocencia.GetValueOrDefault(DateTime.Now);
@@ -321,6 +360,25 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.lvInasistencia.Items.Add(fila);
         }
 
+        private void BorrarTituloEnGrilla(Modelos.Titulo titulo)
+        {
+            ListViewItem item = this.lvTitulos.Items.Cast<ListViewItem>().Where(x =>
+            {
+                var unTitulo = x.Tag as Modelos.Titulo;
+                return unTitulo.Equals(titulo);
+            }).SingleOrDefault();
+            this.lvTitulos.Items.Remove(item);
+        }
+
+        private void CargarGrillaConTitulo(Modelos.Titulo titulo)
+        {
+            BorrarTituloEnGrilla(titulo);
+
+            ListViewItem fila = new ListViewItem(new string[] { titulo.Descripcion });
+            fila.Tag = titulo;
+            this.lvTitulos.Items.Add(fila);
+        }
+
         private void CargarGrillaConTelefonos(IEnumerable<Modelos.Telefono> telefonos)
         {
             this.lvTelefonos.Items.Clear();
@@ -339,6 +397,16 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
                 this.CargarGrillaConInasistencia(item);
             }
             this.lvInasistencia.Refresh();
+        }
+
+        private void CargarGrillaConTitulos(IEnumerable<Modelos.Titulo> titulos)
+        {
+            this.lvTitulos.Items.Clear();
+            foreach (Modelos.Titulo item in titulos)
+            {
+                this.CargarGrillaConTitulo(item);
+            }
+            this.lvTitulos.Refresh();
         }
 
         private IEnumerable<Modelos.Telefono> ObtenerTelefonosDelPersonal()
@@ -363,6 +431,17 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             return inasistenciasRegistradas;
         }
 
+        private IEnumerable<Modelos.Titulo> ObtenerTitulosDelPersonal()
+        {
+            List<Modelos.Titulo> titulosRegistrados = new List<Modelos.Titulo>();
+            foreach (ListViewItem fila in this.lvTitulos.Items)
+            {
+                Modelos.Titulo titulo = fila.Tag as Modelos.Titulo;
+                titulosRegistrados.Add(titulo);
+            }
+            return titulosRegistrados;
+        }
+
         private Modelos.Personal ObtenerPersonal()
         {
             Modelos.Personal nuevoPersonal = this._personal ?? new Modelos.Personal();
@@ -379,7 +458,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             nuevoPersonal.Observacion = this.rtbObservacion.Text.Trim();
             //nuevoPersonal.SituacionRevista = this.txtSituacionRevista.Text.Trim();
             ((List<Modelos.Telefono>)this.ObtenerTelefonosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTelefono(x));
-            //nuevoPersonal.Titulo = this.txtTitulo.Text.Trim();
+            ((List<Modelos.Titulo>)this.ObtenerTitulosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTitulo(x));
 
             return nuevoPersonal;
         }

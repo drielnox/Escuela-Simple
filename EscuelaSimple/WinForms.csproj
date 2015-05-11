@@ -130,6 +130,12 @@
     <Compile Include="Personal\frmPersonalTelefonoCRUD.Designer.cs">
       <DependentUpon>frmPersonalTelefonoCRUD.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personal\frmPersonalTituloCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\frmPersonalTituloCRUD.Designer.cs">
+      <DependentUpon>frmPersonalTituloCRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmPrincipal.resx">
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\frmPersonalTelefonoCRUD.resx">
       <DependentUpon>frmPersonalTelefonoCRUD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\frmPersonalTituloCRUD.resx">
+      <DependentUpon>frmPersonalTituloCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

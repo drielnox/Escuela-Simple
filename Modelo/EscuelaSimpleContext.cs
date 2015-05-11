@@ -15,13 +15,24 @@ namespace EscuelaSimple.Datos
 
         static EscuelaSimpleContext()
         {
-            Database.SetInitializer(new MySQLInitializer());
+            Database.SetInitializer<EscuelaSimpleContext>(null);
         }
 
         public EscuelaSimpleContext() 
             : base("MySQLConx")
         {
             
+        }
+
+        public new IDbSet<T> Set<T>()
+            where T : class
+        {
+            return base.Set<T>();
+        }
+
+        public override int SaveChanges()
+        {
+            return base.SaveChanges();
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

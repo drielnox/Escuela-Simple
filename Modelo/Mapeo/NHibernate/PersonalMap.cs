@@ -101,7 +101,6 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
                             c.Name("IdPersonal");
                             c.NotNullable(true);
                         });
-                        k.NotNullable(true);
                         k.ForeignKey("FK_Titulo_Personal_1");
                     });
                     cm.Cascade(Cascade.All);
@@ -127,7 +126,6 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
                             c.Name("IdPersonal");
                             c.NotNullable(true);
                         });
-                        k.NotNullable(true);
                         k.ForeignKey("FK_Personal_Cargo_1");
                     });
                     cm.Cascade(Cascade.All);

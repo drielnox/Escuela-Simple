@@ -16,8 +16,8 @@ namespace EscuelaSimple.Negocio
 
         public PersonalNegocio()
         {
-            this._unitOfWork = new NHibernateUnidadDeTrabajo(NHibernateWrapper.CurrentSession);
-            this._repoPersonal = new PersonalRepositorio(NHibernateWrapper.CurrentSession);
+            this._unitOfWork = new NHibernateUnidadDeTrabajo(NHibernateWrapper.SesionActual);
+            this._repoPersonal = new PersonalRepositorio(NHibernateWrapper.SesionActual);
         }
 
         public List<Personal> ObtenerTodoPersonal()

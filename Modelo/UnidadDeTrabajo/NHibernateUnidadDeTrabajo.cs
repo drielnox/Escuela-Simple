@@ -1,5 +1,9 @@
-﻿using NHibernate;
+﻿using EscuelaSimple.Datos.Repositorio;
+using EscuelaSimple.Datos.Repositorio.NHibernate;
+using EscuelaSimple.Modelos;
+using NHibernate;
 using System;
+using System.Collections;
 
 namespace EscuelaSimple.Datos.UnidadDeTrabajo
 {
@@ -8,13 +12,13 @@ namespace EscuelaSimple.Datos.UnidadDeTrabajo
         private readonly ISession _session;
         private ITransaction _transaction;
 
-        public NHibernateUnidadDeTrabajo(ISession session)
+        public NHibernateUnidadDeTrabajo(ISession sesion)
         {
-            this._session = session;
+            this._session = sesion;
             this._transaction = this._session.BeginTransaction();
         }
 
-        public void SaveChanges()
+        public void GuardarCambios()
         {
             if (this._transaction == null)
             {

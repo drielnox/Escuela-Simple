@@ -1,6 +1,7 @@
 ﻿using EscuelaSimple.Modelos;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Mapping.ByCode.Conformist;
+using NHibernate.Type;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,17 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
                     m.Generator(Generators.Identity);
                 });
 
+            Property<byte>(x => x.Secuencia,
+                m =>
+                {
+                    m.Column(c =>
+                    {
+                        c.Name("Secuencia");
+                        c.Default(1);
+                    });
+                    m.NotNullable(true);
+                });
+
             Set<Funcion>(x => x.Funciones,
                 cm =>
                 {
@@ -35,7 +47,7 @@ namespace EscuelaSimple.Datos.Mapeo.NHibernate
                         k.ForeignKey("FK_Cargo_Funcion_1");
                         k.NotNullable(true);
                     });
-                    cm.Cascade(Cascade.DeleteOrphans);
+                    cm.Cascade(Cascade.All);
                 },
                 m =>
                 {

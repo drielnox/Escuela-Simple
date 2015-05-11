@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             this.tcDatosPersonal = new System.Windows.Forms.TabControl();
             this.tpBasico = new System.Windows.Forms.TabPage();
+            this.txtBarrio = new System.Windows.Forms.TextBox();
+            this.lblBarrio = new System.Windows.Forms.Label();
             this.gbTelefonos = new System.Windows.Forms.GroupBox();
             this.lvTelefonos = new System.Windows.Forms.ListView();
             this.chTipo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -51,7 +53,28 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lblNombre = new System.Windows.Forms.Label();
+            this.tbTitulos = new System.Windows.Forms.TabPage();
+            this.lvTitulos = new System.Windows.Forms.ListView();
+            this.chTitulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tsABMTitulos = new System.Windows.Forms.ToolStrip();
+            this.tsbAltaTitulo = new System.Windows.Forms.ToolStripButton();
+            this.tsbModificacionTitulo = new System.Windows.Forms.ToolStripButton();
+            this.tsbBajaTitulo = new System.Windows.Forms.ToolStripButton();
             this.tpLaboral = new System.Windows.Forms.TabPage();
+            this.btnBajaCargo = new System.Windows.Forms.Button();
+            this.btnAltaCargo = new System.Windows.Forms.Button();
+            this.gbFunciones = new System.Windows.Forms.GroupBox();
+            this.lvFunciones = new System.Windows.Forms.ListView();
+            this.chFuncion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chTomaPosesion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chCesePosesion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chSituacionRevista = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.chObservacion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.tsABMFunciones = new System.Windows.Forms.ToolStrip();
+            this.tsbAltaFuncion = new System.Windows.Forms.ToolStripButton();
+            this.tsbModificacionFuncion = new System.Windows.Forms.ToolStripButton();
+            this.tsbBajaFuncion = new System.Windows.Forms.ToolStripButton();
+            this.cboCargo = new System.Windows.Forms.ComboBox();
             this.gbObservacion = new System.Windows.Forms.GroupBox();
             this.rtbObservacion = new System.Windows.Forms.RichTextBox();
             this.dtpIngresoEstablecimiento = new System.Windows.Forms.DateTimePicker();
@@ -72,42 +95,19 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
-            this.tbTitulos = new System.Windows.Forms.TabPage();
-            this.tsABMTitulos = new System.Windows.Forms.ToolStrip();
-            this.lvTitulos = new System.Windows.Forms.ListView();
-            this.chTitulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tsbAltaTitulo = new System.Windows.Forms.ToolStripButton();
-            this.tsbModificacionTitulo = new System.Windows.Forms.ToolStripButton();
-            this.tsbBajaTitulo = new System.Windows.Forms.ToolStripButton();
-            this.lblBarrio = new System.Windows.Forms.Label();
-            this.txtBarrio = new System.Windows.Forms.TextBox();
-            this.cboCargo = new System.Windows.Forms.ComboBox();
-            this.gbFunciones = new System.Windows.Forms.GroupBox();
-            this.tsABMFunciones = new System.Windows.Forms.ToolStrip();
-            this.tsbAltaFuncion = new System.Windows.Forms.ToolStripButton();
-            this.tsbModificacionFuncion = new System.Windows.Forms.ToolStripButton();
-            this.tsbBajaFuncion = new System.Windows.Forms.ToolStripButton();
-            this.lvFunciones = new System.Windows.Forms.ListView();
-            this.chFuncion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chTomaPosesion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chCesePosesion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chSituacionRevista = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chObservacion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAltaCargo = new System.Windows.Forms.Button();
-            this.btnBajaCargo = new System.Windows.Forms.Button();
             this.tcDatosPersonal.SuspendLayout();
             this.tpBasico.SuspendLayout();
             this.gbTelefonos.SuspendLayout();
             this.tsABMTelefonos.SuspendLayout();
+            this.tbTitulos.SuspendLayout();
+            this.tsABMTitulos.SuspendLayout();
             this.tpLaboral.SuspendLayout();
+            this.gbFunciones.SuspendLayout();
+            this.tsABMFunciones.SuspendLayout();
             this.gbObservacion.SuspendLayout();
             this.tpInasistencia.SuspendLayout();
             this.tsABMInasistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
-            this.tbTitulos.SuspendLayout();
-            this.tsABMTitulos.SuspendLayout();
-            this.gbFunciones.SuspendLayout();
-            this.tsABMFunciones.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcDatosPersonal
@@ -149,6 +149,22 @@
             this.tpBasico.TabIndex = 0;
             this.tpBasico.Text = "Basico";
             this.tpBasico.UseVisualStyleBackColor = true;
+            // 
+            // txtBarrio
+            // 
+            this.txtBarrio.Location = new System.Drawing.Point(89, 84);
+            this.txtBarrio.Name = "txtBarrio";
+            this.txtBarrio.Size = new System.Drawing.Size(100, 20);
+            this.txtBarrio.TabIndex = 14;
+            // 
+            // lblBarrio
+            // 
+            this.lblBarrio.AutoSize = true;
+            this.lblBarrio.Location = new System.Drawing.Point(6, 87);
+            this.lblBarrio.Name = "lblBarrio";
+            this.lblBarrio.Size = new System.Drawing.Size(34, 13);
+            this.lblBarrio.TabIndex = 13;
+            this.lblBarrio.Text = "Barrio";
             // 
             // gbTelefonos
             // 
@@ -351,6 +367,80 @@
             this.lblNombre.TabIndex = 0;
             this.lblNombre.Text = "Nombre";
             // 
+            // tbTitulos
+            // 
+            this.tbTitulos.Controls.Add(this.lvTitulos);
+            this.tbTitulos.Controls.Add(this.tsABMTitulos);
+            this.tbTitulos.Location = new System.Drawing.Point(4, 22);
+            this.tbTitulos.Name = "tbTitulos";
+            this.tbTitulos.Padding = new System.Windows.Forms.Padding(3);
+            this.tbTitulos.Size = new System.Drawing.Size(478, 424);
+            this.tbTitulos.TabIndex = 3;
+            this.tbTitulos.Text = "Titulos";
+            this.tbTitulos.UseVisualStyleBackColor = true;
+            // 
+            // lvTitulos
+            // 
+            this.lvTitulos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chTitulo});
+            this.lvTitulos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvTitulos.GridLines = true;
+            this.lvTitulos.Location = new System.Drawing.Point(3, 28);
+            this.lvTitulos.Name = "lvTitulos";
+            this.lvTitulos.Size = new System.Drawing.Size(472, 393);
+            this.lvTitulos.TabIndex = 1;
+            this.lvTitulos.UseCompatibleStateImageBehavior = false;
+            this.lvTitulos.View = System.Windows.Forms.View.Details;
+            this.lvTitulos.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvTitulos_ItemSelectionChanged);
+            // 
+            // chTitulo
+            // 
+            this.chTitulo.Text = "Titulo";
+            // 
+            // tsABMTitulos
+            // 
+            this.tsABMTitulos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAltaTitulo,
+            this.tsbModificacionTitulo,
+            this.tsbBajaTitulo});
+            this.tsABMTitulos.Location = new System.Drawing.Point(3, 3);
+            this.tsABMTitulos.Name = "tsABMTitulos";
+            this.tsABMTitulos.Size = new System.Drawing.Size(472, 25);
+            this.tsABMTitulos.TabIndex = 0;
+            this.tsABMTitulos.Text = "toolStrip1";
+            // 
+            // tsbAltaTitulo
+            // 
+            this.tsbAltaTitulo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAltaTitulo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
+            this.tsbAltaTitulo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAltaTitulo.Name = "tsbAltaTitulo";
+            this.tsbAltaTitulo.Size = new System.Drawing.Size(23, 22);
+            this.tsbAltaTitulo.ToolTipText = "Agregar";
+            this.tsbAltaTitulo.Click += new System.EventHandler(this.tsbAltaTitulo_Click);
+            // 
+            // tsbModificacionTitulo
+            // 
+            this.tsbModificacionTitulo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbModificacionTitulo.Enabled = false;
+            this.tsbModificacionTitulo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
+            this.tsbModificacionTitulo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModificacionTitulo.Name = "tsbModificacionTitulo";
+            this.tsbModificacionTitulo.Size = new System.Drawing.Size(23, 22);
+            this.tsbModificacionTitulo.ToolTipText = "Editar";
+            this.tsbModificacionTitulo.Click += new System.EventHandler(this.tsbModificacionTitulo_Click);
+            // 
+            // tsbBajaTitulo
+            // 
+            this.tsbBajaTitulo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbBajaTitulo.Enabled = false;
+            this.tsbBajaTitulo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
+            this.tsbBajaTitulo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBajaTitulo.Name = "tsbBajaTitulo";
+            this.tsbBajaTitulo.Size = new System.Drawing.Size(23, 22);
+            this.tsbBajaTitulo.ToolTipText = "Borrar";
+            this.tsbBajaTitulo.Click += new System.EventHandler(this.tsbBajaTitulo_Click);
+            // 
             // tpLaboral
             // 
             this.tpLaboral.Controls.Add(this.btnBajaCargo);
@@ -370,6 +460,129 @@
             this.tpLaboral.TabIndex = 1;
             this.tpLaboral.Text = "Laboral";
             this.tpLaboral.UseVisualStyleBackColor = true;
+            // 
+            // btnBajaCargo
+            // 
+            this.btnBajaCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnBajaCargo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.remove;
+            this.btnBajaCargo.Location = new System.Drawing.Point(446, 32);
+            this.btnBajaCargo.Name = "btnBajaCargo";
+            this.btnBajaCargo.Size = new System.Drawing.Size(23, 23);
+            this.btnBajaCargo.TabIndex = 15;
+            this.btnBajaCargo.UseVisualStyleBackColor = true;
+            // 
+            // btnAltaCargo
+            // 
+            this.btnAltaCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAltaCargo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.add;
+            this.btnAltaCargo.Location = new System.Drawing.Point(420, 32);
+            this.btnAltaCargo.Name = "btnAltaCargo";
+            this.btnAltaCargo.Size = new System.Drawing.Size(23, 23);
+            this.btnAltaCargo.TabIndex = 14;
+            this.btnAltaCargo.UseVisualStyleBackColor = true;
+            // 
+            // gbFunciones
+            // 
+            this.gbFunciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbFunciones.Controls.Add(this.lvFunciones);
+            this.gbFunciones.Controls.Add(this.tsABMFunciones);
+            this.gbFunciones.Location = new System.Drawing.Point(6, 61);
+            this.gbFunciones.Name = "gbFunciones";
+            this.gbFunciones.Size = new System.Drawing.Size(466, 216);
+            this.gbFunciones.TabIndex = 13;
+            this.gbFunciones.TabStop = false;
+            this.gbFunciones.Text = "Funciones";
+            // 
+            // lvFunciones
+            // 
+            this.lvFunciones.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.chFuncion,
+            this.chTomaPosesion,
+            this.chCesePosesion,
+            this.chSituacionRevista,
+            this.chObservacion});
+            this.lvFunciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvFunciones.GridLines = true;
+            this.lvFunciones.Location = new System.Drawing.Point(3, 41);
+            this.lvFunciones.MultiSelect = false;
+            this.lvFunciones.Name = "lvFunciones";
+            this.lvFunciones.ShowGroups = false;
+            this.lvFunciones.Size = new System.Drawing.Size(460, 172);
+            this.lvFunciones.TabIndex = 1;
+            this.lvFunciones.UseCompatibleStateImageBehavior = false;
+            this.lvFunciones.View = System.Windows.Forms.View.Details;
+            // 
+            // chFuncion
+            // 
+            this.chFuncion.Text = "Función";
+            // 
+            // chTomaPosesion
+            // 
+            this.chTomaPosesion.Text = "Toma";
+            // 
+            // chCesePosesion
+            // 
+            this.chCesePosesion.Text = "Cese";
+            // 
+            // chSituacionRevista
+            // 
+            this.chSituacionRevista.Text = "Situacion de Revista";
+            // 
+            // chObservacion
+            // 
+            this.chObservacion.Text = "Observacion";
+            // 
+            // tsABMFunciones
+            // 
+            this.tsABMFunciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsbAltaFuncion,
+            this.tsbModificacionFuncion,
+            this.tsbBajaFuncion});
+            this.tsABMFunciones.Location = new System.Drawing.Point(3, 16);
+            this.tsABMFunciones.Name = "tsABMFunciones";
+            this.tsABMFunciones.Size = new System.Drawing.Size(460, 25);
+            this.tsABMFunciones.TabIndex = 0;
+            // 
+            // tsbAltaFuncion
+            // 
+            this.tsbAltaFuncion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbAltaFuncion.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
+            this.tsbAltaFuncion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbAltaFuncion.Name = "tsbAltaFuncion";
+            this.tsbAltaFuncion.Size = new System.Drawing.Size(23, 22);
+            this.tsbAltaFuncion.ToolTipText = "Agregar";
+            // 
+            // tsbModificacionFuncion
+            // 
+            this.tsbModificacionFuncion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbModificacionFuncion.Enabled = false;
+            this.tsbModificacionFuncion.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
+            this.tsbModificacionFuncion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbModificacionFuncion.Name = "tsbModificacionFuncion";
+            this.tsbModificacionFuncion.Size = new System.Drawing.Size(23, 22);
+            this.tsbModificacionFuncion.ToolTipText = "Editar";
+            // 
+            // tsbBajaFuncion
+            // 
+            this.tsbBajaFuncion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.tsbBajaFuncion.Enabled = false;
+            this.tsbBajaFuncion.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
+            this.tsbBajaFuncion.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.tsbBajaFuncion.Name = "tsbBajaFuncion";
+            this.tsbBajaFuncion.Size = new System.Drawing.Size(23, 22);
+            this.tsbBajaFuncion.ToolTipText = "Borrar";
+            // 
+            // cboCargo
+            // 
+            this.cboCargo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCargo.FormattingEnabled = true;
+            this.cboCargo.Location = new System.Drawing.Point(103, 34);
+            this.cboCargo.Name = "cboCargo";
+            this.cboCargo.Size = new System.Drawing.Size(311, 21);
+            this.cboCargo.TabIndex = 12;
             // 
             // gbObservacion
             // 
@@ -565,211 +778,6 @@
             // 
             this.errorProvider.ContainerControl = this;
             // 
-            // tbTitulos
-            // 
-            this.tbTitulos.Controls.Add(this.lvTitulos);
-            this.tbTitulos.Controls.Add(this.tsABMTitulos);
-            this.tbTitulos.Location = new System.Drawing.Point(4, 22);
-            this.tbTitulos.Name = "tbTitulos";
-            this.tbTitulos.Padding = new System.Windows.Forms.Padding(3);
-            this.tbTitulos.Size = new System.Drawing.Size(478, 424);
-            this.tbTitulos.TabIndex = 3;
-            this.tbTitulos.Text = "Titulos";
-            this.tbTitulos.UseVisualStyleBackColor = true;
-            // 
-            // tsABMTitulos
-            // 
-            this.tsABMTitulos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAltaTitulo,
-            this.tsbModificacionTitulo,
-            this.tsbBajaTitulo});
-            this.tsABMTitulos.Location = new System.Drawing.Point(3, 3);
-            this.tsABMTitulos.Name = "tsABMTitulos";
-            this.tsABMTitulos.Size = new System.Drawing.Size(472, 25);
-            this.tsABMTitulos.TabIndex = 0;
-            this.tsABMTitulos.Text = "toolStrip1";
-            // 
-            // lvTitulos
-            // 
-            this.lvTitulos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chTitulo});
-            this.lvTitulos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvTitulos.GridLines = true;
-            this.lvTitulos.Location = new System.Drawing.Point(3, 28);
-            this.lvTitulos.Name = "lvTitulos";
-            this.lvTitulos.Size = new System.Drawing.Size(472, 393);
-            this.lvTitulos.TabIndex = 1;
-            this.lvTitulos.UseCompatibleStateImageBehavior = false;
-            this.lvTitulos.View = System.Windows.Forms.View.Details;
-            // 
-            // chTitulo
-            // 
-            this.chTitulo.Text = "Titulo";
-            // 
-            // tsbAltaTitulo
-            // 
-            this.tsbAltaTitulo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAltaTitulo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
-            this.tsbAltaTitulo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAltaTitulo.Name = "tsbAltaTitulo";
-            this.tsbAltaTitulo.Size = new System.Drawing.Size(23, 22);
-            this.tsbAltaTitulo.ToolTipText = "Agregar";
-            // 
-            // tsbModificacionTitulo
-            // 
-            this.tsbModificacionTitulo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificacionTitulo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
-            this.tsbModificacionTitulo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificacionTitulo.Name = "tsbModificacionTitulo";
-            this.tsbModificacionTitulo.Size = new System.Drawing.Size(23, 22);
-            this.tsbModificacionTitulo.ToolTipText = "Editar";
-            // 
-            // tsbBajaTitulo
-            // 
-            this.tsbBajaTitulo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbBajaTitulo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
-            this.tsbBajaTitulo.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBajaTitulo.Name = "tsbBajaTitulo";
-            this.tsbBajaTitulo.Size = new System.Drawing.Size(23, 22);
-            this.tsbBajaTitulo.ToolTipText = "Borrar";
-            // 
-            // lblBarrio
-            // 
-            this.lblBarrio.AutoSize = true;
-            this.lblBarrio.Location = new System.Drawing.Point(6, 87);
-            this.lblBarrio.Name = "lblBarrio";
-            this.lblBarrio.Size = new System.Drawing.Size(34, 13);
-            this.lblBarrio.TabIndex = 13;
-            this.lblBarrio.Text = "Barrio";
-            // 
-            // txtBarrio
-            // 
-            this.txtBarrio.Location = new System.Drawing.Point(89, 84);
-            this.txtBarrio.Name = "txtBarrio";
-            this.txtBarrio.Size = new System.Drawing.Size(100, 20);
-            this.txtBarrio.TabIndex = 14;
-            // 
-            // cboCargo
-            // 
-            this.cboCargo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cboCargo.FormattingEnabled = true;
-            this.cboCargo.Location = new System.Drawing.Point(103, 34);
-            this.cboCargo.Name = "cboCargo";
-            this.cboCargo.Size = new System.Drawing.Size(311, 21);
-            this.cboCargo.TabIndex = 12;
-            // 
-            // gbFunciones
-            // 
-            this.gbFunciones.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbFunciones.Controls.Add(this.lvFunciones);
-            this.gbFunciones.Controls.Add(this.tsABMFunciones);
-            this.gbFunciones.Location = new System.Drawing.Point(6, 61);
-            this.gbFunciones.Name = "gbFunciones";
-            this.gbFunciones.Size = new System.Drawing.Size(466, 216);
-            this.gbFunciones.TabIndex = 13;
-            this.gbFunciones.TabStop = false;
-            this.gbFunciones.Text = "Funciones";
-            // 
-            // tsABMFunciones
-            // 
-            this.tsABMFunciones.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAltaFuncion,
-            this.tsbModificacionFuncion,
-            this.tsbBajaFuncion});
-            this.tsABMFunciones.Location = new System.Drawing.Point(3, 16);
-            this.tsABMFunciones.Name = "tsABMFunciones";
-            this.tsABMFunciones.Size = new System.Drawing.Size(460, 25);
-            this.tsABMFunciones.TabIndex = 0;
-            // 
-            // tsbAltaFuncion
-            // 
-            this.tsbAltaFuncion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAltaFuncion.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
-            this.tsbAltaFuncion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAltaFuncion.Name = "tsbAltaFuncion";
-            this.tsbAltaFuncion.Size = new System.Drawing.Size(23, 22);
-            this.tsbAltaFuncion.ToolTipText = "Agregar";
-            // 
-            // tsbModificacionFuncion
-            // 
-            this.tsbModificacionFuncion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificacionFuncion.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
-            this.tsbModificacionFuncion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificacionFuncion.Name = "tsbModificacionFuncion";
-            this.tsbModificacionFuncion.Size = new System.Drawing.Size(23, 22);
-            this.tsbModificacionFuncion.ToolTipText = "Editar";
-            // 
-            // tsbBajaFuncion
-            // 
-            this.tsbBajaFuncion.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbBajaFuncion.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
-            this.tsbBajaFuncion.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBajaFuncion.Name = "tsbBajaFuncion";
-            this.tsbBajaFuncion.Size = new System.Drawing.Size(23, 22);
-            this.tsbBajaFuncion.ToolTipText = "Borrar";
-            // 
-            // lvFunciones
-            // 
-            this.lvFunciones.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chFuncion,
-            this.chTomaPosesion,
-            this.chCesePosesion,
-            this.chSituacionRevista,
-            this.chObservacion});
-            this.lvFunciones.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvFunciones.GridLines = true;
-            this.lvFunciones.Location = new System.Drawing.Point(3, 41);
-            this.lvFunciones.MultiSelect = false;
-            this.lvFunciones.Name = "lvFunciones";
-            this.lvFunciones.ShowGroups = false;
-            this.lvFunciones.Size = new System.Drawing.Size(460, 172);
-            this.lvFunciones.TabIndex = 1;
-            this.lvFunciones.UseCompatibleStateImageBehavior = false;
-            this.lvFunciones.View = System.Windows.Forms.View.Details;
-            // 
-            // chFuncion
-            // 
-            this.chFuncion.Text = "Función";
-            // 
-            // chTomaPosesion
-            // 
-            this.chTomaPosesion.Text = "Toma";
-            // 
-            // chCesePosesion
-            // 
-            this.chCesePosesion.Text = "Cese";
-            // 
-            // chSituacionRevista
-            // 
-            this.chSituacionRevista.Text = "Situacion de Revista";
-            // 
-            // chObservacion
-            // 
-            this.chObservacion.Text = "Observacion";
-            // 
-            // btnAltaCargo
-            // 
-            this.btnAltaCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAltaCargo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.add;
-            this.btnAltaCargo.Location = new System.Drawing.Point(420, 32);
-            this.btnAltaCargo.Name = "btnAltaCargo";
-            this.btnAltaCargo.Size = new System.Drawing.Size(23, 23);
-            this.btnAltaCargo.TabIndex = 14;
-            this.btnAltaCargo.UseVisualStyleBackColor = true;
-            // 
-            // btnBajaCargo
-            // 
-            this.btnBajaCargo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnBajaCargo.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.remove;
-            this.btnBajaCargo.Location = new System.Drawing.Point(446, 32);
-            this.btnBajaCargo.Name = "btnBajaCargo";
-            this.btnBajaCargo.Size = new System.Drawing.Size(23, 23);
-            this.btnBajaCargo.TabIndex = 15;
-            this.btnBajaCargo.UseVisualStyleBackColor = true;
-            // 
             // frmPersonalCRUD
             // 
             this.AcceptButton = this.btnAceptar;
@@ -790,22 +798,22 @@
             this.gbTelefonos.PerformLayout();
             this.tsABMTelefonos.ResumeLayout(false);
             this.tsABMTelefonos.PerformLayout();
+            this.tbTitulos.ResumeLayout(false);
+            this.tbTitulos.PerformLayout();
+            this.tsABMTitulos.ResumeLayout(false);
+            this.tsABMTitulos.PerformLayout();
             this.tpLaboral.ResumeLayout(false);
             this.tpLaboral.PerformLayout();
+            this.gbFunciones.ResumeLayout(false);
+            this.gbFunciones.PerformLayout();
+            this.tsABMFunciones.ResumeLayout(false);
+            this.tsABMFunciones.PerformLayout();
             this.gbObservacion.ResumeLayout(false);
             this.tpInasistencia.ResumeLayout(false);
             this.tpInasistencia.PerformLayout();
             this.tsABMInasistencia.ResumeLayout(false);
             this.tsABMInasistencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
-            this.tbTitulos.ResumeLayout(false);
-            this.tbTitulos.PerformLayout();
-            this.tsABMTitulos.ResumeLayout(false);
-            this.tsABMTitulos.PerformLayout();
-            this.gbFunciones.ResumeLayout(false);
-            this.gbFunciones.PerformLayout();
-            this.tsABMFunciones.ResumeLayout(false);
-            this.tsABMFunciones.PerformLayout();
             this.ResumeLayout(false);
 
         }

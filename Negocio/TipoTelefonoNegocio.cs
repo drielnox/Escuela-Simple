@@ -17,7 +17,7 @@ namespace EscuelaSimple.Negocio
 
         public TipoTelefonoNegocio()
         {
-            this._repoTipoTelfonos = new TipoTelefonoRepositorio(NHibernateWrapper.CurrentSession);
+            this._repoTipoTelfonos = new TipoTelefonoRepositorio(NHibernateWrapper.SesionActual);
         }
 
         #endregion

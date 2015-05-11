@@ -43,6 +43,8 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             this.cboTipoTelefono.DisplayMember = "Descripcion";
         }
 
+        #region Validaciones
+
         private void mskNumero_Validating(object sender, CancelEventArgs e)
         {
             string errorMessage;
@@ -58,6 +60,8 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         {
             this.epMaskTelefono.SetError(this.mskNumero, string.Empty);
         }
+
+        #endregion
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
@@ -91,7 +95,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private bool ValidarTelefono(string telefono, out string errorMessage)
         {
-            if (this.mskNumero.Text.Trim().Length == 0)
+            if (string.IsNullOrWhiteSpace(telefono))
             {
                 errorMessage = "No se ingreso ningun telefono.";
                 return false;
