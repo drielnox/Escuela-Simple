@@ -98,18 +98,6 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Repositorio\NHibernate\CargoRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\FuncionRepostorio.cs" />
-    <Compile Include="Repositorio\NHibernate\InasistenciaRepositorio.cs" />
-    <Compile Include="Repositorio\ISoloLecturaRepositorio.cs" />
-    <Compile Include="Repositorio\IRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\NHibernateRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\PersonalRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\SituacionRevistaRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\TareaRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\TelefonoRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\TipoTelefonoRepositorio.cs" />
-    <Compile Include="Repositorio\NHibernate\TituloRepositorio.cs" />
     <Compile Include="UnidadDeTrabajo\IUnidadDeTrabajo.cs" />
     <Compile Include="Mapeo\NHibernate\TelefonoMap.cs" />
     <Compile Include="Mapeo\NHibernate\TipoTelefonoMap.cs" />

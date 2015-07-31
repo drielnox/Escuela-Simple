@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EscuelaSimple.Datos.Acceso
+namespace EscuelaSimple.Datos.Acceso.Repositorios.Contratos
 {
     public interface IRepositorioSoloLectura<TEntidad, in TIdentificador> 
         where TEntidad : Entidad<TIdentificador>
