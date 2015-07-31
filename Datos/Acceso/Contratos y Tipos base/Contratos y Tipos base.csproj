@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IRepositorio.cs" />
     <Compile Include="IRepositorioSoloLectura.cs" />
+    <Compile Include="IUnidadDeTrabajo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
