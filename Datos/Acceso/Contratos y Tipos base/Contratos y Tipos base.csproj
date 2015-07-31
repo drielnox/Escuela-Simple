@@ -1,15 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A9E5D75C-0BD7-4309-A648-E8E1619050D2}</ProjectGuid>
+    <ProjectGuid>{1C5654C0-F674-4E5D-9D5C-C644B4BBA180}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EscuelaSimple.Negocio</RootNamespace>
-    <AssemblyName>business</AssemblyName>
+    <RootNamespace>EscuelaSimple.Datos.Acceso</RootNamespace>
+    <AssemblyName>data_access_basetypes_and_contracts</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -21,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,14 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate, Version=4.0.0.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\NHibernate.4.0.3.4000\lib\net40\NHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -48,26 +40,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PersonalNegocio.cs" />
+    <Compile Include="IRepositorioSoloLectura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SistemaNegocio.cs" />
-    <Compile Include="SituacionRevistaNegocio.cs" />
-    <Compile Include="TareaNegocio.cs" />
-    <Compile Include="TipoTelefonoNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Entidad\Modelos.csproj">
-      <Project>{0B1EEC1F-062A-410E-992E-15A6B5175A74}</Project>
-      <Name>Modelos</Name>
+    <ProjectReference Include="..\..\..\Aplicación\Entidades\Contratos y Tipos base\Contratos y Tipos base.csproj">
+      <Project>{6aa8bdde-cea0-4ba2-a799-64fb2bf69300}</Project>
+      <Name>Contratos y Tipos base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Modelo\Datos_.csproj">
-      <Project>{31F789B0-4846-4528-8302-391AAA1D5BF0}</Project>
-      <Name>Datos_</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

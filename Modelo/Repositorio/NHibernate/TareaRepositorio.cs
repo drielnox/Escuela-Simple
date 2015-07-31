@@ -16,7 +16,7 @@ namespace EscuelaSimple.Datos.Repositorio.NHibernate
         }
     }
 
-    internal interface ITareaRepositorio : IRepositorio<Tarea, int>
+    public interface ITareaRepositorio : IRepositorio<Tarea, int>
     {
 
     }

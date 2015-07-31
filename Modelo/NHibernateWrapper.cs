@@ -46,7 +46,7 @@ namespace EscuelaSimple.Datos
             configuration.DataBaseIntegration(db =>
             {
                 db.ConnectionProvider<DriverConnectionProvider>();
-                db.Dialect<MsSql2008Dialect>();
+                db.Dialect<MsSql2012Dialect>();
                 db.Driver<SqlClientDriver>();
                 db.KeywordsAutoImport = Hbm2DDLKeyWords.AutoQuote;
                 db.IsolationLevel = IsolationLevel.ReadCommitted;

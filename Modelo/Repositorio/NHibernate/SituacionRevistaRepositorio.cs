@@ -16,7 +16,7 @@ namespace EscuelaSimple.Datos.Repositorio.NHibernate
         }
     }
 
-    internal interface ISituacionRevistaRepositorio : IRepositorio<SituacionRevista, int>
+    public interface ISituacionRevistaRepositorio : IRepositorio<SituacionRevista, int>
     {
 
     }

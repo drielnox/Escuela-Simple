@@ -11,20 +11,20 @@ namespace EscuelaSimple.Negocio
 {
     public class PersonalNegocio
     {
-        private IUnidadDeTrabajo _unitOfWork;
-        private IPersonalRepositorio _repoPersonal;
+        private IUnidadDeTrabajo _unidadDeTrabajo;
+        private IPersonalRepositorio _repositorio;
 
         public PersonalNegocio()
         {
-            this._unitOfWork = new NHibernateUnidadDeTrabajo(NHibernateWrapper.SesionActual);
-            this._repoPersonal = new PersonalRepositorio(NHibernateWrapper.SesionActual);
+            this._unidadDeTrabajo = new NHibernateUnidadDeTrabajo(NHibernateWrapper.SesionActual);
+            this._repositorio = new PersonalRepositorio(NHibernateWrapper.SesionActual);
         }
 
         public List<Personal> ObtenerTodoPersonal()
         {
             try
             {
-                IEnumerable<Personal> listaPersonal = this._repoPersonal.ObtenerTodo();
+                IEnumerable<Personal> listaPersonal = this._repositorio.ObtenerTodo();
                 //this._unitOfWork.SaveChanges();
                 return listaPersonal as List<Personal>;
             }
@@ -38,7 +38,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                IEnumerable<Personal> listaPersonal = this._repoPersonal.FiltrarPor(x =>
+                IEnumerable<Personal> listaPersonal = this._repositorio.FiltrarPor(x =>
                 {
                     return x.Apellido.ToLower().StartsWith(personal.Apellido.ToLower()) ||
                         x.DNI.ToString().ToLower().StartsWith(personal.DNI.ToString().ToLower());
@@ -56,7 +56,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                this._repoPersonal.Borrar(personalSeleccionado);
+                this._repositorio.Borrar(personalSeleccionado);
                 //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)
@@ -69,7 +69,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                this._repoPersonal.Crear(personalAGuardar);
+                this._repositorio.Crear(personalAGuardar);
                 //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)
@@ -82,7 +82,7 @@ namespace EscuelaSimple.Negocio
         {
             try
             {
-                this._repoPersonal.Actualizar(personalAGuardar);
+                this._repositorio.Actualizar(personalAGuardar);
                 //this._unitOfWork.SaveChanges();
             }
             catch (Exception ex)

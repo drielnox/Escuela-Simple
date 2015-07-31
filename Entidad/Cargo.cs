@@ -13,6 +13,7 @@ namespace EscuelaSimple.Modelos
 
         public Cargo()
         {
+            this.Secuencia = default(byte);
             this.Funciones = new List<Funcion>();
         }
 
@@ -90,6 +91,11 @@ namespace EscuelaSimple.Modelos
                 this.Secuencia + "|" +
                 this.Funciones;
             return hashCode.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            return "Cargo " + this.Secuencia + " - " + this.ObtenerCargoActualDescripcionLarga();
         }
     }
 }

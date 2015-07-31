@@ -106,6 +106,12 @@
     <Compile Include="Personal\frmPersonalFiltrar.Designer.cs">
       <DependentUpon>frmPersonalFiltrar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Personal\frmPersonalFuncionCRUD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Personal\frmPersonalFuncionCRUD.Designer.cs">
+      <DependentUpon>frmPersonalFuncionCRUD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Personal\frmPersonalInasistenciaCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\frmPersonalFiltrar.resx">
       <DependentUpon>frmPersonalFiltrar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Personal\frmPersonalFuncionCRUD.resx">
+      <DependentUpon>frmPersonalFuncionCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\frmPersonalInasistenciaCRUD.resx">
       <DependentUpon>frmPersonalInasistenciaCRUD.cs</DependentUpon>

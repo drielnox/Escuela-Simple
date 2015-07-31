@@ -470,6 +470,7 @@
             this.btnBajaCargo.Size = new System.Drawing.Size(23, 23);
             this.btnBajaCargo.TabIndex = 15;
             this.btnBajaCargo.UseVisualStyleBackColor = true;
+            this.btnBajaCargo.Click += new System.EventHandler(this.btnBajaCargo_Click);
             // 
             // btnAltaCargo
             // 
@@ -480,6 +481,7 @@
             this.btnAltaCargo.Size = new System.Drawing.Size(23, 23);
             this.btnAltaCargo.TabIndex = 14;
             this.btnAltaCargo.UseVisualStyleBackColor = true;
+            this.btnAltaCargo.Click += new System.EventHandler(this.btnAltaCargo_Click);
             // 
             // gbFunciones
             // 
@@ -504,6 +506,7 @@
             this.chSituacionRevista,
             this.chObservacion});
             this.lvFunciones.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvFunciones.FullRowSelect = true;
             this.lvFunciones.GridLines = true;
             this.lvFunciones.Location = new System.Drawing.Point(3, 41);
             this.lvFunciones.MultiSelect = false;
@@ -513,6 +516,7 @@
             this.lvFunciones.TabIndex = 1;
             this.lvFunciones.UseCompatibleStateImageBehavior = false;
             this.lvFunciones.View = System.Windows.Forms.View.Details;
+            this.lvFunciones.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvFunciones_ItemSelectionChanged);
             // 
             // chFuncion
             // 
@@ -529,10 +533,12 @@
             // chSituacionRevista
             // 
             this.chSituacionRevista.Text = "Situacion de Revista";
+            this.chSituacionRevista.Width = 111;
             // 
             // chObservacion
             // 
             this.chObservacion.Text = "Observacion";
+            this.chObservacion.Width = 72;
             // 
             // tsABMFunciones
             // 
@@ -553,6 +559,7 @@
             this.tsbAltaFuncion.Name = "tsbAltaFuncion";
             this.tsbAltaFuncion.Size = new System.Drawing.Size(23, 22);
             this.tsbAltaFuncion.ToolTipText = "Agregar";
+            this.tsbAltaFuncion.Click += new System.EventHandler(this.tsbAltaFuncion_Click);
             // 
             // tsbModificacionFuncion
             // 
@@ -563,6 +570,7 @@
             this.tsbModificacionFuncion.Name = "tsbModificacionFuncion";
             this.tsbModificacionFuncion.Size = new System.Drawing.Size(23, 22);
             this.tsbModificacionFuncion.ToolTipText = "Editar";
+            this.tsbModificacionFuncion.Click += new System.EventHandler(this.tsbModificacionFuncion_Click);
             // 
             // tsbBajaFuncion
             // 
@@ -573,16 +581,19 @@
             this.tsbBajaFuncion.Name = "tsbBajaFuncion";
             this.tsbBajaFuncion.Size = new System.Drawing.Size(23, 22);
             this.tsbBajaFuncion.ToolTipText = "Borrar";
+            this.tsbBajaFuncion.Click += new System.EventHandler(this.tsbBajaFuncion_Click);
             // 
             // cboCargo
             // 
             this.cboCargo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.cboCargo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCargo.FormattingEnabled = true;
             this.cboCargo.Location = new System.Drawing.Point(103, 34);
             this.cboCargo.Name = "cboCargo";
             this.cboCargo.Size = new System.Drawing.Size(311, 21);
             this.cboCargo.TabIndex = 12;
+            this.cboCargo.SelectionChangeCommitted += new System.EventHandler(this.cboCargo_SelectionChangeCommitted);
             // 
             // gbObservacion
             // 

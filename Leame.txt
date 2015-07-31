@@ -1,0 +1,2 @@
+Es la capa de servicio o la que recibe las llamadas de la capa de presentación.
+Aca se van a colocar las operaciones de negocio de cada entidad raiz.
