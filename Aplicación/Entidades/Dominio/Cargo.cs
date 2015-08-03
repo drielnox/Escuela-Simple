@@ -9,8 +9,8 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Cargo : Entidad<int, Cargo>
     {
-        public virtual int Identificador { get; set; }
-        public virtual byte Secuencia { get; set; }
+        public override int Identificador { get; set; }
+        public byte Secuencia { get; set; }
         public virtual ICollection<Funcion> Funciones { get; protected set; }
 
         public Cargo()
@@ -19,7 +19,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
             this.Funciones = new List<Funcion>();
         }
 
-        public virtual void AgregarFuncion(Funcion funcion)
+        public void AgregarFuncion(Funcion funcion)
         {
             if (!this.Funciones.Contains(funcion))
             {
@@ -27,7 +27,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
         }
 
-        public virtual void QuitarFuncion(Funcion funcion)
+        public void QuitarFuncion(Funcion funcion)
         {
             if (this.Funciones.Contains(funcion))
             {
@@ -35,7 +35,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
         }
 
-        public virtual string ObtenerCargoActualAbreviacion()
+        public string ObtenerCargoActualAbreviacion()
         {
             string abreviacion = string.Empty;
 
@@ -51,7 +51,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
             return abreviacion;
         }
 
-        public virtual string ObtenerCargoActualDescripcionLarga()
+        public string ObtenerCargoActualDescripcionLarga()
         {
             string descripcion = string.Empty;
 
@@ -67,7 +67,19 @@ namespace EscuelaSimple.Aplicacion.Entidades
             return descripcion;
         }
 
-        public override bool Equals(Cargo obj)
+        public override bool Equals(Cargo other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            return base.Equals(other) &&
+                this.Secuencia.Equals(other.Secuencia) &&
+                this.Funciones.Equals(other.Funciones);
+        }
+
+        public override bool Equals(object obj)
         {
             if (obj == null)
             {
@@ -80,27 +92,21 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return this.Identificador.Equals(cargo.Identificador) &&
+            return base.Equals(obj) &&
                 this.Secuencia.Equals(cargo.Secuencia) &&
                 this.Funciones.Equals(cargo.Funciones);
         }
 
         public override int GetHashCode()
         {
-            string hashCode = this.Identificador + "|" +
-                this.Secuencia + "|" +
-                this.Funciones;
-            return hashCode.GetHashCode();
+            return base.GetHashCode() ^
+                this.Secuencia.GetHashCode() ^
+                this.Funciones.GetHashCode();
         }
 
         public override string ToString()
         {
             return "Cargo " + this.Secuencia + " - " + this.ObtenerCargoActualDescripcionLarga();
-        }
-
-        public override int CompareTo(Cargo other)
-        {
-            throw new NotImplementedException();
         }
     }
 }

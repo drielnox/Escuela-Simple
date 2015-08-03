@@ -10,14 +10,14 @@ namespace EscuelaSimple.Aplicacion.Entidades
     public class Titulo : Entidad<int, Titulo>
     {
         public virtual int Identificador { get; set; }
-        public virtual string Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
         public Titulo()
         {
 
         }
 
-        public override bool Equals(Titulo obj)
+        public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
             {
@@ -30,8 +30,19 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return this.Identificador.Equals(titulo.Identificador) &&
+            return base.Equals(obj) &&
                 this.Descripcion.Equals(titulo.Descripcion);
+        }
+
+        public override bool Equals(Titulo other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            return base.Equals(other) &&
+                this.Descripcion.Equals(other.Descripcion);
         }
 
         public override int GetHashCode()

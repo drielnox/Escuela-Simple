@@ -9,16 +9,16 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class SituacionRevista : Entidad<int, SituacionRevista>
     {
-        public virtual int Identificador { get; set; }
-        public virtual string Abreviacion { get; set; }
-        public virtual string Descripcion { get; set; }
+        public override int Identificador { get; set; }
+        public string Abreviacion { get; set; }
+        public string Descripcion { get; set; }
 
         public SituacionRevista()
         {
 
         }
 
-        public override bool Equals(SituacionRevista obj)
+        public override bool Equals(object obj)
         {
             if (obj == null)
             {
@@ -31,22 +31,28 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return this.Identificador.Equals(situacion.Identificador) &&
+            return base.Equals(obj) &&
                 this.Abreviacion.Equals(situacion.Abreviacion) &&
                 this.Descripcion.Equals(situacion.Descripcion);
         }
 
-        public override int GetHashCode()
+        public override bool Equals(SituacionRevista other)
         {
-            string hashCode = this.Identificador + "|" +
-                this.Abreviacion + "|" +
-                this.Descripcion;
-            return hashCode.GetHashCode();
+            if (other == null)
+            {
+                return false;
+            }
+
+            return base.Equals(other) &&
+                this.Abreviacion.Equals(other.Abreviacion) &&
+                this.Descripcion.Equals(other.Descripcion);
         }
 
-        public override int CompareTo(SituacionRevista other)
+        public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            return base.GetHashCode() ^
+                this.Abreviacion.GetHashCode() ^
+                this.Descripcion.GetHashCode();
         }
     }
 }

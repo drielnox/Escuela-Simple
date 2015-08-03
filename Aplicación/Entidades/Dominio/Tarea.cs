@@ -9,17 +9,26 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Tarea : Entidad<int, Tarea>
     {
-        public virtual int Identificador { get; set; }
-        public virtual string Abreviacion { get; set; }
-        public virtual string Descripcion { get; set; }
+        public override int Identificador { get; set; }
+        public string Abreviacion { get; set; }
+        public string Descripcion { get; set; }
 
         public Tarea()
         {
 
         }
 
-        // override object.Equals
-        public override bool Equals(Tarea obj)
+        public override bool Equals(Tarea other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            return base.Equals(other);
+        }
+
+        public override bool Equals(object obj)
         {
             if (obj == null)
             {
@@ -32,12 +41,11 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return this.Identificador.Equals(tarea.Identificador) &&
+            return base.Equals(obj) &&
                 this.Abreviacion.Equals(tarea.Abreviacion) &&
                 this.Descripcion.Equals(tarea.Descripcion);
         }
 
-        // override object.GetHashCode
         public override int GetHashCode()
         {
             string hashCode = this.Identificador + "|" +

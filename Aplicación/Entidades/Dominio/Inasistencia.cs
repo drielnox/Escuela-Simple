@@ -7,12 +7,12 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Inasistencia : Entidad<int, Inasistencia>
     {
-        public virtual int Identificador { get; set; }
-        public virtual string Motivo { get; set; }
-        public virtual DateTime Desde { get; set; }
-        public virtual DateTime Hasta { get; set; }
+        public override int Identificador { get; set; }
+        public string Motivo { get; set; }
+        public DateTime Desde { get; set; }
+        public DateTime Hasta { get; set; }
 
-        public override bool Equals(Inasistencia obj)
+        public override bool Equals(object obj)
         {
             if (obj == null)
             {
@@ -25,21 +25,31 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return this.Identificador.Equals(inasistencia.Identificador) &&
+            return base.Equals(obj) &&
                 this.Motivo.Equals(inasistencia.Motivo) &&
                 this.Desde.Equals(inasistencia.Desde) &&
                 this.Hasta.Equals(inasistencia.Hasta);
         }
 
-        public override int GetHashCode()
+        public override bool Equals(Inasistencia other)
         {
-            string hashCode = this.Identificador + "|" + this.Motivo + "|" + this.Desde + "|" + this.Hasta;
-            return hashCode.GetHashCode();
+            if (other == null)
+            {
+                return false;
+            }
+
+            return base.Equals(other) &&
+                this.Motivo.Equals(other.Motivo) &&
+                this.Desde.Equals(other.Desde) &&
+                this.Hasta.Equals(other.Hasta);
         }
 
-        public override int CompareTo(Inasistencia other)
+        public override int GetHashCode()
         {
-            throw new NotImplementedException();
+            return base.GetHashCode() ^
+                this.Motivo.GetHashCode() ^
+                this.Desde.GetHashCode() ^
+                this.Hasta.GetHashCode();
         }
     }
 }

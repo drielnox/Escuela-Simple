@@ -10,7 +10,7 @@ namespace EscuelaSimple.Aplicacion.Entidades.TiposBase
         where TIdentificador : struct, IEquatable<TIdentificador>, IComparable, IComparable<TIdentificador>
         where TTipo : Entidad<TIdentificador, TTipo>
     {
-        public abstract TIdentificador Identificador { get; set; }
+        public virtual TIdentificador Identificador { get; set; }
 
         public override bool Equals(object obj)
         {
