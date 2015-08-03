@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EscuelaSimple.Modelos
+using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+
+namespace EscuelaSimple.Aplicacion.Entidades
 {
-    public class SituacionRevista : IEntidad<int>
+    public class SituacionRevista : Entidad<int, SituacionRevista>
     {
         public virtual int Identificador { get; set; }
         public virtual string Abreviacion { get; set; }
@@ -16,8 +18,7 @@ namespace EscuelaSimple.Modelos
 
         }
 
-        // override object.Equals
-        public override bool Equals(object obj)
+        public override bool Equals(SituacionRevista obj)
         {
             if (obj == null)
             {
@@ -35,13 +36,17 @@ namespace EscuelaSimple.Modelos
                 this.Descripcion.Equals(situacion.Descripcion);
         }
 
-        // override object.GetHashCode
         public override int GetHashCode()
         {
             string hashCode = this.Identificador + "|" +
                 this.Abreviacion + "|" +
                 this.Descripcion;
             return hashCode.GetHashCode();
+        }
+
+        public override int CompareTo(SituacionRevista other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

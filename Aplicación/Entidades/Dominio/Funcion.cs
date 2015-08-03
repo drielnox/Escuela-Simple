@@ -1,11 +1,13 @@
-﻿using System;
+﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
+using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EscuelaSimple.Modelos
+namespace EscuelaSimple.Aplicacion.Entidades
 {
-    public class Funcion : IEntidad<int>
+    public class Funcion : Entidad<int, Funcion>
     {
         public virtual int Identificador { get; set; }
         public virtual Tarea Tarea { get; set; }
@@ -20,7 +22,7 @@ namespace EscuelaSimple.Modelos
         }
 
         // override object.Equals
-        public override bool Equals(object obj)
+        public override bool Equals(Funcion obj)
         {
             if (obj == null)
             {

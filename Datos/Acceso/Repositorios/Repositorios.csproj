@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contratos\IRepositorio.cs" />
+    <Compile Include="Contratos\IRepositorioSoloLectura.cs" />
     <Compile Include="NHibernate\CargoRepositorio.cs" />
     <Compile Include="NHibernate\FuncionRepostorio.cs" />
     <Compile Include="NHibernate\InasistenciaRepositorio.cs" />
@@ -51,6 +53,9 @@
     <Compile Include="NHibernate\TipoTelefonoRepositorio.cs" />
     <Compile Include="NHibernate\TituloRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Tipos base\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

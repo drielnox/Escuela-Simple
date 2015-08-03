@@ -1,16 +1,18 @@
-﻿using System;
+﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
+using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+using System;
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.Modelos
+namespace EscuelaSimple.Aplicacion.Entidades
 {
-    public class Inasistencia : IEntidad<int>
+    public class Inasistencia : Entidad<int, Inasistencia>
     {
         public virtual int Identificador { get; set; }
         public virtual string Motivo { get; set; }
         public virtual DateTime Desde { get; set; }
         public virtual DateTime Hasta { get; set; }
-        
-        public override bool Equals(object obj)
+
+        public override bool Equals(Inasistencia obj)
         {
             if (obj == null)
             {
@@ -33,6 +35,11 @@ namespace EscuelaSimple.Modelos
         {
             string hashCode = this.Identificador + "|" + this.Motivo + "|" + this.Desde + "|" + this.Hasta;
             return hashCode.GetHashCode();
+        }
+
+        public override int CompareTo(Inasistencia other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

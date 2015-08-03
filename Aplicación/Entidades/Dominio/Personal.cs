@@ -1,12 +1,13 @@
-﻿using System;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.Modelos
+namespace EscuelaSimple.Aplicacion.Entidades
 {
-    public class Personal : IEntidad<int>
+    public class Personal : Entidad<int, Personal>
     {
         public virtual int Identificador { get; set; }
         public virtual string Nombre { get; set; }
@@ -96,9 +97,7 @@ namespace EscuelaSimple.Modelos
             }
         }
 
-        #region Sobrecarga a Object
-
-        public override bool Equals(object obj)
+        public override bool Equals(Personal obj)
         {
             if (obj == null)
             {
@@ -128,6 +127,9 @@ namespace EscuelaSimple.Modelos
             return hashCode.GetHashCode();
         }
 
-        #endregion
+        public override int CompareTo(Personal other)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

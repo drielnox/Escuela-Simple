@@ -1,16 +1,18 @@
 ﻿
+using EscuelaSimple.Aplicacion.Entidades.Contratos;
+using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 using System;
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.Modelos
+namespace EscuelaSimple.Aplicacion.Entidades
 {
-    public class Telefono : IEntidad<int>
+    public class Telefono : Entidad<int, Telefono>
     {
         public virtual int Identificador { get; set; }
         public virtual TipoTelefono Tipo { get; set; }
         public virtual int Numero { get; set; }
 
-        public override bool Equals(object obj)
+        public override bool Equals(Telefono obj)
         {
             if (obj == null)
             {
@@ -32,6 +34,11 @@ namespace EscuelaSimple.Modelos
         {
             string hashCode = this.Identificador + "|" + this.Tipo.GetHashCode() + "|" + this.Numero;
             return hashCode.GetHashCode();
+        }
+
+        public override int CompareTo(Telefono other)
+        {
+            throw new NotImplementedException();
         }
     }
 }

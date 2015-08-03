@@ -45,12 +45,6 @@
     <Compile Include="IUnidadDeTrabajo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\..\Aplicación\Entidades\Contratos y Tipos base\Contratos y Tipos base.csproj">
-      <Project>{6aa8bdde-cea0-4ba2-a799-64fb2bf69300}</Project>
-      <Name>Contratos y Tipos base</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

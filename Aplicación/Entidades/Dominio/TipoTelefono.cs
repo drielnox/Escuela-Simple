@@ -1,17 +1,19 @@
 ﻿
+using EscuelaSimple.Aplicacion.Entidades.Contratos;
+using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 using System;
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.Modelos
+namespace EscuelaSimple.Aplicacion.Entidades
 {
     [Serializable()]
-    public class TipoTelefono : IEntidad<int>
+    public class TipoTelefono : Entidad<int, TipoTelefono>
     {
         [XmlAttribute]
         public virtual int Identificador { get; set; }
         public virtual string Descripcion { get; set; }
 
-        public override bool Equals(object obj)
+        public override bool Equals(TipoTelefono obj)
         {
             if (obj == null)
             {

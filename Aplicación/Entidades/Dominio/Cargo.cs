@@ -1,11 +1,13 @@
-﻿using System;
+﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
+using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace EscuelaSimple.Modelos
+namespace EscuelaSimple.Aplicacion.Entidades
 {
-    public class Cargo : IEntidad<int>
+    public class Cargo : Entidad<int, Cargo>
     {
         public virtual int Identificador { get; set; }
         public virtual byte Secuencia { get; set; }
@@ -65,8 +67,7 @@ namespace EscuelaSimple.Modelos
             return descripcion;
         }
 
-        // override object.Equals
-        public override bool Equals(object obj)
+        public override bool Equals(Cargo obj)
         {
             if (obj == null)
             {
@@ -84,7 +85,6 @@ namespace EscuelaSimple.Modelos
                 this.Funciones.Equals(cargo.Funciones);
         }
 
-        // override object.GetHashCode
         public override int GetHashCode()
         {
             string hashCode = this.Identificador + "|" +
@@ -96,6 +96,11 @@ namespace EscuelaSimple.Modelos
         public override string ToString()
         {
             return "Cargo " + this.Secuencia + " - " + this.ObtenerCargoActualDescripcionLarga();
+        }
+
+        public override int CompareTo(Cargo other)
+        {
+            throw new NotImplementedException();
         }
     }
 }
