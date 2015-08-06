@@ -9,7 +9,6 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Tarea : Entidad<int, Tarea>
     {
-        public override int Identificador { get; set; }
         public string Abreviacion { get; set; }
         public string Descripcion { get; set; }
 
@@ -25,7 +24,9 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return base.Equals(other);
+            return base.Equals(other) &&
+                this.Abreviacion.Equals(other.Abreviacion) &&
+                this.Descripcion.Equals(other.Descripcion);
         }
 
         public override bool Equals(object obj)
@@ -48,10 +49,9 @@ namespace EscuelaSimple.Aplicacion.Entidades
 
         public override int GetHashCode()
         {
-            string hashCode = this.Identificador + "|" +
-                this.Abreviacion + "|" +
-                this.Descripcion;
-            return hashCode.GetHashCode();
+            return base.GetHashCode() ^
+                this.Abreviacion.GetHashCode() ^
+                this.Descripcion.GetHashCode();
         }
     }
 }

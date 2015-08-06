@@ -9,7 +9,6 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Titulo : Entidad<int, Titulo>
     {
-        public virtual int Identificador { get; set; }
         public string Descripcion { get; set; }
 
         public Titulo()
@@ -47,14 +46,8 @@ namespace EscuelaSimple.Aplicacion.Entidades
 
         public override int GetHashCode()
         {
-            string hashCode = this.Identificador + "|" +
-                this.Descripcion;
-            return hashCode.GetHashCode();
-        }
-
-        public override int CompareTo(Titulo other)
-        {
-            throw new NotImplementedException();
+            return base.GetHashCode() ^
+                this.Descripcion.GetHashCode();
         }
     }
 }

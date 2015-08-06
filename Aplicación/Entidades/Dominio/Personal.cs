@@ -9,7 +9,6 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Personal : Entidad<int, Personal>
     {
-        public override int Identificador { get; set; }
         public virtual string Nombre { get; set; }
         public virtual string Apellido { get; set; }
         public virtual int DNI { get; set; }

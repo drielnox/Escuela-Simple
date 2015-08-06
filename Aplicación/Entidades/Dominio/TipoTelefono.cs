@@ -6,14 +6,22 @@ using System.Xml.Serialization;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
-    [Serializable()]
     public class TipoTelefono : Entidad<int, TipoTelefono>
     {
-        [XmlAttribute]
-        public virtual int Identificador { get; set; }
-        public virtual string Descripcion { get; set; }
+        public string Descripcion { get; set; }
 
-        public override bool Equals(TipoTelefono obj)
+        public override bool Equals(TipoTelefono other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            return base.Equals(other) &&
+                this.Descripcion.Equals(other.Descripcion);
+        }
+
+        public override bool Equals(object obj)
         {
             if (obj == null)
             {
@@ -26,14 +34,14 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return this.Identificador.Equals(tipo.Identificador) &&
+            return base.Equals(obj) &&
                 this.Descripcion.Equals(tipo.Descripcion);
         }
 
         public override int GetHashCode()
         {
-            string hashCode = this.Identificador + "|" + this.Descripcion;
-            return hashCode.GetHashCode();
+            return base.GetHashCode() ^
+                this.Descripcion.GetHashCode();
         }
     }
 }

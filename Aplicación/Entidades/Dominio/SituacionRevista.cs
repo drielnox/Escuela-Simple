@@ -9,7 +9,6 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class SituacionRevista : Entidad<int, SituacionRevista>
     {
-        public override int Identificador { get; set; }
         public string Abreviacion { get; set; }
         public string Descripcion { get; set; }
 

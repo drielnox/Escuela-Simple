@@ -8,11 +8,22 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Telefono : Entidad<int, Telefono>
     {
-        public virtual int Identificador { get; set; }
-        public virtual TipoTelefono Tipo { get; set; }
-        public virtual int Numero { get; set; }
+        public TipoTelefono Tipo { get; set; }
+        public int Numero { get; set; }
 
-        public override bool Equals(Telefono obj)
+        public override bool Equals(Telefono other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+
+            return base.Equals(other) &&
+                this.Tipo.Equals(other.Tipo) &&
+                this.Numero.Equals(other.Numero);
+        }
+
+        public override bool Equals(object obj)
         {
             if (obj == null)
             {
@@ -25,20 +36,16 @@ namespace EscuelaSimple.Aplicacion.Entidades
                 return false;
             }
 
-            return this.Identificador.Equals(telefono.Identificador) &&
+            return base.Equals(obj) &&
                 this.Tipo.Equals(telefono.Tipo) &&
                 this.Numero.Equals(telefono.Numero);
         }
 
         public override int GetHashCode()
         {
-            string hashCode = this.Identificador + "|" + this.Tipo.GetHashCode() + "|" + this.Numero;
-            return hashCode.GetHashCode();
-        }
-
-        public override int CompareTo(Telefono other)
-        {
-            throw new NotImplementedException();
+            return base.GetHashCode() ^
+                this.Tipo.GetHashCode() ^
+                this.Numero.GetHashCode();
         }
     }
 }

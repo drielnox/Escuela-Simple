@@ -7,7 +7,6 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Inasistencia : Entidad<int, Inasistencia>
     {
-        public override int Identificador { get; set; }
         public string Motivo { get; set; }
         public DateTime Desde { get; set; }
         public DateTime Hasta { get; set; }

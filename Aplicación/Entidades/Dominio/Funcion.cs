@@ -9,7 +9,6 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Funcion : Entidad<int, Funcion>
     {
-        public override int Identificador { get; set; }
         public Tarea Tarea { get; set; }
         public DateTime TomaDePosesion { get; set; }
         public DateTime? CeseDePosesion { get; set; }

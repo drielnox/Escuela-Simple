@@ -9,7 +9,6 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Cargo : Entidad<int, Cargo>
     {
-        public override int Identificador { get; set; }
         public byte Secuencia { get; set; }
         public virtual ICollection<Funcion> Funciones { get; protected set; }
 
