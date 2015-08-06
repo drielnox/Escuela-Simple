@@ -75,30 +75,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EscuelaSimpleContext.cs" />
-    <Compile Include="Mapeo\EntityFramework\InasistenciaConfiguracion.cs" />
-    <Compile Include="Mapeo\EntityFramework\PersonalConfiguracion.cs" />
-    <Compile Include="Mapeo\EntityFramework\TelefonoConfiguracion.cs" />
-    <Compile Include="Mapeo\EntityFramework\TipoTelefonoConfiguracion.cs" />
-    <Compile Include="Mapeo\NHibernate\CargoMap.cs" />
-    <Compile Include="Mapeo\NHibernate\FuncionMap.cs" />
-    <Compile Include="Mapeo\NHibernate\InasistenciaMap.cs" />
-    <Compile Include="Mapeo\NHibernate\SituacionRevistaMap.cs" />
-    <Compile Include="Mapeo\NHibernate\TareaMap.cs" />
-    <Compile Include="Mapeo\NHibernate\TituloMap.cs" />
-    <Compile Include="MySQLConfiguration.cs" />
-    <Compile Include="MySQLHistoryContext.cs" />
-    <Compile Include="MySQLInitializer.cs" />
-    <Compile Include="NHibernateWrapper.cs" />
-    <Compile Include="Mapeo\NHibernate\PersonalMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Mapeo\NHibernate\TelefonoMap.cs" />
-    <Compile Include="Mapeo\NHibernate\TipoTelefonoMap.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
