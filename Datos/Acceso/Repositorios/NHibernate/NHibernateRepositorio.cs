@@ -1,4 +1,5 @@
-﻿using EscuelaSimple.Modelos;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+using EscuelaSimple.Datos.Acceso.Repositorios.Contratos;
 using NHibernate;
 using System;
 using System.Collections.Generic;
@@ -6,8 +7,8 @@ using System.Collections.Generic;
 namespace EscuelaSimple.Datos.Repositorio.NHibernate
 {
     public abstract class NHibernateRepositorio<TEntidad, TClavePrimaria> : IRepositorio<TEntidad, TClavePrimaria>
-        where TEntidad : class, IEntidad<TClavePrimaria>
-        where TClavePrimaria : struct
+        where TEntidad : Entidad<TClavePrimaria, TEntidad>
+        where TClavePrimaria : struct, IComparable<TClavePrimaria>, IComparable, IEquatable<TClavePrimaria>
     {
         public ISession Sesion { get; set; }
 

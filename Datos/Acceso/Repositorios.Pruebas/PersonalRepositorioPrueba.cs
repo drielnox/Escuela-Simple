@@ -3,10 +3,11 @@ using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using EscuelaSimple.Datos.UnidadDeTrabajo;
-using EscuelaSimple.Datos;
-using EscuelaSimple.Modelos;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
 using EscuelaSimple.Datos.Repositorio.NHibernate;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo;
+using EscuelaSimple.Datos.Ayudantes.Envoltorios;
+using EscuelaSimple.Aplicacion.Entidades;
 
 namespace PruebasDatos
 {

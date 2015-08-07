@@ -1,4 +1,4 @@
-﻿using EscuelaSimple.Modelos;
+﻿using EscuelaSimple.Aplicacion.Entidades;
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity.ModelConfiguration;

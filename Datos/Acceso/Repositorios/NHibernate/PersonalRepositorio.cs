@@ -1,4 +1,5 @@
-﻿using EscuelaSimple.Modelos;
+﻿using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.Datos.Acceso.Repositorios.Contratos;
 using NHibernate;
 
 namespace EscuelaSimple.Datos.Repositorio.NHibernate

@@ -1,9 +1,6 @@
-﻿using EscuelaSimple.Modelos;
+﻿using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.Datos.Acceso.Repositorios.Contratos;
 using NHibernate;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace EscuelaSimple.Datos.Repositorio.NHibernate
 {

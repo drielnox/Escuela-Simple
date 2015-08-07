@@ -1,8 +1,6 @@
-﻿using EscuelaSimple.Datos.Repositorio;
-using EscuelaSimple.Modelos;
-using System;
+﻿using System;
 
-namespace EscuelaSimple.Datos.UnidadDeTrabajo
+namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos
 {
     public interface IUnidadDeTrabajo : IDisposable
     {

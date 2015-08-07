@@ -1,11 +1,9 @@
-﻿using EscuelaSimple.Datos.Repositorio;
-using EscuelaSimple.Datos.Repositorio.NHibernate;
-using EscuelaSimple.Modelos;
+﻿using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
 using NHibernate;
 using System;
 using System.Collections;
 
-namespace EscuelaSimple.Datos.UnidadDeTrabajo
+namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
 {
     public class NHibernateUnidadDeTrabajo : IUnidadDeTrabajo
     {

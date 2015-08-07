@@ -6,7 +6,7 @@ using System.Data.Entity.Migrations.History;
 using System.Linq;
 using System.Text;
 
-namespace EscuelaSimple.Datos
+namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
 {
     public class MySQLHistoryContext : HistoryContext
     {

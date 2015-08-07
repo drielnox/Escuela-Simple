@@ -1,5 +1,5 @@
-﻿using EscuelaSimple.Datos;
-using EscuelaSimple.Modelos;
+﻿using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.Datos;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +7,7 @@ using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Reflection;
 
-namespace EscuelaSimple.Datos
+namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
 {
     public class EscuelaSimpleContext : DbContext
     {

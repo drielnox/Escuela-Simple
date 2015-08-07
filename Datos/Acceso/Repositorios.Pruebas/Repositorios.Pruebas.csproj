@@ -57,6 +57,24 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TipoTelefonoRepositorioPrueba.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Aplicación\Entidades\Dominio\Dominio.csproj">
+      <Project>{031bfd86-f311-41c2-bc9a-f625a39cb84f}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Ayudantes\Envoltorios\Envoltorios.csproj">
+      <Project>{ff705ca9-30e3-4912-9727-e6c546fee08e}</Project>
+      <Name>Envoltorios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositorios\Repositorios.csproj">
+      <Project>{ce83a605-487c-40ce-b01c-5f0e926bfbcf}</Project>
+      <Name>Repositorios</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Unidades de trabajo\Unidades de trabajo.csproj">
+      <Project>{9fa63c8b-bd4b-427e-afe5-6156643fa748}</Project>
+      <Name>Unidades de trabajo</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
