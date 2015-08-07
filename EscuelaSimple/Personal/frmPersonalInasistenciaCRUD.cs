@@ -1,14 +1,15 @@
-﻿using System;
+﻿using EscuelaSimple.Aplicacion.Entidades;
+using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 {
     public partial class frmPersonalInasistenciaCRUD : Form
     {
         #region Atributos
 
-        private Modelos.Inasistencia _inasistencia;
+        private Inasistencia _inasistencia;
 
         #endregion
 
@@ -17,10 +18,10 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         public frmPersonalInasistenciaCRUD()
         {
             InitializeComponent();
-            this._inasistencia = new Modelos.Inasistencia();
+            this._inasistencia = new EscuelaSimple.Aplicacion.Entidades.Inasistencia();
         }
 
-        public frmPersonalInasistenciaCRUD(Modelos.Inasistencia inasistencia)
+        public frmPersonalInasistenciaCRUD(EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistencia)
             : this()
         {
             this._inasistencia = inasistencia;

@@ -1,13 +1,12 @@
-﻿using EscuelaSimple.Modelos;
-using EscuelaSimple.Datos;
+﻿using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
+using EscuelaSimple.Datos.Ayudantes.Envoltorios;
 using EscuelaSimple.Datos.Repositorio.NHibernate;
-using EscuelaSimple.Datos.UnidadDeTrabajo;
 using System;
 using System.Collections.Generic;
-using NHibernate.Engine;
-using System.Collections.ObjectModel;
 
-namespace EscuelaSimple.Negocio
+namespace EscuelaSimple.Aplicacion.Componentes.Negocio
 {
     public class PersonalNegocio
     {

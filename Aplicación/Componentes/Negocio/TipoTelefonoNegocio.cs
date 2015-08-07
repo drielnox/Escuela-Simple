@@ -1,9 +1,10 @@
-﻿using EscuelaSimple.Datos;
+﻿using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.Datos.Ayudantes.Envoltorios;
 using EscuelaSimple.Datos.Repositorio.NHibernate;
 using System;
 using System.Collections.Generic;
 
-namespace EscuelaSimple.Negocio
+namespace EscuelaSimple.Aplicacion.Componentes.Negocio
 {
     public class TipoTelefonoNegocio
     {
@@ -22,7 +23,7 @@ namespace EscuelaSimple.Negocio
 
         #endregion
 
-        public IEnumerable<Modelos.TipoTelefono> ObtenerTelefonoTipos()
+        public IEnumerable<TipoTelefono> ObtenerTelefonoTipos()
         {
             try
             {

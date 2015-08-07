@@ -4,7 +4,7 @@ using NHibernate;
 using System;
 using System.Collections.Generic;
 
-namespace EscuelaSimple.Datos.Repositorio.NHibernate
+namespace EscuelaSimple.Datos.Repositorio.TiposBase
 {
     public abstract class NHibernateRepositorio<TEntidad, TClavePrimaria> : IRepositorio<TEntidad, TClavePrimaria>
         where TEntidad : Entidad<TClavePrimaria, TEntidad>

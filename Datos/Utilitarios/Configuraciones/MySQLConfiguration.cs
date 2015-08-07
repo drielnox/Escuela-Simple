@@ -10,7 +10,7 @@ namespace EscuelaSimple.Datos
     {
         public MySQLConfiguration()
         {
-            SetHistoryContext("MySql.Data.MySqlClient", (conn, schema) => new MySQLHistoryContext(conn, schema));
+            //SetHistoryContext("MySql.Data.MySqlClient", (conn, schema) => new MySQLHistoryContext(conn, schema));
         }
     }
 }

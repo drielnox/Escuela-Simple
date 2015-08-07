@@ -1,4 +1,4 @@
-﻿using EscuelaSimple.Negocio;
+﻿using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,13 +8,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 {
     public partial class frmPersonalFuncionCRUD : Form
     {
         #region Atributos
 
-        private Modelos.Funcion _funcion;
+        private EscuelaSimple.Aplicacion.Entidades.Funcion _funcion;
         private TareaNegocio _negocioTarea;
         private SituacionRevistaNegocio _negocioSituacionRevista;
 
@@ -25,12 +25,12 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         public frmPersonalFuncionCRUD()
         {
             InitializeComponent();
-            this._funcion = new Modelos.Funcion();
+            this._funcion = new EscuelaSimple.Aplicacion.Entidades.Funcion();
             this._negocioTarea = new TareaNegocio();
             this._negocioSituacionRevista = new SituacionRevistaNegocio();
         }
 
-        public frmPersonalFuncionCRUD(Modelos.Funcion funcion)
+        public frmPersonalFuncionCRUD(EscuelaSimple.Aplicacion.Entidades.Funcion funcion)
             : this()
         {
             this._funcion = funcion;
@@ -52,13 +52,13 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             bool valido = this.ValidateChildren();
             if (valido)
             {
-                this._funcion.Tarea = this.cboTarea.SelectedItem as Modelos.Tarea;
+                this._funcion.Tarea = this.cboTarea.SelectedItem as EscuelaSimple.Aplicacion.Entidades.Tarea;
                 this._funcion.TomaDePosesion = this.dtpTomaPosesion.Value;
                 if (this.dtpCesePosesion.Checked)
                 {
                     this._funcion.CeseDePosesion = this.dtpCesePosesion.Value;
                 }
-                this._funcion.SituacionDeRevista = this.cboSituacionRevista.SelectedItem as Modelos.SituacionRevista;
+                this._funcion.SituacionDeRevista = this.cboSituacionRevista.SelectedItem as EscuelaSimple.Aplicacion.Entidades.SituacionRevista;
                 this._funcion.Observacion = this.rtbObservaciones.Text;
                 this.Tag = this._funcion;
                 this.Close();
@@ -113,7 +113,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void CargarComboTarea()
         {
-            IEnumerable<Modelos.Tarea> tareas = this._negocioTarea.ObtenerTareas();
+            IEnumerable<EscuelaSimple.Aplicacion.Entidades.Tarea> tareas = this._negocioTarea.ObtenerTareas();
             this.cboTarea.DataSource = tareas;
             this.cboTarea.ValueMember = "Identificador";
             this.cboTarea.DisplayMember = "Descripcion";
@@ -121,7 +121,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void CargarComboSituacionRevista()
         {
-            IEnumerable<Modelos.SituacionRevista> sitRevista = this._negocioSituacionRevista.ObtenerSituacionesRevista();
+            IEnumerable<EscuelaSimple.Aplicacion.Entidades.SituacionRevista> sitRevista = this._negocioSituacionRevista.ObtenerSituacionesRevista();
             this.cboSituacionRevista.DataSource = sitRevista;
             this.cboSituacionRevista.ValueMember = "Identificador";
             this.cboSituacionRevista.DisplayMember = "Descripcion";

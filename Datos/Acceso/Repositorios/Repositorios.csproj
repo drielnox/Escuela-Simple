@@ -55,7 +55,7 @@
     <Compile Include="NHibernate\CargoRepositorio.cs" />
     <Compile Include="NHibernate\FuncionRepostorio.cs" />
     <Compile Include="NHibernate\InasistenciaRepositorio.cs" />
-    <Compile Include="NHibernate\NHibernateRepositorio.cs" />
+    <Compile Include="Tipos base\NHibernateRepositorio.cs" />
     <Compile Include="NHibernate\PersonalRepositorio.cs" />
     <Compile Include="NHibernate\SituacionRevistaRepositorio.cs" />
     <Compile Include="NHibernate\TareaRepositorio.cs" />
@@ -64,9 +64,7 @@
     <Compile Include="NHibernate\TituloRepositorio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tipos base\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\..\Aplicación\Entidades\Dominio\Dominio.csproj">
       <Project>{031bfd86-f311-41c2-bc9a-f625a39cb84f}</Project>

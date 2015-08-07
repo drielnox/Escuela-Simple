@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EscuelaSimple.InterfazDeUsuario.Properties {
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

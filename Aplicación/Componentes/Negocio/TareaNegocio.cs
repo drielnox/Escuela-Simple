@@ -1,12 +1,12 @@
-﻿using EscuelaSimple.Datos;
+﻿using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
+using EscuelaSimple.Datos.Ayudantes.Envoltorios;
 using EscuelaSimple.Datos.Repositorio.NHibernate;
-using EscuelaSimple.Datos.UnidadDeTrabajo;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace EscuelaSimple.Negocio
+namespace EscuelaSimple.Aplicacion.Componentes.Negocio
 {
     public class TareaNegocio
     {
@@ -23,11 +23,11 @@ namespace EscuelaSimple.Negocio
             this._repositorio = new TareaRepositorio(NHibernateWrapper.SesionActual);
         }
 
-        public IEnumerable<Modelos.Tarea> ObtenerTareas()
+        public IEnumerable<Tarea> ObtenerTareas()
         {
             try
             {
-                IEnumerable<Modelos.Tarea> tareas = this._repositorio.ObtenerTodo();
+                IEnumerable<Tarea> tareas = this._repositorio.ObtenerTodo();
                 return tareas;
             }
             catch (Exception ex)

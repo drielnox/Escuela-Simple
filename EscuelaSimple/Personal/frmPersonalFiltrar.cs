@@ -1,9 +1,9 @@
-﻿using EscuelaSimple.Negocio;
+﻿using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 {
     public partial class frmPersonalFiltrar : Form
     {
@@ -22,16 +22,16 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            List<Modelos.Personal> personal = new List<Modelos.Personal>();
-            Modelos.Personal personalABuscar;
+            List<Entidades.Personal> personal = new List<Entidades.Personal>();
+            Entidades.Personal personalABuscar;
 
             switch ((string)this.cboTipoFiltro.SelectedItem)
             {
                 case "Apellido":
-                    personalABuscar = new Modelos.Personal() { Apellido = this.txtFiltro.Text.Trim() };
+                    personalABuscar = new Entidades.Personal() { Apellido = this.txtFiltro.Text.Trim() };
                     break;
                 case "DNI":
-                    personalABuscar = new Modelos.Personal() { DNI = Convert.ToInt32(this.txtFiltro.Text.Trim()) };
+                    personalABuscar = new Entidades.Personal() { DNI = Convert.ToInt32(this.txtFiltro.Text.Trim()) };
                     break;
                 default:
                     throw new Exception("Tipo de filtro no definido.");

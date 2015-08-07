@@ -1,13 +1,10 @@
-﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
-using EscuelaSimple.Datos.Repositorio.NHibernate;
+﻿using EscuelaSimple.Aplicacion.Entidades;
 using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
 using EscuelaSimple.Datos.Ayudantes.Envoltorios;
-using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.Datos.Repositorio.NHibernate;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace PruebasDatos
 {

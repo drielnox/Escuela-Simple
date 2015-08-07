@@ -1,6 +1,6 @@
-﻿using EscuelaSimple.Datos;
+﻿using EscuelaSimple.Datos.Ayudantes.Envoltorios;
 
-namespace EscuelaSimple.Negocio
+namespace EscuelaSimple.Aplicacion.Componentes.Negocio
 {
     public class SistemaNegocio
     {
@@ -16,7 +16,7 @@ namespace EscuelaSimple.Negocio
 
         public void InstarDatosEjemplo()
         {
-            NHibernateWrapper.InsertTestData();
+            // NHibernateWrapper.InsertTestData();
         }
     }
 }

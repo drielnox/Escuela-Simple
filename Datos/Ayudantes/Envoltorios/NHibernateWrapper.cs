@@ -1,4 +1,5 @@
-﻿using NHibernate;
+﻿using EscuelaSimple.Datos.Mapeo.NHibernate;
+using NHibernate;
 using NHibernate.Cfg;
 using NHibernate.Cfg.MappingSchema;
 using NHibernate.Connection;
@@ -7,7 +8,6 @@ using NHibernate.Driver;
 using NHibernate.Mapping.ByCode;
 using NHibernate.Tool.hbm2ddl;
 using System;
-using System.Collections.Generic;
 using System.Data;
 
 namespace EscuelaSimple.Datos.Ayudantes.Envoltorios

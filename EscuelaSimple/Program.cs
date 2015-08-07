@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario
+namespace EscuelaSimple.InterfazDeUsuario.WinForms
 {
     static class Program
     {

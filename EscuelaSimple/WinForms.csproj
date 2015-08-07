@@ -8,7 +8,7 @@
     <ProjectGuid>{A43D9890-42F7-4AC1-90C0-37577348B20F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EscuelaSimple.InterfazDeUsuario</RootNamespace>
+    <RootNamespace>EscuelaSimple.InterfazDeUsuario.WinForms</RootNamespace>
     <AssemblyName>EscuelaSimple</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
@@ -244,6 +244,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Aplicación\Componentes\Negocio\Negocio.csproj">
+      <Project>{60cd96d3-0360-44c5-bbb7-413efe86aafa}</Project>
+      <Name>Negocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Aplicación\Entidades\Dominio\Dominio.csproj">
+      <Project>{031bfd86-f311-41c2-bc9a-f625a39cb84f}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

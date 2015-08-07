@@ -1,4 +1,4 @@
-﻿namespace EscuelaSimple.InterfazDeUsuario
+﻿namespace EscuelaSimple.InterfazDeUsuario.WinForms
 {
     partial class frmPrincipal
     {

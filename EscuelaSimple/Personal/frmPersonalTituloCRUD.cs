@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 {
     public partial class frmPersonalTituloCRUD : Form
     {
         #region Atributos
 
-        private Modelos.Titulo _titulo;
+        private EscuelaSimple.Aplicacion.Entidades.Titulo _titulo;
 
         #endregion
 
@@ -22,10 +22,10 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         public frmPersonalTituloCRUD()
         {
             InitializeComponent();
-            this._titulo = new Modelos.Titulo();
+            this._titulo = new EscuelaSimple.Aplicacion.Entidades.Titulo();
         }
 
-        public frmPersonalTituloCRUD(Modelos.Titulo tituloSeleccionado)
+        public frmPersonalTituloCRUD(EscuelaSimple.Aplicacion.Entidades.Titulo tituloSeleccionado)
             : this()
         {
             this._titulo = tituloSeleccionado;

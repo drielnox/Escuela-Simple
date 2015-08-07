@@ -1,16 +1,17 @@
-﻿using EscuelaSimple.Negocio;
+﻿using EscuelaSimple.Aplicacion;
+using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 {
     public partial class frmPersonalTelefonoCRUD : Form
     {
         #region Atributos
 
-        private Modelos.Telefono _telefono;
+        private EscuelaSimple.Aplicacion.Entidades.Telefono _telefono;
         private TipoTelefonoNegocio _tipoTelefonoNegocio;
 
         #endregion
@@ -20,11 +21,11 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
         public frmPersonalTelefonoCRUD()
         {
             InitializeComponent();
-            this._telefono = new Modelos.Telefono();
+            this._telefono = new EscuelaSimple.Aplicacion.Entidades.Telefono();
             this._tipoTelefonoNegocio = new TipoTelefonoNegocio();
         }
 
-        public frmPersonalTelefonoCRUD(Modelos.Telefono telefonoSelecionado)
+        public frmPersonalTelefonoCRUD(EscuelaSimple.Aplicacion.Entidades.Telefono telefonoSelecionado)
             : this()
         {
             this._telefono = telefonoSelecionado;
@@ -37,7 +38,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
 
         private void frmPersonalTelefonoCRUD_Load(object sender, EventArgs e)
         {
-            IEnumerable<Modelos.TipoTelefono> tiposTelefonos = this._tipoTelefonoNegocio.ObtenerTelefonoTipos();
+            IEnumerable<EscuelaSimple.Aplicacion.Entidades.TipoTelefono> tiposTelefonos = this._tipoTelefonoNegocio.ObtenerTelefonoTipos();
             this.cboTipoTelefono.DataSource = tiposTelefonos;
             this.cboTipoTelefono.ValueMember = "Id";
             this.cboTipoTelefono.DisplayMember = "Descripcion";
@@ -68,7 +69,7 @@ namespace EscuelaSimple.InterfazDeUsuario.Personal
             bool valido = this.ValidateChildren();
             if (valido)
             {
-                this._telefono.Tipo = this.cboTipoTelefono.SelectedItem as Modelos.TipoTelefono;
+                this._telefono.Tipo = this.cboTipoTelefono.SelectedItem as EscuelaSimple.Aplicacion.Entidades.TipoTelefono;
                 this._telefono.Numero = Convert.ToInt32(this.mskNumero.Text);
                 this.Tag = this._telefono;
                 this.DialogResult = DialogResult.OK;

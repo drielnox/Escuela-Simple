@@ -1,12 +1,12 @@
-﻿using EscuelaSimple.InterfazDeUsuario.Personal;
-using EscuelaSimple.Negocio;
+﻿using EscuelaSimple.InterfazDeUsuario.WinForms.Personal;
+using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 
-namespace EscuelaSimple.InterfazDeUsuario
+namespace EscuelaSimple.InterfazDeUsuario.WinForms
 {
     public partial class frmPrincipal : Form
     {
@@ -53,8 +53,8 @@ namespace EscuelaSimple.InterfazDeUsuario
             //{
             //    string FileName = saveFileDialog.FileName;
 
-            //    List<Modelos.PersonalSerializable> listaPersonal = this._personalNegocio.Value.ObtenerTodoPersonalSerializable();
-            //    XmlSerializer serializer = new XmlSerializer(typeof(List<Modelos.PersonalSerializable>));
+            //    List<Entidades.PersonalSerializable> listaPersonal = this._personalNegocio.Value.ObtenerTodoPersonalSerializable();
+            //    XmlSerializer serializer = new XmlSerializer(typeof(List<Entidades.PersonalSerializable>));
             //    using (StreamWriter myWriter = new StreamWriter(FileName))
             //    {
             //        serializer.Serialize(myWriter, listaPersonal);
