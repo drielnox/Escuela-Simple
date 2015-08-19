@@ -20,19 +20,6 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms
             this._personalNegocio = new Lazy<PersonalNegocio>(() => new PersonalNegocio());
         }
 
-        private void tsmiPersonal_Click(object sender, EventArgs e)
-        {
-            frmPersonalListado frm = new frmPersonalListado();
-            frm.ShowDialog(this);
-        }
-
-        private void tsmiInicializar_Click(object sender, EventArgs e)
-        {
-            this._sistemaNegocio.Value.ValidarEsquema();
-            this._sistemaNegocio.Value.CrearBaseDeDatos();
-            this._sistemaNegocio.Value.InstarDatosEjemplo();
-        }
-
         private void tsmiImportar_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -60,6 +47,18 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms
             //        serializer.Serialize(myWriter, listaPersonal);
             //    }
             //}
+        }
+
+        private void tsmiDatosPersonal_Click(object sender, EventArgs e)
+        {
+            frmPersonalListado frm = new frmPersonalListado();
+            frm.ShowDialog(this);
+        }
+
+        private void tsmiInasistenciasPersonal_Click(object sender, EventArgs e)
+        {
+            frmPersonalListado frm = new frmPersonalListado();
+            frm.ShowDialog(this);
         }
     }
 }

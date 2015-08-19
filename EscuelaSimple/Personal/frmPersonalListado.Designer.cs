@@ -57,7 +57,7 @@
             // tsbFiltrarPersonal
             // 
             this.tsbFiltrarPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbFiltrarPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.Filter;
+            this.tsbFiltrarPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources.Filter;
             this.tsbFiltrarPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbFiltrarPersonal.Name = "tsbFiltrarPersonal";
             this.tsbFiltrarPersonal.Size = new System.Drawing.Size(23, 22);
@@ -68,7 +68,7 @@
             // 
             this.tsbVerPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbVerPersonal.Enabled = false;
-            this.tsbVerPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.Zoom_32x32;
+            this.tsbVerPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources.Zoom_32x32;
             this.tsbVerPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbVerPersonal.Name = "tsbVerPersonal";
             this.tsbVerPersonal.Size = new System.Drawing.Size(23, 22);
@@ -78,7 +78,7 @@
             // tsbAltaPersonal
             // 
             this.tsbAltaPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAltaPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._077_AddFile_48x48_72;
+            this.tsbAltaPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources._077_AddFile_48x48_72;
             this.tsbAltaPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbAltaPersonal.Name = "tsbAltaPersonal";
             this.tsbAltaPersonal.Size = new System.Drawing.Size(23, 22);
@@ -89,7 +89,7 @@
             // 
             this.tsbModificarPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbModificarPersonal.Enabled = false;
-            this.tsbModificarPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources._126_Edit_48x48_72;
+            this.tsbModificarPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources._126_Edit_48x48_72;
             this.tsbModificarPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbModificarPersonal.Name = "tsbModificarPersonal";
             this.tsbModificarPersonal.Size = new System.Drawing.Size(23, 22);
@@ -100,7 +100,7 @@
             // 
             this.tsbBajaPersonal.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.tsbBajaPersonal.Enabled = false;
-            this.tsbBajaPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.delete;
+            this.tsbBajaPersonal.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources.delete;
             this.tsbBajaPersonal.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsbBajaPersonal.Name = "tsbBajaPersonal";
             this.tsbBajaPersonal.Size = new System.Drawing.Size(23, 22);

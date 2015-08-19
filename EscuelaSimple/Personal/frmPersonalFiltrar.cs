@@ -22,16 +22,16 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            List<Entidades.Personal> personal = new List<Entidades.Personal>();
-            Entidades.Personal personalABuscar;
+            List<EscuelaSimple.Aplicacion.Entidades.Personal> personal = new List<EscuelaSimple.Aplicacion.Entidades.Personal>();
+            EscuelaSimple.Aplicacion.Entidades.Personal personalABuscar;
 
             switch ((string)this.cboTipoFiltro.SelectedItem)
             {
                 case "Apellido":
-                    personalABuscar = new Entidades.Personal() { Apellido = this.txtFiltro.Text.Trim() };
+                    personalABuscar = new EscuelaSimple.Aplicacion.Entidades.Personal() { Apellido = this.txtFiltro.Text.Trim() };
                     break;
                 case "DNI":
-                    personalABuscar = new Entidades.Personal() { DNI = Convert.ToInt32(this.txtFiltro.Text.Trim()) };
+                    personalABuscar = new EscuelaSimple.Aplicacion.Entidades.Personal() { DNI = Convert.ToInt32(this.txtFiltro.Text.Trim()) };
                     break;
                 default:
                     throw new Exception("Tipo de filtro no definido.");

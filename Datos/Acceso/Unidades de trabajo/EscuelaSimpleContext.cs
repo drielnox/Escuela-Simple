@@ -1,55 +1,42 @@
 ﻿using EscuelaSimple.Aplicacion.Entidades;
-using EscuelaSimple.Datos;
-using System;
-using System.Collections.Generic;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Inicializadores;
+using EscuelaSimple.Datos.Mapeo.EntityFramework;
+using EscuelaSimple.Datos.Utilitarios.Configuraciones.Mapeo.EntityFramework;
 using System.Data.Entity;
-using System.Data.Entity.ModelConfiguration;
-using System.Linq;
-using System.Reflection;
 
 namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
 {
     public class EscuelaSimpleContext : DbContext
     {
-        public DbSet<Personal> Personal { get; set; }
+        public DbSet<Cargo> Cargo { get; protected set; }
+        public DbSet<Funcion> Funcion { get; protected set; }
+        public DbSet<Inasistencia> Inasistencia { get; protected set; }
+        public DbSet<Personal> Personal { get; protected set; }
+        public DbSet<SituacionRevista> SituacionRevista { get; protected set; }
+        public DbSet<Tarea> Tarea { get; protected set; }
+        public DbSet<Telefono> Telefono { get; protected set; }
+        public DbSet<TipoTelefono> TipoTelefono { get; protected set; }
+        public DbSet<Titulo> Titulo { get; protected set; }
 
-        static EscuelaSimpleContext()
-        {
-            Database.SetInitializer<EscuelaSimpleContext>(null);
-        }
-
-        public EscuelaSimpleContext() 
+        public EscuelaSimpleContext()
             : base("MySQLConx")
         {
-            
-        }
-
-        public new IDbSet<T> Set<T>()
-            where T : class
-        {
-            return base.Set<T>();
-        }
-
-        public override int SaveChanges()
-        {
-            return base.SaveChanges();
+            Database.SetInitializer<EscuelaSimpleContext>(new DebugInitializer());
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.HasDefaultSchema("dbo");
 
-            IEnumerable<Type> tiposARegistrar = Assembly.GetExecutingAssembly().GetTypes()
-                .Where(x => !string.IsNullOrWhiteSpace(x.Namespace))
-                .Where(x => x.BaseType != null)
-                .Where(x => x.BaseType.IsGenericType)
-                .Where(x => x.BaseType.GetGenericTypeDefinition() == typeof(EntityTypeConfiguration<>));
-
-            foreach (Type tipo in tiposARegistrar)
-            {
-                dynamic confInstancia = Activator.CreateInstance(tipo);
-                modelBuilder.Configurations.Add(confInstancia);
-            }    
+            modelBuilder.Configurations.Add<Cargo>(new CargoTypeConfiguration());
+            modelBuilder.Configurations.Add<Funcion>(new FuncionTypeConfiguration());
+            modelBuilder.Configurations.Add<Inasistencia>(new InasistenciaTypeConfiguration());
+            modelBuilder.Configurations.Add<Personal>(new PersonalTypeConfiguration());
+            modelBuilder.Configurations.Add<SituacionRevista>(new SituacionRevistaTypeConfiguration());
+            modelBuilder.Configurations.Add<Tarea>(new TareaTypeConfiguration());
+            modelBuilder.Configurations.Add<Telefono>(new TelefonoTypeConfiguration());
+            modelBuilder.Configurations.Add<TipoTelefono>(new TipoTelefonoTypeConfiguration());
+            modelBuilder.Configurations.Add<Titulo>(new TituloTypeConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }

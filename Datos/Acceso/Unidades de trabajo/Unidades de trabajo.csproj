@@ -61,9 +61,17 @@
   <ItemGroup>
     <Compile Include="Contratos\IUnidadDeTrabajo.cs" />
     <Compile Include="EscuelaSimpleContext.cs" />
+    <Compile Include="Inicializadores\DebugInitializer.cs" />
+    <Compile Include="Inicializadores\ReleaseInitializer.cs" />
+    <Compile Include="Inicializadores\TestInitializer.cs" />
     <Compile Include="MySQLHistoryContext.cs" />
     <Compile Include="NHibernateUnidadDeTrabajo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Tipos base\" />
@@ -71,11 +79,19 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Aplicación\Entidades\Dominio\Dominio.csproj">
       <Project>{031bfd86-f311-41c2-bc9a-f625a39cb84f}</Project>
       <Name>Dominio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Utilitarios\Configuraciones\Configuraciones.csproj">
+      <Project>{0e2a13ed-ffe7-4b73-a1ca-f59dd64f360b}</Project>
+      <Name>Configuraciones</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

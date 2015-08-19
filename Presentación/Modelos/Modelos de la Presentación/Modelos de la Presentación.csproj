@@ -40,8 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Personal\Datos\ComboCargosEnPersonalLaboralModelo.cs" />
+    <Compile Include="Personal\Datos\ComboTiposTelefonoEnPersonalTelefonoModelo.cs" />
+    <Compile Include="Personal\Datos\FuncionesEnListadoPersonalLaboralModelo.cs" />
+    <Compile Include="Personal\Inasistencia\InasistenciasEnListadoPersonalInasistenciasModelo.cs" />
+    <Compile Include="ListadoPersonalModelo.cs" />
+    <Compile Include="Personal\Datos\PersonalBasicoModelo.cs" />
+    <Compile Include="PersonalEnListadoModelo.cs" />
+    <Compile Include="Personal\Inasistencia\PersonalInasistenciasModelo.cs" />
+    <Compile Include="Personal\Datos\PersonalLaboralModelo.cs" />
+    <Compile Include="Personal\Datos\PersonalModelo.cs" />
+    <Compile Include="Personal\Datos\PersonalTelefonoModelo.cs" />
+    <Compile Include="Personal\Datos\PersonalTitulosModelo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Personal\Datos\TelefonosEnListadoPersonalBasicoModelo.cs" />
+    <Compile Include="Personal\Datos\TitulosEnListadoPersonalTitulosModelo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

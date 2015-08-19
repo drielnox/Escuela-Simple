@@ -65,7 +65,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>EscuelaSimple.InterfazDeUsuario.Program</StartupObject>
+    <StartupObject>EscuelaSimple.InterfazDeUsuario.WinForms.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>Resources\Mattahan-Buuf-MDI-Text-Editor-1.ico</ApplicationIcon>
@@ -108,16 +108,16 @@
     <Compile Include="Personal\frmPersonalFiltrar.Designer.cs">
       <DependentUpon>frmPersonalFiltrar.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal\frmPersonalFuncionCRUD.cs">
+    <Compile Include="Personal\Datos\frmPersonalFuncionCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal\frmPersonalFuncionCRUD.Designer.cs">
+    <Compile Include="Personal\Datos\frmPersonalFuncionCRUD.Designer.cs">
       <DependentUpon>frmPersonalFuncionCRUD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal\frmPersonalInasistenciaCRUD.cs">
+    <Compile Include="Personal\Inasistencias\frmPersonalInasistenciaCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal\frmPersonalInasistenciaCRUD.Designer.cs">
+    <Compile Include="Personal\Inasistencias\frmPersonalInasistenciaCRUD.Designer.cs">
       <DependentUpon>frmPersonalInasistenciaCRUD.cs</DependentUpon>
     </Compile>
     <Compile Include="Personal\frmPersonalListado.cs">
@@ -126,22 +126,22 @@
     <Compile Include="Personal\frmPersonalListado.Designer.cs">
       <DependentUpon>frmPersonalListado.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal\frmPersonalCRUD.cs">
+    <Compile Include="Personal\Datos\frmPersonalCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal\frmPersonalCRUD.Designer.cs">
+    <Compile Include="Personal\Datos\frmPersonalCRUD.Designer.cs">
       <DependentUpon>frmPersonalCRUD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal\frmPersonalTelefonoCRUD.cs">
+    <Compile Include="Personal\Datos\frmPersonalTelefonoCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal\frmPersonalTelefonoCRUD.Designer.cs">
+    <Compile Include="Personal\Datos\frmPersonalTelefonoCRUD.Designer.cs">
       <DependentUpon>frmPersonalTelefonoCRUD.cs</DependentUpon>
     </Compile>
-    <Compile Include="Personal\frmPersonalTituloCRUD.cs">
+    <Compile Include="Personal\Datos\frmPersonalTituloCRUD.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Personal\frmPersonalTituloCRUD.Designer.cs">
+    <Compile Include="Personal\Datos\frmPersonalTituloCRUD.Designer.cs">
       <DependentUpon>frmPersonalTituloCRUD.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -152,22 +152,22 @@
     <EmbeddedResource Include="Personal\frmPersonalFiltrar.resx">
       <DependentUpon>frmPersonalFiltrar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personal\frmPersonalFuncionCRUD.resx">
+    <EmbeddedResource Include="Personal\Datos\frmPersonalFuncionCRUD.resx">
       <DependentUpon>frmPersonalFuncionCRUD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personal\frmPersonalInasistenciaCRUD.resx">
+    <EmbeddedResource Include="Personal\Inasistencias\frmPersonalInasistenciaCRUD.resx">
       <DependentUpon>frmPersonalInasistenciaCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Personal\frmPersonalListado.resx">
       <DependentUpon>frmPersonalListado.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personal\frmPersonalCRUD.resx">
+    <EmbeddedResource Include="Personal\Datos\frmPersonalCRUD.resx">
       <DependentUpon>frmPersonalCRUD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personal\frmPersonalTelefonoCRUD.resx">
+    <EmbeddedResource Include="Personal\Datos\frmPersonalTelefonoCRUD.resx">
       <DependentUpon>frmPersonalTelefonoCRUD.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Personal\frmPersonalTituloCRUD.resx">
+    <EmbeddedResource Include="Personal\Datos\frmPersonalTituloCRUD.resx">
       <DependentUpon>frmPersonalTituloCRUD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

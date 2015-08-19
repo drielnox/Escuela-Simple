@@ -59,10 +59,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapeo\EntityFramework\InasistenciaConfiguracion.cs" />
-    <Compile Include="Mapeo\EntityFramework\PersonalConfiguracion.cs" />
-    <Compile Include="Mapeo\EntityFramework\TelefonoConfiguracion.cs" />
-    <Compile Include="Mapeo\EntityFramework\TipoTelefonoConfiguracion.cs" />
+    <Compile Include="Mapeo\EntityFramework\CargoTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\FuncionTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\InasistenciaTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\PersonalTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\SituacionRevistaTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\TareaTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\TelefonoTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\TipoTelefonoTypeConfiguration.cs" />
+    <Compile Include="Mapeo\EntityFramework\TituloTypeConfiguration.cs" />
     <Compile Include="Mapeo\NHibernate\CargoMap.cs" />
     <Compile Include="Mapeo\NHibernate\FuncionMap.cs" />
     <Compile Include="Mapeo\NHibernate\InasistenciaMap.cs" />
@@ -72,7 +77,6 @@
     <Compile Include="Mapeo\NHibernate\TelefonoMap.cs" />
     <Compile Include="Mapeo\NHibernate\TipoTelefonoMap.cs" />
     <Compile Include="Mapeo\NHibernate\TituloMap.cs" />
-    <Compile Include="MySQLConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

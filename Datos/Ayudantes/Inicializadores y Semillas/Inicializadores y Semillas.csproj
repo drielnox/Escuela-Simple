@@ -51,17 +51,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inicializadores\MySQLInitializer.cs" />
+    <Compile Include="Inicializadores\DebugInitializer.cs" />
+    <Compile Include="Inicializadores\ReleaseInitializer.cs" />
+    <Compile Include="Inicializadores\TestInitializer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Semillas\TipoTelefonoSemilla.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Semillas\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Aplicación\Entidades\Dominio\Dominio.csproj">
+      <Project>{031bfd86-f311-41c2-bc9a-f625a39cb84f}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Acceso\Unidades de trabajo\Unidades de trabajo.csproj">
       <Project>{9fa63c8b-bd4b-427e-afe5-6156643fa748}</Project>
       <Name>Unidades de trabajo</Name>

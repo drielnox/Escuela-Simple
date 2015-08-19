@@ -77,8 +77,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Envoltorios", "Datos\Ayudan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Configuraciones", "Datos\Utilitarios\Configuraciones\Configuraciones.csproj", "{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inicializadores y Semillas", "Datos\Ayudantes\Inicializadores y Semillas\Inicializadores y Semillas.csproj", "{B367B2ED-8691-4E59-B880-DDB0ED730186}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DB8337A3-AE9F-4A49-9D85-AAA56F64838C}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -196,16 +194,6 @@ Global
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B}.Release|x86.ActiveCfg = Release|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{B367B2ED-8691-4E59-B880-DDB0ED730186}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -236,7 +224,6 @@ Global
 		{9FA63C8B-BD4B-427E-AFE5-6156643FA748} = {540A6441-A353-4E0B-890A-21FDD7E7B5AA}
 		{FF705CA9-30E3-4912-9727-E6C546FEE08E} = {38D5F970-9556-4A96-A9A4-7EDD6C197974}
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B} = {38D5F970-9556-4A96-A9A4-7EDD6C197974}
-		{B367B2ED-8691-4E59-B880-DDB0ED730186} = {38D5F970-9556-4A96-A9A4-7EDD6C197974}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

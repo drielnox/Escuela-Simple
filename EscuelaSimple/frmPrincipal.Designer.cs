@@ -35,6 +35,8 @@
             this.tsmiPersonal = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.tsmiInicializar = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiDatosPersonal = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmiInasistenciasPersonal = new System.Windows.Forms.ToolStripMenuItem();
             this.msPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +63,7 @@
             // 
             // tsmiImportar
             // 
-            this.tsmiImportar.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.import;
+            this.tsmiImportar.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources.import;
             this.tsmiImportar.Name = "tsmiImportar";
             this.tsmiImportar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.tsmiImportar.Size = new System.Drawing.Size(157, 22);
@@ -70,7 +72,7 @@
             // 
             // tsmiExportar
             // 
-            this.tsmiExportar.Image = global::EscuelaSimple.InterfazDeUsuario.Properties.Resources.export_16x16;
+            this.tsmiExportar.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources.export_16x16;
             this.tsmiExportar.Name = "tsmiExportar";
             this.tsmiExportar.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
             this.tsmiExportar.Size = new System.Drawing.Size(157, 22);
@@ -79,10 +81,12 @@
             // 
             // tsmiPersonal
             // 
+            this.tsmiPersonal.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmiDatosPersonal,
+            this.tsmiInasistenciasPersonal});
             this.tsmiPersonal.Name = "tsmiPersonal";
             this.tsmiPersonal.Size = new System.Drawing.Size(64, 20);
             this.tsmiPersonal.Text = "Personal";
-            this.tsmiPersonal.Click += new System.EventHandler(this.tsmiPersonal_Click);
             // 
             // tsmiAyuda
             // 
@@ -97,7 +101,20 @@
             this.tsmiInicializar.Name = "tsmiInicializar";
             this.tsmiInicializar.Size = new System.Drawing.Size(152, 22);
             this.tsmiInicializar.Text = "Inicializar";
-            this.tsmiInicializar.Click += new System.EventHandler(this.tsmiInicializar_Click);
+            // 
+            // tsmiDatosPersonal
+            // 
+            this.tsmiDatosPersonal.Name = "tsmiDatosPersonal";
+            this.tsmiDatosPersonal.Size = new System.Drawing.Size(152, 22);
+            this.tsmiDatosPersonal.Text = "Datos";
+            this.tsmiDatosPersonal.Click += new System.EventHandler(this.tsmiDatosPersonal_Click);
+            // 
+            // tsmiInasistenciasPersonal
+            // 
+            this.tsmiInasistenciasPersonal.Name = "tsmiInasistenciasPersonal";
+            this.tsmiInasistenciasPersonal.Size = new System.Drawing.Size(152, 22);
+            this.tsmiInasistenciasPersonal.Text = "Inasistencias";
+            this.tsmiInasistenciasPersonal.Click += new System.EventHandler(this.tsmiInasistenciasPersonal_Click);
             // 
             // frmPrincipal
             // 
@@ -125,6 +142,8 @@
         private System.Windows.Forms.ToolStripMenuItem tsmiExportar;
         private System.Windows.Forms.ToolStripMenuItem tsmiAyuda;
         private System.Windows.Forms.ToolStripMenuItem tsmiInicializar;
+        private System.Windows.Forms.ToolStripMenuItem tsmiDatosPersonal;
+        private System.Windows.Forms.ToolStripMenuItem tsmiInasistenciasPersonal;
     }
 }
 
