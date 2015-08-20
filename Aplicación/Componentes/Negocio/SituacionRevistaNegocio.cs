@@ -1,8 +1,6 @@
 ﻿using EscuelaSimple.Aplicacion.Entidades;
 using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo;
 using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
-using EscuelaSimple.Datos.Ayudantes.Envoltorios;
-using EscuelaSimple.Datos.Repositorio.NHibernate;
 using System;
 using System.Collections.Generic;
 
@@ -13,28 +11,32 @@ namespace EscuelaSimple.Aplicacion.Componentes.Negocio
 
         #region Atributos
 
-        private IUnidadDeTrabajo _unidadDeTrabajo;
-        private ISituacionRevistaRepositorio _repositorio;
+        //private IUnidadDeTrabajo _unidadDeTrabajo;
+        //private ISituacionRevistaRepositorio _repositorio;
 
         #endregion
 
         public SituacionRevistaNegocio()
         {
-            this._unidadDeTrabajo = new NHibernateUnidadDeTrabajo(NHibernateWrapper.SesionActual);
-            this._repositorio = new SituacionRevistaRepositorio(NHibernateWrapper.SesionActual);
+            //this._unidadDeTrabajo = new NHibernateUnidadDeTrabajo(NHibernateWrapper.SesionActual);
+            //this._repositorio = new SituacionRevistaRepositorio(NHibernateWrapper.SesionActual);
         }
 
         public IEnumerable<SituacionRevista> ObtenerSituacionesRevista()
         {
+            List<SituacionRevista> situacionesRevista = new List<SituacionRevista>();
+
             try
             {
-                IEnumerable<SituacionRevista> situacionesRevista = this._repositorio.ObtenerTodo();
-                return situacionesRevista;
+                //IEnumerable<SituacionRevista> situacionesRevista = this._repositorio.ObtenerTodo();
+
             }
             catch (Exception ex)
             {
                 throw ex;
             }
+
+            return situacionesRevista;
         }
     }
 }

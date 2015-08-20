@@ -9,10 +9,10 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Funcion : Entidad<int, Funcion>
     {
-        public Tarea Tarea { get; set; }
+        public virtual Tarea Tarea { get; set; }
         public DateTime TomaDePosesion { get; set; }
         public DateTime? CeseDePosesion { get; set; }
-        public SituacionRevista SituacionDeRevista { get; set; }
+        public virtual SituacionRevista SituacionDeRevista { get; set; }
         public string Observacion { get; set; }
 
         public Funcion()

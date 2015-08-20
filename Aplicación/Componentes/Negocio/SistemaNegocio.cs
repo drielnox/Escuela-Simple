@@ -1,17 +1,15 @@
-﻿using EscuelaSimple.Datos.Ayudantes.Envoltorios;
-
-namespace EscuelaSimple.Aplicacion.Componentes.Negocio
+﻿namespace EscuelaSimple.Aplicacion.Componentes.Negocio
 {
     public class SistemaNegocio
     {
         public void ValidarEsquema()
         {
-            NHibernateWrapper.ValidateSchema();
+            //NHibernateWrapper.ValidateSchema();
         }
 
         public void CrearBaseDeDatos()
         {
-            NHibernateWrapper.CreateDabataseSchema();
+            //NHibernateWrapper.CreateDabataseSchema();
         }
 
         public void InstarDatosEjemplo()

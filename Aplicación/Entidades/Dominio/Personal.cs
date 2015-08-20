@@ -9,19 +9,19 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Personal : Entidad<int, Personal>
     {
-        public virtual string Nombre { get; set; }
-        public virtual string Apellido { get; set; }
-        public virtual int DNI { get; set; }
-        public virtual DateTime FechaNacimiento { get; set; }
-        public virtual string Domicilio { get; set; }
-        public virtual string Barrio { get; set; }
-        public virtual string Localidad { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public int DNI { get; set; }
+        public DateTime FechaNacimiento { get; set; }
+        public string Domicilio { get; set; }
+        public string Barrio { get; set; }
+        public string Localidad { get; set; }
         public virtual ICollection<Telefono> Telefonos { get; protected set; }
-        public virtual DateTime? IngresoDocencia { get; set; }
-        public virtual DateTime? IngresoEstablecimiento { get; set; }
+        public DateTime? IngresoDocencia { get; set; }
+        public DateTime? IngresoEstablecimiento { get; set; }
         public virtual ICollection<Titulo> Titulos { get; protected set; }
         public virtual ICollection<Cargo> Cargos { get; protected set; }
-        public virtual string Observacion { get; set; }
+        public string Observacion { get; set; }
         public virtual ICollection<Inasistencia> Inasistencias { get; protected set; }
 
         public Personal()

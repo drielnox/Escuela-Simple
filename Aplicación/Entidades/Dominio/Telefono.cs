@@ -8,7 +8,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Telefono : Entidad<int, Telefono>
     {
-        public TipoTelefono Tipo { get; set; }
+        public virtual TipoTelefono Tipo { get; set; }
         public int Numero { get; set; }
 
         public override bool Equals(Telefono other)

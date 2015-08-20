@@ -27,8 +27,7 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=C:\\Users\\Pablo\\Source\\Repos\\EscuelaS" +
-            "imple\\Datos\\db.mdf;Integrated Security=True;Asynchronous Processing=True;Connect" +
-            " Timeout=30")]
+            "imple\\Datos\\db.mdf;Integrated Security=True")]
         public string LocalDB {
             get {
                 return ((string)(this["LocalDB"]));

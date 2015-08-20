@@ -84,6 +84,20 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{DB8337
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Guiones de base de datos", "Guiones de base de datos", "{FE03D17D-CC17-4135-9287-32B8553AD0D9}"
+	ProjectSection(SolutionItems) = preProject
+		Cargo.sql = Cargo.sql
+		Claves foraneas.sql = Claves foraneas.sql
+		Funcion.sql = Funcion.sql
+		Inasistencia.sql = Inasistencia.sql
+		Personal.sql = Personal.sql
+		SituacionRevista.sql = SituacionRevista.sql
+		Tarea.sql = Tarea.sql
+		Telefono.sql = Telefono.sql
+		TipoTelefono.sql = TipoTelefono.sql
+		Titulo.sql = Titulo.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -224,6 +238,7 @@ Global
 		{9FA63C8B-BD4B-427E-AFE5-6156643FA748} = {540A6441-A353-4E0B-890A-21FDD7E7B5AA}
 		{FF705CA9-30E3-4912-9727-E6C546FEE08E} = {38D5F970-9556-4A96-A9A4-7EDD6C197974}
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B} = {38D5F970-9556-4A96-A9A4-7EDD6C197974}
+		{FE03D17D-CC17-4135-9287-32B8553AD0D9} = {52A0F710-07CC-4619-9BCF-822B1076C438}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True
