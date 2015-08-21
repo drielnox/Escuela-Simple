@@ -28,10 +28,15 @@ namespace EscuelaSimple.Datos.Utilitarios.Configuraciones.Mapeo.EntityFramework
                 .IsOptional();
             Property(x => x.Observacion)
                 .HasColumnName("Observacion")
-                .IsOptional();
+                .IsOptional()
+                .HasMaxLength(255);
 
-            HasRequired<Tarea>(x => x.Tarea);
-            HasRequired<SituacionRevista>(x => x.SituacionDeRevista);
+            HasRequired<Tarea>(x => x.Tarea)
+                .WithRequiredPrincipal()
+                .Map(x => x.MapKey("Tarea"));
+            HasRequired<SituacionRevista>(x => x.SituacionDeRevista)
+                .WithRequiredPrincipal()
+                .Map(x => x.MapKey("SituacionRevista"));
         }
     }
 }

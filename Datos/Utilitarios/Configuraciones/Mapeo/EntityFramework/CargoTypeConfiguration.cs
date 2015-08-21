@@ -24,7 +24,8 @@ namespace EscuelaSimple.Datos.Utilitarios.Configuraciones.Mapeo.EntityFramework
                 .HasColumnName("Secuencia")
                 .IsRequired();
 
-            HasMany<Funcion>(x => x.Funciones);
+            HasMany<Funcion>(x => x.Funciones)
+                .WithRequired();
         }
     }
 }

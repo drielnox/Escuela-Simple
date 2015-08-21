@@ -15,29 +15,51 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
             HasKey<int>(x => x.Identificador);
 
             Property<int>(x => x.Identificador)
+                .HasColumnName("IdPersonal")
+                .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             Property(x => x.Nombre)
-                .IsRequired();
+                .HasColumnName("Nombre")
+                .IsRequired()
+                .HasMaxLength(255);
             Property(x => x.Apellido)
-                .IsRequired();
+                .HasColumnName("Apellido")
+                .IsRequired()
+                .HasMaxLength(255);
             Property<int>(x => x.DNI)
+                .HasColumnName("DNI")
                 .IsRequired()
                 .HasColumnAnnotation("UK_Personal_DNI_1", new IndexAnnotation(new IndexAttribute() { IsUnique = true }));
             Property<DateTime>(x => x.FechaNacimiento)
+                .HasColumnName("FechaNacimiento")
                 .IsRequired();
             Property(x => x.Domicilio)
-                .IsOptional();
+                .HasColumnName("Domicilio")
+                .IsOptional()
+                .HasMaxLength(255);
+            Property(x => x.Barrio)
+                .HasColumnName("Barrio")
+                .IsOptional()
+                .HasMaxLength(255);
             Property(x => x.Localidad)
-                .IsOptional();
+                .HasColumnName("Localidad")
+                .IsOptional()
+                .HasMaxLength(255);
             Property<DateTime>(x => x.IngresoDocencia)
+                .HasColumnName("IngresoDocencia")
                 .IsOptional();
             Property<DateTime>(x => x.IngresoEstablecimiento)
+                .HasColumnName("IngresoEstablecimiento")
                 .IsOptional();
             Property(x => x.Observacion)
-                .IsOptional();
+                .HasColumnName("Observacion")
+                .IsOptional()
+                .HasMaxLength(255);
 
-            HasMany<Telefono>(x => x.Telefonos);
-            HasMany<Inasistencia>(x => x.Inasistencias);
+            HasMany<Telefono>(x => x.Telefonos)
+                .WithOptional();
+            HasMany<Inasistencia>(x => x.Inasistencias)
+                .WithOptional();
             HasMany<Titulo>(x => x.Titulos)
                 .WithOptional();
             HasMany<Cargo>(x => x.Cargos)

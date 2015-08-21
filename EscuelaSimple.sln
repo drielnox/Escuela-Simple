@@ -98,6 +98,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Guiones de base de datos", 
 		Titulo.sql = Titulo.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnidadesDeTrabajo.Pruebas", "Datos\Acceso\UnidadesDeTrabajo.Pruebas\UnidadesDeTrabajo.Pruebas.csproj", "{17F667EE-3823-476F-9A6E-39E908401C98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -208,6 +210,16 @@ Global
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B}.Release|x86.ActiveCfg = Release|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{17F667EE-3823-476F-9A6E-39E908401C98}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -239,6 +251,7 @@ Global
 		{FF705CA9-30E3-4912-9727-E6C546FEE08E} = {38D5F970-9556-4A96-A9A4-7EDD6C197974}
 		{0E2A13ED-FFE7-4B73-A1CA-F59DD64F360B} = {38D5F970-9556-4A96-A9A4-7EDD6C197974}
 		{FE03D17D-CC17-4135-9287-32B8553AD0D9} = {52A0F710-07CC-4619-9BCF-822B1076C438}
+		{17F667EE-3823-476F-9A6E-39E908401C98} = {540A6441-A353-4E0B-890A-21FDD7E7B5AA}
 	EndGlobalSection
 	GlobalSection(SubversionScc) = preSolution
 		Svn-Managed = True

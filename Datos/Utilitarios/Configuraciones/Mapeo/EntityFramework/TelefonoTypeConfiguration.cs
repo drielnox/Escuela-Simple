@@ -21,7 +21,9 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
                 .IsRequired();
 
             HasRequired<TipoTelefono>(x => x.Tipo)
-                .WithRequiredDependent();
+                .WithRequiredDependent()
+                .Map(x => x.MapKey("Tipo"))
+                .WillCascadeOnDelete(false);
         }
     }
 }
