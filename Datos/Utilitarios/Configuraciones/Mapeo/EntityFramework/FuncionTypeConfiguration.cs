@@ -32,10 +32,10 @@ namespace EscuelaSimple.Datos.Utilitarios.Configuraciones.Mapeo.EntityFramework
                 .HasMaxLength(255);
 
             HasRequired<Tarea>(x => x.Tarea)
-                .WithRequiredPrincipal()
+                .WithRequiredDependent()
                 .Map(x => x.MapKey("Tarea"));
             HasRequired<SituacionRevista>(x => x.SituacionDeRevista)
-                .WithRequiredPrincipal()
+                .WithRequiredDependent()
                 .Map(x => x.MapKey("SituacionRevista"));
         }
     }

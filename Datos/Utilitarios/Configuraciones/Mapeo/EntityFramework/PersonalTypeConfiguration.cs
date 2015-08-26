@@ -57,13 +57,17 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
                 .HasMaxLength(255);
 
             HasMany<Telefono>(x => x.Telefonos)
-                .WithOptional();
+                .WithOptional()
+                .Map(x => x.MapKey("IdPersonal"));
             HasMany<Inasistencia>(x => x.Inasistencias)
-                .WithOptional();
+                .WithOptional()
+                .Map(x => x.MapKey("IdPersonal"));
             HasMany<Titulo>(x => x.Titulos)
-                .WithOptional();
+                .WithOptional()
+                .Map(x => x.MapKey("IdPersonal"));
             HasMany<Cargo>(x => x.Cargos)
-                .WithOptional();
+                .WithOptional()
+                .Map(x => x.MapKey("IdPersonal"));
         }
     }
 }

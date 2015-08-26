@@ -9,7 +9,7 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.EscuelaSimpleContext context)

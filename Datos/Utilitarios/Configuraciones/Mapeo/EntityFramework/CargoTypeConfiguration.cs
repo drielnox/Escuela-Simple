@@ -25,7 +25,8 @@ namespace EscuelaSimple.Datos.Utilitarios.Configuraciones.Mapeo.EntityFramework
                 .IsRequired();
 
             HasMany<Funcion>(x => x.Funciones)
-                .WithRequired();
+                .WithRequired()
+                .Map(x => x.MapKey("IdCargo"));
         }
     }
 }
