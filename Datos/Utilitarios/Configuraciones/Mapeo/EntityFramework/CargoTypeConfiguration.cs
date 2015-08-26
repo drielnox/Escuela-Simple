@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 using System.Linq;
 using System.Text;
@@ -26,7 +27,11 @@ namespace EscuelaSimple.Datos.Utilitarios.Configuraciones.Mapeo.EntityFramework
 
             HasMany<Funcion>(x => x.Funciones)
                 .WithRequired()
-                .Map(x => x.MapKey("IdCargo"));
+                .Map(x =>
+                {
+                    x.MapKey("IdCargo");
+                    x.HasColumnAnnotation("IdCargo", "FK_Cargo_Funcion_1", new IndexAnnotation(new IndexAttribute() { IsUnique = true }));
+                });
         }
     }
 }

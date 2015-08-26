@@ -1,5 +1,6 @@
 ﻿using EscuelaSimple.Aplicacion.Entidades;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity.Infrastructure.Annotations;
 using System.Data.Entity.ModelConfiguration;
 
 namespace EscuelaSimple.Datos.Mapeo.EntityFramework
@@ -22,8 +23,11 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
 
             HasRequired<TipoTelefono>(x => x.Tipo)
                 .WithRequiredDependent()
-                .Map(x => x.MapKey("Tipo"))
-                .WillCascadeOnDelete(false);
+                .Map(x =>
+                {
+                    x.MapKey("Tipo");
+                    x.HasColumnAnnotation("Tipo", "FK_Telefono_TipoTelefono_1", new IndexAnnotation(new IndexAttribute() { IsUnique = true }));
+                });
         }
     }
 }

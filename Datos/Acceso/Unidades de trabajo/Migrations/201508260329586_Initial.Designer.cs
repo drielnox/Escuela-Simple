@@ -13,7 +13,7 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201508260104446_Initial"; }
+            get { return "201508260329586_Initial"; }
         }
         
         string IMigrationMetadata.Source
