@@ -17,6 +17,9 @@ namespace EscuelaSimple.Datos.Utilitarios.Configuraciones.Mapeo.EntityFramework
                 .HasColumnName("IdInasistencia")
                 .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property<int>(x => x.IdPersonal)
+                .HasColumnName("IdPersonal")
+                .IsRequired();
             Property(x => x.Motivo)
                 .HasColumnName("Articulo")
                 .IsRequired()

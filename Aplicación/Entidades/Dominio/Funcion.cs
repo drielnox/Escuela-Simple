@@ -1,25 +1,27 @@
-﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
-using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Funcion : Entidad<int, Funcion>
     {
+        #region Propiedades
+
         public virtual Tarea Tarea { get; set; }
         public DateTime TomaDePosesion { get; set; }
         public DateTime? CeseDePosesion { get; set; }
         public virtual SituacionRevista SituacionDeRevista { get; set; }
         public string Observacion { get; set; }
 
-        public Funcion()
-        {
+        #region Propiedades de Navegacion
 
-        }
+        public int IdCargo { get; set; }
+        public Cargo CargoAsociado { get; set; }
 
+        #endregion
+
+        #endregion
+        
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -34,11 +36,11 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(obj) &&
-                this.Tarea.Equals(funcion.Tarea) &&
-                this.TomaDePosesion.Equals(funcion.TomaDePosesion) &&
-                this.CeseDePosesion.Equals(funcion.CeseDePosesion) &&
-                this.SituacionDeRevista.Equals(funcion.SituacionDeRevista) &&
-                this.Observacion.Equals(funcion.Observacion);
+                Tarea.Equals(funcion.Tarea) &&
+                TomaDePosesion.Equals(funcion.TomaDePosesion) &&
+                CeseDePosesion.Equals(funcion.CeseDePosesion) &&
+                SituacionDeRevista.Equals(funcion.SituacionDeRevista) &&
+                Observacion.Equals(funcion.Observacion);
         }
 
         public override bool Equals(Funcion other)
@@ -49,21 +51,21 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(other) &&
-                this.Tarea.Equals(other.Tarea) &&
-                this.TomaDePosesion.Equals(other.TomaDePosesion) &&
-                this.CeseDePosesion.Equals(other.CeseDePosesion) &&
-                this.SituacionDeRevista.Equals(other.SituacionDeRevista) &&
-                this.Observacion.Equals(other.Observacion);
+                Tarea.Equals(other.Tarea) &&
+                TomaDePosesion.Equals(other.TomaDePosesion) &&
+                CeseDePosesion.Equals(other.CeseDePosesion) &&
+                SituacionDeRevista.Equals(other.SituacionDeRevista) &&
+                Observacion.Equals(other.Observacion);
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode() ^
-                this.Tarea.GetHashCode() ^
-                this.TomaDePosesion.GetHashCode() ^
-                this.CeseDePosesion.GetHashCode() ^
-                this.SituacionDeRevista.GetHashCode() ^
-                this.Observacion.GetHashCode();
+                Tarea.GetHashCode() ^
+                TomaDePosesion.GetHashCode() ^
+                CeseDePosesion.GetHashCode() ^
+                SituacionDeRevista.GetHashCode() ^
+                Observacion.GetHashCode();
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Xml.Serialization;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {

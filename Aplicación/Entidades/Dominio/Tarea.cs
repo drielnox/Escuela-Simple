@@ -1,22 +1,22 @@
-﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
-using EscuelaSimple.Aplicacion.Entidades.TiposBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Tarea : Entidad<int, Tarea>
     {
+        #region Propiedades
+
         public string Abreviacion { get; set; }
         public string Descripcion { get; set; }
 
-        public Tarea()
-        {
+        #region Propiedades de Navegacion
 
-        }
+        public Funcion FuncionAsociada { get; set; }
 
+        #endregion
+
+        #endregion
+        
         public override bool Equals(Tarea other)
         {
             if (other == null)
@@ -25,8 +25,8 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(other) &&
-                this.Abreviacion.Equals(other.Abreviacion) &&
-                this.Descripcion.Equals(other.Descripcion);
+                Abreviacion.Equals(other.Abreviacion) &&
+                Descripcion.Equals(other.Descripcion);
         }
 
         public override bool Equals(object obj)
@@ -43,15 +43,15 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(obj) &&
-                this.Abreviacion.Equals(tarea.Abreviacion) &&
-                this.Descripcion.Equals(tarea.Descripcion);
+                Abreviacion.Equals(tarea.Abreviacion) &&
+                Descripcion.Equals(tarea.Descripcion);
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode() ^
-                this.Abreviacion.GetHashCode() ^
-                this.Descripcion.GetHashCode();
+                Abreviacion.GetHashCode() ^
+                Descripcion.GetHashCode();
         }
     }
 }

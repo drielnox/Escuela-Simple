@@ -5,7 +5,7 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
     using System.Data.Entity.Infrastructure.Annotations;
     using System.Data.Entity.Migrations;
     
-    public partial class Initial : DbMigration
+    public partial class Inicial : DbMigration
     {
         public override void Up()
         {
@@ -15,10 +15,10 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
                     {
                         IdCargo = c.Int(nullable: false, identity: true),
                         Secuencia = c.Byte(nullable: false),
-                        IdPersonal = c.Int(),
+                        IdPersonal = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdCargo)
-                .ForeignKey("dbo.Personal", t => t.IdPersonal)
+                .ForeignKey("dbo.Personal", t => t.IdPersonal, cascadeDelete: true)
                 .Index(t => t.IdPersonal);
             
             CreateTable(
@@ -29,37 +29,13 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
                         Toma = c.DateTime(nullable: false),
                         Cese = c.DateTime(),
                         Observacion = c.String(maxLength: 255),
-                        SituacionRevista = c.Int(nullable: false,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "FK_Funcion_SituacionRevista_1",
-                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { IsUnique: True }")
-                                },
-                            }),
-                        Tarea = c.Int(nullable: false,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "FK_Funcion_Tarea_1",
-                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { IsUnique: True }")
-                                },
-                            }),
-                        IdCargo = c.Int(nullable: false,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "FK_Cargo_Funcion_1",
-                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { IsUnique: True }")
-                                },
-                            }),
+                        IdCargo = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdFuncion)
-                .ForeignKey("dbo.SituacionRevista", t => t.SituacionRevista)
-                .ForeignKey("dbo.Tarea", t => t.Tarea)
+                .ForeignKey("dbo.SituacionRevista", t => t.IdFuncion)
+                .ForeignKey("dbo.Tarea", t => t.IdFuncion)
                 .ForeignKey("dbo.Cargo", t => t.IdCargo, cascadeDelete: true)
-                .Index(t => t.SituacionRevista)
-                .Index(t => t.Tarea)
+                .Index(t => t.IdFuncion)
                 .Index(t => t.IdCargo);
             
             CreateTable(
@@ -81,20 +57,6 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
                         Descripcion = c.String(maxLength: 255),
                     })
                 .PrimaryKey(t => t.IdTarea);
-            
-            CreateTable(
-                "dbo.Inasistencia",
-                c => new
-                    {
-                        IdInasistencia = c.Int(nullable: false, identity: true),
-                        Articulo = c.String(nullable: false, maxLength: 255),
-                        Desde = c.DateTime(nullable: false),
-                        Hasta = c.DateTime(nullable: false),
-                        IdPersonal = c.Int(),
-                    })
-                .PrimaryKey(t => t.IdInasistencia)
-                .ForeignKey("dbo.Personal", t => t.IdPersonal)
-                .Index(t => t.IdPersonal);
             
             CreateTable(
                 "dbo.Personal",
@@ -122,25 +84,31 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
                 .PrimaryKey(t => t.IdPersonal);
             
             CreateTable(
+                "dbo.Inasistencia",
+                c => new
+                    {
+                        IdInasistencia = c.Int(nullable: false, identity: true),
+                        Articulo = c.String(nullable: false, maxLength: 255),
+                        Desde = c.DateTime(nullable: false),
+                        Hasta = c.DateTime(nullable: false),
+                        IdPersonal = c.Int(nullable: false),
+                    })
+                .PrimaryKey(t => t.IdInasistencia)
+                .ForeignKey("dbo.Personal", t => t.IdPersonal, cascadeDelete: true)
+                .Index(t => t.IdPersonal);
+            
+            CreateTable(
                 "dbo.Telefono",
                 c => new
                     {
                         IdTelefono = c.Int(nullable: false, identity: true),
                         Numero = c.Int(nullable: false),
-                        Tipo = c.Int(nullable: false,
-                            annotations: new Dictionary<string, AnnotationValues>
-                            {
-                                { 
-                                    "FK_Telefono_TipoTelefono_1",
-                                    new AnnotationValues(oldValue: null, newValue: "IndexAnnotation: { IsUnique: True }")
-                                },
-                            }),
-                        IdPersonal = c.Int(),
+                        IdPersonal = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdTelefono)
-                .ForeignKey("dbo.TipoTelefono", t => t.Tipo)
-                .ForeignKey("dbo.Personal", t => t.IdPersonal)
-                .Index(t => t.Tipo)
+                .ForeignKey("dbo.TipoTelefono", t => t.IdTelefono)
+                .ForeignKey("dbo.Personal", t => t.IdPersonal, cascadeDelete: true)
+                .Index(t => t.IdTelefono)
                 .Index(t => t.IdPersonal);
             
             CreateTable(
@@ -158,10 +126,10 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
                     {
                         IdTitulo = c.Int(nullable: false, identity: true),
                         Titulo = c.String(nullable: false, maxLength: 255),
-                        IdPersonal = c.Int(),
+                        IdPersonal = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.IdTitulo)
-                .ForeignKey("dbo.Personal", t => t.IdPersonal)
+                .ForeignKey("dbo.Personal", t => t.IdPersonal, cascadeDelete: true)
                 .Index(t => t.IdPersonal);
             
         }
@@ -170,33 +138,23 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
         {
             DropForeignKey("dbo.Titulo", "IdPersonal", "dbo.Personal");
             DropForeignKey("dbo.Telefono", "IdPersonal", "dbo.Personal");
-            DropForeignKey("dbo.Telefono", "Tipo", "dbo.TipoTelefono");
+            DropForeignKey("dbo.Telefono", "IdTelefono", "dbo.TipoTelefono");
             DropForeignKey("dbo.Inasistencia", "IdPersonal", "dbo.Personal");
             DropForeignKey("dbo.Cargo", "IdPersonal", "dbo.Personal");
             DropForeignKey("dbo.Funcion", "IdCargo", "dbo.Cargo");
-            DropForeignKey("dbo.Funcion", "Tarea", "dbo.Tarea");
-            DropForeignKey("dbo.Funcion", "SituacionRevista", "dbo.SituacionRevista");
+            DropForeignKey("dbo.Funcion", "IdFuncion", "dbo.Tarea");
+            DropForeignKey("dbo.Funcion", "IdFuncion", "dbo.SituacionRevista");
             DropIndex("dbo.Titulo", new[] { "IdPersonal" });
             DropIndex("dbo.Telefono", new[] { "IdPersonal" });
-            DropIndex("dbo.Telefono", new[] { "Tipo" });
+            DropIndex("dbo.Telefono", new[] { "IdTelefono" });
             DropIndex("dbo.Inasistencia", new[] { "IdPersonal" });
             DropIndex("dbo.Funcion", new[] { "IdCargo" });
-            DropIndex("dbo.Funcion", new[] { "Tarea" });
-            DropIndex("dbo.Funcion", new[] { "SituacionRevista" });
+            DropIndex("dbo.Funcion", new[] { "IdFuncion" });
             DropIndex("dbo.Cargo", new[] { "IdPersonal" });
             DropTable("dbo.Titulo");
             DropTable("dbo.TipoTelefono");
-            DropTable("dbo.Telefono",
-                removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
-                {
-                    {
-                        "Tipo",
-                        new Dictionary<string, object>
-                        {
-                            { "FK_Telefono_TipoTelefono_1", "IndexAnnotation: { IsUnique: True }" },
-                        }
-                    },
-                });
+            DropTable("dbo.Telefono");
+            DropTable("dbo.Inasistencia");
             DropTable("dbo.Personal",
                 removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
                 {
@@ -208,34 +166,9 @@ namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
                         }
                     },
                 });
-            DropTable("dbo.Inasistencia");
             DropTable("dbo.Tarea");
             DropTable("dbo.SituacionRevista");
-            DropTable("dbo.Funcion",
-                removedColumnAnnotations: new Dictionary<string, IDictionary<string, object>>
-                {
-                    {
-                        "IdCargo",
-                        new Dictionary<string, object>
-                        {
-                            { "FK_Cargo_Funcion_1", "IndexAnnotation: { IsUnique: True }" },
-                        }
-                    },
-                    {
-                        "SituacionRevista",
-                        new Dictionary<string, object>
-                        {
-                            { "FK_Funcion_SituacionRevista_1", "IndexAnnotation: { IsUnique: True }" },
-                        }
-                    },
-                    {
-                        "Tarea",
-                        new Dictionary<string, object>
-                        {
-                            { "FK_Funcion_Tarea_1", "IndexAnnotation: { IsUnique: True }" },
-                        }
-                    },
-                });
+            DropTable("dbo.Funcion");
             DropTable("dbo.Cargo");
         }
     }

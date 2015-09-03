@@ -1,21 +1,22 @@
-﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
-using EscuelaSimple.Aplicacion.Entidades.TiposBase;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Titulo : Entidad<int, Titulo>
     {
+        #region Propiedades
+
         public string Descripcion { get; set; }
 
-        public Titulo()
-        {
+        #region Propiedades de Navegacion
 
-        }
+        public int IdPersonal { get; set; }
+        public Personal PersonalAsociado { get; set; }
 
+        #endregion
+
+        #endregion
+        
         public override bool Equals(object obj)
         {
             if (obj == null || GetType() != obj.GetType())
@@ -30,7 +31,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(obj) &&
-                this.Descripcion.Equals(titulo.Descripcion);
+                Descripcion.Equals(titulo.Descripcion);
         }
 
         public override bool Equals(Titulo other)
@@ -41,13 +42,13 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(other) &&
-                this.Descripcion.Equals(other.Descripcion);
+                Descripcion.Equals(other.Descripcion);
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode() ^
-                this.Descripcion.GetHashCode();
+                Descripcion.GetHashCode();
         }
     }
 }

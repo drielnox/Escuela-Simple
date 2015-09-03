@@ -25,7 +25,7 @@ namespace EscuelaSimple.Datos.Acceso.Repositorios.Pruebas.EntityFramework
 
             using (var contexto = new EscuelaSimpleContext())
             {
-		        resultado = contexto
+                resultado = contexto
                     .TipoTelefono
                     .Where(x => x.Descripcion == "Fax")
                     .First();

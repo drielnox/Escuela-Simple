@@ -62,9 +62,9 @@
     <Compile Include="Inicializadores\DebugInitializer.cs" />
     <Compile Include="Inicializadores\ReleaseInitializer.cs" />
     <Compile Include="Inicializadores\TestInitializer.cs" />
-    <Compile Include="Migrations\201508260329586_Initial.cs" />
-    <Compile Include="Migrations\201508260329586_Initial.Designer.cs">
-      <DependentUpon>201508260329586_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201509030146364_Inicial.cs" />
+    <Compile Include="Migrations\201509030146364_Inicial.Designer.cs">
+      <DependentUpon>201509030146364_Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NHibernateUnidadDeTrabajo.cs" />
@@ -97,8 +97,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508260329586_Initial.resx">
-      <DependentUpon>201508260329586_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201509030146364_Inicial.resx">
+      <DependentUpon>201509030146364_Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

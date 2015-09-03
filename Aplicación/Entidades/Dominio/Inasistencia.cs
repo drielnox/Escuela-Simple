@@ -1,15 +1,24 @@
-﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
-using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 using System;
-using System.Xml.Serialization;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Inasistencia : Entidad<int, Inasistencia>
     {
+        #region Propiedades
+
         public string Motivo { get; set; }
         public DateTime Desde { get; set; }
         public DateTime Hasta { get; set; }
+
+        #region Propiedades de Navegacion
+
+        public int IdPersonal { get; set; }
+        public Personal PersonalAsociado { get; set; }
+
+        #endregion
+
+        #endregion
 
         public override bool Equals(object obj)
         {
@@ -25,9 +34,9 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(obj) &&
-                this.Motivo.Equals(inasistencia.Motivo) &&
-                this.Desde.Equals(inasistencia.Desde) &&
-                this.Hasta.Equals(inasistencia.Hasta);
+                Motivo.Equals(inasistencia.Motivo) &&
+                Desde.Equals(inasistencia.Desde) &&
+                Hasta.Equals(inasistencia.Hasta);
         }
 
         public override bool Equals(Inasistencia other)
@@ -38,17 +47,17 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(other) &&
-                this.Motivo.Equals(other.Motivo) &&
-                this.Desde.Equals(other.Desde) &&
-                this.Hasta.Equals(other.Hasta);
+                Motivo.Equals(other.Motivo) &&
+                Desde.Equals(other.Desde) &&
+                Hasta.Equals(other.Hasta);
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode() ^
-                this.Motivo.GetHashCode() ^
-                this.Desde.GetHashCode() ^
-                this.Hasta.GetHashCode();
+                Motivo.GetHashCode() ^
+                Desde.GetHashCode() ^
+                Hasta.GetHashCode();
         }
     }
 }

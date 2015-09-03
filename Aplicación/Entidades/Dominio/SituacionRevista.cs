@@ -1,22 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-using EscuelaSimple.Aplicacion.Entidades.TiposBase;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class SituacionRevista : Entidad<int, SituacionRevista>
     {
+        #region Propiedades
+
         public string Abreviacion { get; set; }
         public string Descripcion { get; set; }
 
-        public SituacionRevista()
-        {
+        #region Propiedades de Navegacion
 
-        }
+        public Funcion FuncionAsociada { get; set; }
 
+        #endregion
+
+        #endregion
+        
         public override bool Equals(object obj)
         {
             if (obj == null)
@@ -31,8 +31,8 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(obj) &&
-                this.Abreviacion.Equals(situacion.Abreviacion) &&
-                this.Descripcion.Equals(situacion.Descripcion);
+                Abreviacion.Equals(situacion.Abreviacion) &&
+                Descripcion.Equals(situacion.Descripcion);
         }
 
         public override bool Equals(SituacionRevista other)
@@ -43,15 +43,15 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(other) &&
-                this.Abreviacion.Equals(other.Abreviacion) &&
-                this.Descripcion.Equals(other.Descripcion);
+                Abreviacion.Equals(other.Abreviacion) &&
+                Descripcion.Equals(other.Descripcion);
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode() ^
-                this.Abreviacion.GetHashCode() ^
-                this.Descripcion.GetHashCode();
+                Abreviacion.GetHashCode() ^
+                Descripcion.GetHashCode();
         }
     }
 }

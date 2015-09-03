@@ -17,17 +17,15 @@ namespace EscuelaSimple.Datos.Mapeo.EntityFramework
                 .HasColumnName("IdTelefono")
                 .IsRequired()
                 .HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            Property<int>(x => x.IdPersonal)
+                .HasColumnName("IdPersonal")
+                .IsRequired();
             Property<int>(x => x.Numero)
                 .HasColumnName("Numero")
                 .IsRequired();
 
             HasRequired<TipoTelefono>(x => x.Tipo)
-                .WithRequiredDependent()
-                .Map(x =>
-                {
-                    x.MapKey("Tipo");
-                    x.HasColumnAnnotation("Tipo", "FK_Telefono_TipoTelefono_1", new IndexAnnotation(new IndexAttribute() { IsUnique = true }));
-                });
+                .WithRequiredDependent(x => x.TelefonoAsociado);
         }
     }
 }

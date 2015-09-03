@@ -1,14 +1,20 @@
-﻿
-using EscuelaSimple.Aplicacion.Entidades.Contratos;
-using EscuelaSimple.Aplicacion.Entidades.TiposBase;
-using System;
-using System.Xml.Serialization;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class TipoTelefono : Entidad<int, TipoTelefono>
     {
+        #region Propiedades
+
         public string Descripcion { get; set; }
+
+        #region Propiedades de Navegacion
+
+        public Telefono TelefonoAsociado { get; set; }
+
+        #endregion
+
+        #endregion
 
         public override bool Equals(TipoTelefono other)
         {
@@ -18,7 +24,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(other) &&
-                this.Descripcion.Equals(other.Descripcion);
+                Descripcion.Equals(other.Descripcion);
         }
 
         public override bool Equals(object obj)
@@ -35,13 +41,13 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(obj) &&
-                this.Descripcion.Equals(tipo.Descripcion);
+                Descripcion.Equals(tipo.Descripcion);
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode() ^
-                this.Descripcion.GetHashCode();
+                Descripcion.GetHashCode();
         }
     }
 }

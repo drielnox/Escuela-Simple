@@ -1,36 +1,43 @@
-﻿using EscuelaSimple.Aplicacion.Entidades.Contratos;
-using EscuelaSimple.Aplicacion.Entidades.TiposBase;
-using System;
+﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace EscuelaSimple.Aplicacion.Entidades
 {
     public class Cargo : Entidad<int, Cargo>
     {
+        #region Propiedades
+
         public byte Secuencia { get; set; }
         public virtual ICollection<Funcion> Funciones { get; protected set; }
 
+        #region Propiedades de Navegacion
+
+        public int IdPersonal { get; set; }
+        public Personal PersonalAsociado { get; set; }
+
+        #endregion
+
+        #endregion
+        
         public Cargo()
         {
-            this.Secuencia = default(byte);
-            this.Funciones = new List<Funcion>();
+            Secuencia = default(byte);
+            Funciones = new List<Funcion>();
         }
 
         public void AgregarFuncion(Funcion funcion)
         {
-            if (!this.Funciones.Contains(funcion))
+            if (!Funciones.Contains(funcion))
             {
-                this.Funciones.Add(funcion);
+                Funciones.Add(funcion);
             }
         }
 
         public void QuitarFuncion(Funcion funcion)
         {
-            if (this.Funciones.Contains(funcion))
+            if (Funciones.Contains(funcion))
             {
-                this.Funciones.Remove(funcion);
+                Funciones.Remove(funcion);
             }
         }
 
@@ -38,7 +45,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
         {
             string abreviacion = string.Empty;
 
-            foreach (Funcion item in this.Funciones)
+            foreach (Funcion item in Funciones)
             {
                 if (item.SituacionDeRevista.Descripcion == "Titular")
                 {
@@ -54,7 +61,7 @@ namespace EscuelaSimple.Aplicacion.Entidades
         {
             string descripcion = string.Empty;
 
-            foreach (Funcion item in this.Funciones)
+            foreach (Funcion item in Funciones)
             {
                 if (item.SituacionDeRevista.Descripcion == "Titular")
                 {
@@ -74,8 +81,8 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(other) &&
-                this.Secuencia.Equals(other.Secuencia) &&
-                this.Funciones.Equals(other.Funciones);
+                Secuencia.Equals(other.Secuencia) &&
+                Funciones.Equals(other.Funciones);
         }
 
         public override bool Equals(object obj)
@@ -92,20 +99,20 @@ namespace EscuelaSimple.Aplicacion.Entidades
             }
 
             return base.Equals(obj) &&
-                this.Secuencia.Equals(cargo.Secuencia) &&
-                this.Funciones.Equals(cargo.Funciones);
+                Secuencia.Equals(cargo.Secuencia) &&
+                Funciones.Equals(cargo.Funciones);
         }
 
         public override int GetHashCode()
         {
             return base.GetHashCode() ^
-                this.Secuencia.GetHashCode() ^
-                this.Funciones.GetHashCode();
+                Secuencia.GetHashCode() ^
+                Funciones.GetHashCode();
         }
 
         public override string ToString()
         {
-            return "Cargo " + this.Secuencia + " - " + this.ObtenerCargoActualDescripcionLarga();
+            return "Cargo " + Secuencia + " - " + ObtenerCargoActualDescripcionLarga();
         }
     }
 }
