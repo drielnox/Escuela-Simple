@@ -22,8 +22,7 @@ namespace EscuelaSimple.Aplicacion.Entidades.TiposBase
                 return false;
             }
 
-            return base.Equals(obj) &&
-                this.Identificador.Equals(entidad.Identificador);
+            return Identificador.Equals(entidad.Identificador);
         }
 
         public override bool Equals(TTipo other)

@@ -28,8 +28,6 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Inicializadores
 
             context.Telefono.AddRange(telefonos);
 
-            context.SaveChanges();
-
             List<SituacionRevista> situacionesRevista = new List<SituacionRevista>()
             {
                 new SituacionRevista() { Abreviacion = "TIT", Descripcion = "Titular" },
@@ -61,8 +59,6 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Inicializadores
 
             context.Funcion.AddRange(funciones);
 
-            context.SaveChanges();
-
             List<Inasistencia> inasistencias = new List<Inasistencia>()
             {
                 new Inasistencia() { Motivo = "M43", Desde = new DateTime(2001, 12, 25), Hasta = new DateTime(2001, 12, 30) },
@@ -82,8 +78,6 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Inicializadores
 
             context.Titulo.AddRange(titulos);
 
-            context.SaveChanges();
-
             var cargo1 = new Cargo();
             cargo1.AgregarFuncion(funciones[0]);
             cargo1.AgregarFuncion(funciones[1]);
@@ -97,8 +91,6 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Inicializadores
             };
 
             context.Cargo.AddRange(cargos);
-
-            context.SaveChanges();
 
             var personal1 = new Personal() { Nombre = "Pablo", Apellido = "Leiros", DNI = 34624421, FechaNacimiento = new DateTime(1989, 6, 30) };
             personal1.AgregarTelefono(telefonos[0]);

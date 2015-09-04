@@ -27,6 +27,12 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
             Database.SetInitializer<EscuelaSimpleContext>(new DebugInitializer());
         }
 
+        public EscuelaSimpleContext(IDatabaseInitializer<EscuelaSimpleContext> inicializador) 
+            : this()
+        {
+            Database.SetInitializer<EscuelaSimpleContext>(inicializador);
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

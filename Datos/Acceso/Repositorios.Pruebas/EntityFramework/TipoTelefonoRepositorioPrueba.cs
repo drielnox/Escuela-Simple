@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo;
 using EscuelaSimple.Aplicacion.Entidades;
 using System.Linq;
+using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Inicializadores;
 
 namespace EscuelaSimple.Datos.Acceso.Repositorios.Pruebas.EntityFramework
 {
@@ -14,7 +14,7 @@ namespace EscuelaSimple.Datos.Acceso.Repositorios.Pruebas.EntityFramework
         {
             var unTipoTelefono = new TipoTelefono() { Identificador = 1, Descripcion = "Fax" };
 
-            using (var contexto = new EscuelaSimpleContext())
+            using (var contexto = new EscuelaSimpleContext(new TestInitializer()))
             {
                 contexto.TipoTelefono.Add(new TipoTelefono() { Descripcion = "Fax" });
 
@@ -23,7 +23,7 @@ namespace EscuelaSimple.Datos.Acceso.Repositorios.Pruebas.EntityFramework
 
             TipoTelefono resultado;
 
-            using (var contexto = new EscuelaSimpleContext())
+            using (var contexto = new EscuelaSimpleContext(new TestInitializer()))
             {
                 resultado = contexto
                     .TipoTelefono
