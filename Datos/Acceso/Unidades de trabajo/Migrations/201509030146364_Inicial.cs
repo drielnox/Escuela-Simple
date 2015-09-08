@@ -1,4 +1,4 @@
-namespace EscuelaSimple.Datos.Acceso.UnidadesDeTrabajo.Migrations
+namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Migrations
 {
     using System;
     using System.Collections.Generic;

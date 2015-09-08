@@ -1,5 +1,4 @@
 ﻿using EscuelaSimple.Aplicacion.Entidades;
-using EscuelaSimple.Datos.Acceso.Repositorios.Contratos;
 using EscuelaSimple.Datos.Repositorio.TiposBase;
 using NHibernate;
 

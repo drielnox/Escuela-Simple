@@ -55,10 +55,13 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Transactions" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Contratos\IUnidadDeTrabajo.cs" />
+    <Compile Include="EntityFramework\EntityFrameworkTransaccion.cs" />
+    <Compile Include="EntityFramework\EntityFrameworkUnidadDeTrabajo.cs" />
     <Compile Include="EscuelaSimpleContext.cs" />
+    <Compile Include="EntityFramework\FabricaEntityFrameworkUnidadDeTrabajo.cs" />
     <Compile Include="Inicializadores\DebugInitializer.cs" />
     <Compile Include="Inicializadores\ReleaseInitializer.cs" />
     <Compile Include="Inicializadores\TestInitializer.cs" />
@@ -75,9 +78,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Tipos base\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -94,6 +95,14 @@
     <ProjectReference Include="..\..\Utilitarios\Configuraciones\Configuraciones.csproj">
       <Project>{0e2a13ed-ffe7-4b73-a1ca-f59dd64f360b}</Project>
       <Name>Configuraciones</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AccesoNucleo\AccesoNucleo.csproj">
+      <Project>{d36c7568-d6f9-48f2-bcd9-119ad8efe2ff}</Project>
+      <Name>AccesoNucleo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Repositorios\Repositorios.csproj">
+      <Project>{ce83a605-487c-40ce-b01c-5f0e926bfbcf}</Project>
+      <Name>Repositorios</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

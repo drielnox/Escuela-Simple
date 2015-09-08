@@ -23,10 +23,10 @@ namespace EscuelaSimple.Aplicacion.Entidades
 
         public Personal()
         {
-            this.Telefonos = new List<Telefono>();
-            this.Titulos = new List<Titulo>();
-            this.Cargos = new List<Cargo>();
-            this.Inasistencias = new List<Inasistencia>();
+            Telefonos = new List<Telefono>();
+            Titulos = new List<Titulo>();
+            Cargos = new List<Cargo>();
+            Inasistencias = new List<Inasistencia>();
         }
 
         public virtual void AgregarTelefono(Telefono telefono)

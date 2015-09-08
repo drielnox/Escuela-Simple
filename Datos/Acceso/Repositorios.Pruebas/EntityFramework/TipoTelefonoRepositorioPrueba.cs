@@ -4,7 +4,7 @@ using EscuelaSimple.Aplicacion.Entidades;
 using System.Linq;
 using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Inicializadores;
 
-namespace EscuelaSimple.Datos.Acceso.Repositorios.Pruebas.EntityFramework
+namespace EscuelaSimple.Datos.Acceso.Repositorio.Pruebas.EntityFramework
 {
     [TestClass]
     public class TipoTelefonoRepositorioPrueba

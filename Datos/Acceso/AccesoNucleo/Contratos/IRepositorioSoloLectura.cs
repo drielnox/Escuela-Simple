@@ -1,8 +1,9 @@
 ﻿using EscuelaSimple.Aplicacion.Entidades.TiposBase;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
-namespace EscuelaSimple.Datos.Acceso.Repositorios.Contratos
+namespace EscuelaSimple.Datos.Acceso.Repositorio.Contratos
 {
     public interface IRepositorioSoloLectura<TEntidad, TIdentificador>
         where TEntidad : Entidad<TIdentificador, TEntidad>

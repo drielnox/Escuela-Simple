@@ -1,0 +1,8 @@
+Cuando un componente de negocio de utilizar funcionalidad proporcionada por
+servicios externos/remotos (normalmente Servicios Web), se debe implementar
+código que gestione la semántica de comunicaciones con dicho servicio
+particular o incluso tareas adicionales como mapeos entre diferentes
+formatos de datos. Los Agentes de Servicios aíslan dicha idiosincrasia de
+forma que, manteniendo ciertas interfaces, sería posible sustituir el 
+servicio externo original por un segundo servicio diferente sin que nuestro
+sistema se vea afectado. La implementación se realiza en la capa de Datos.

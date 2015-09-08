@@ -21,7 +21,7 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
         public DbSet<Titulo> Titulo { get; set; }
 
         public EscuelaSimpleContext()
-            : base("LocalDB")
+            : base("SqlServer")
         {
             Database.Log = s => Debug.Write(s);
             Database.SetInitializer<EscuelaSimpleContext>(new DebugInitializer());
