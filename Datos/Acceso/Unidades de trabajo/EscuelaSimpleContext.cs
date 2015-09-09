@@ -21,10 +21,12 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
         public DbSet<Titulo> Titulo { get; set; }
 
         public EscuelaSimpleContext()
-            : base("SqlServer")
+            : base(UnidadesDeTrabajo.Properties.Settings.Default.SqlServer)
         {
             Database.Log = s => Debug.Write(s);
             Database.SetInitializer<EscuelaSimpleContext>(new DebugInitializer());
+
+            var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }
 
         public EscuelaSimpleContext(IDatabaseInitializer<EscuelaSimpleContext> inicializador) 

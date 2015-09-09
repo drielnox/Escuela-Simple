@@ -65,6 +65,10 @@
     <Content Include="Leame.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Datos\Acceso\AccesoNucleo\AccesoNucleo.csproj">
+      <Project>{d36c7568-d6f9-48f2-bcd9-119ad8efe2ff}</Project>
+      <Name>AccesoNucleo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Datos\Acceso\Unidades de trabajo\Unidades de trabajo.csproj">
       <Project>{9fa63c8b-bd4b-427e-afe5-6156643fa748}</Project>
       <Name>Unidades de trabajo</Name>

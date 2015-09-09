@@ -1,6 +1,5 @@
 ﻿using EscuelaSimple.Aplicacion.Entidades;
 using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo;
-using EscuelaSimple.Datos.Acceso.UnidadDeTrabajo.Contratos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
