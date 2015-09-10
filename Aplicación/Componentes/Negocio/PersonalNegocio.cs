@@ -8,11 +8,6 @@ namespace EscuelaSimple.Aplicacion.Componentes.Negocio
 {
     public class PersonalNegocio
     {
-        public PersonalNegocio()
-        {
-            
-        }
-
         public List<Personal> ObtenerTodoPersonal()
         {
             List<Personal> listaPersonal = new List<Personal>();

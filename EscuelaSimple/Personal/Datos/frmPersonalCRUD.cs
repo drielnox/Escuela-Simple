@@ -1,26 +1,26 @@
 ﻿using EscuelaSimple.Aplicacion.Componentes.Negocio;
-using EscuelaSimple.Aplicacion.Entidades;
+using EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Inasistencias;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
 {
     public partial class frmPersonalCRUD : Form
     {
         #region Delegados y Eventos
 
         private event RealizarPersistenciaMetodo PersistirEvento;
-        private delegate void RealizarPersistenciaMetodo(EscuelaSimple.Aplicacion.Entidades.Personal persona);
+        private delegate void RealizarPersistenciaMetodo(Aplicacion.Entidades.Personal persona);
 
         #endregion
 
         #region Atributos
 
         private ModoFormulario _modo;
-        private EscuelaSimple.Aplicacion.Entidades.Personal _personal;
+        private Aplicacion.Entidades.Personal _personal;
         private PersonalNegocio _negocioPersonal;
 
         #endregion
@@ -30,15 +30,15 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
         public frmPersonalCRUD(ModoFormulario modo)
         {
             InitializeComponent();
-            this._modo = modo;
-            this._negocioPersonal = new PersonalNegocio();
+            _modo = modo;
+            _negocioPersonal = new PersonalNegocio();
         }
 
-        public frmPersonalCRUD(ModoFormulario modo, EscuelaSimple.Aplicacion.Entidades.Personal personal)
+        public frmPersonalCRUD(ModoFormulario modo, Aplicacion.Entidades.Personal personal)
             : this(modo)
         {
-            this._personal = personal;
-            this.CargarPersonal();
+            _personal = personal;
+            CargarPersonal();
         }
 
         #endregion
@@ -110,20 +110,20 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistenciaNueva = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Inasistencia;
-                this.CargarGrillaConInasistencia(inasistenciaNueva);
+                Aplicacion.Entidades.Inasistencia inasistenciaNueva = frm.Tag as Aplicacion.Entidades.Inasistencia;
+                CargarGrillaConInasistencia(inasistenciaNueva);
             }
         }
 
         private void tsbModificacionInasistencia_Click(object sender, EventArgs e)
         {
-            EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistenciaSeleccionada = this.lvInasistencia.SelectedItems[0].Tag as EscuelaSimple.Aplicacion.Entidades.Inasistencia;
+            Aplicacion.Entidades.Inasistencia inasistenciaSeleccionada = lvInasistencia.SelectedItems[0].Tag as Aplicacion.Entidades.Inasistencia;
             frmPersonalInasistenciaCRUD frm = new frmPersonalInasistenciaCRUD(inasistenciaSeleccionada);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistenciaModificada = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Inasistencia;
-                this.CargarGrillaConInasistencia(inasistenciaModificada);
+                Aplicacion.Entidades.Inasistencia inasistenciaModificada = frm.Tag as Aplicacion.Entidades.Inasistencia;
+                CargarGrillaConInasistencia(inasistenciaModificada);
             }
         }
 
@@ -133,7 +133,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
             if (resultado == DialogResult.OK)
             {
                 ListViewItem itemSeleccionado = this.lvInasistencia.SelectedItems[0];
-                this.lvInasistencia.Items.Remove(itemSeleccionado);
+                lvInasistencia.Items.Remove(itemSeleccionado);
             }
         }
 
@@ -287,8 +287,8 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 
         private void lvInasistencia_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            this.tsbModificacionInasistencia.Enabled = e.IsSelected;
-            this.tsbBajaInasistencia.Enabled = e.IsSelected;
+            tsbModificacionInasistencia.Enabled = e.IsSelected;
+            tsbBajaInasistencia.Enabled = e.IsSelected;
         }
 
         private void lvTitulos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
@@ -366,22 +366,22 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 
         private void CargarPersonal()
         {
-            this.txtNombre.Text = this._personal.Nombre;
-            this.txtApellido.Text = this._personal.Apellido;
-            this.mskDNI.Text = this._personal.DNI.ToString();
-            this.dtpFechaNacimiento.Value = this._personal.FechaNacimiento;
-            this.txtDomicilio.Text = this._personal.Domicilio;
-            this.txtLocalidad.Text = this._personal.Localidad;
-            this.CargarGrillaConTelefonos(this._personal.Telefonos);
-            this.CargarGrillaConTitulos(this._personal.Titulos);
-            this.CargarComboConCargos(this._personal.Cargos);
-            this.dtpIngresoDocencia.Value = this._personal.IngresoDocencia.GetValueOrDefault(DateTime.Now);
-            this.dtpIngresoEstablecimiento.Value = this._personal.IngresoEstablecimiento.GetValueOrDefault(DateTime.Now);
-            this.rtbObservacion.Text = this._personal.Observacion;
-            this.CargarGrillaConInasistencias(this._personal.Inasistencias);
+            txtNombre.Text = _personal.Nombre;
+            txtApellido.Text = _personal.Apellido;
+            mskDNI.Text = _personal.DNI.ToString();
+            dtpFechaNacimiento.Value = _personal.FechaNacimiento;
+            txtDomicilio.Text = _personal.Domicilio;
+            txtLocalidad.Text = _personal.Localidad;
+            CargarGrillaConTelefonos(_personal.Telefonos);
+            CargarGrillaConTitulos(_personal.Titulos);
+            CargarComboConCargos(_personal.Cargos);
+            dtpIngresoDocencia.Value = _personal.IngresoDocencia.GetValueOrDefault(DateTime.Now);
+            dtpIngresoEstablecimiento.Value = _personal.IngresoEstablecimiento.GetValueOrDefault(DateTime.Now);
+            rtbObservacion.Text = _personal.Observacion;
+            CargarGrillaConInasistencias(_personal.Inasistencias);
         }
 
-        private void BorrarTelefonoEnGrilla(EscuelaSimple.Aplicacion.Entidades.Telefono telefono)
+        private void BorrarTelefonoEnGrilla(Aplicacion.Entidades.Telefono telefono)
         {
             ListViewItem item = this.lvTelefonos.Items.Cast<ListViewItem>().Where(x =>
             {
@@ -391,7 +391,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
             this.lvTelefonos.Items.Remove(item);
         }
 
-        private void CargarGrillaConTelefono(EscuelaSimple.Aplicacion.Entidades.Telefono telefono)
+        private void CargarGrillaConTelefono(Aplicacion.Entidades.Telefono telefono)
         {
             BorrarTelefonoEnGrilla(telefono);
 

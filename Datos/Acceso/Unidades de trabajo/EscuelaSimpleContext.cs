@@ -24,7 +24,7 @@ namespace EscuelaSimple.Datos.Acceso.UnidadDeTrabajo
             : base(UnidadesDeTrabajo.Properties.Settings.Default.SqlServer)
         {
             Database.Log = s => Debug.Write(s);
-            Database.SetInitializer<EscuelaSimpleContext>(new DebugInitializer());
+            Database.SetInitializer<EscuelaSimpleContext>(new TestInitializer());
 
             var instance = System.Data.Entity.SqlServer.SqlProviderServices.Instance;
         }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace EscuelaSimple.Aplicacion.Componentes.Properties {
+namespace EscuelaSimple.Aplicacion.Componentes.Negocio.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

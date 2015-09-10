@@ -1,4 +1,5 @@
 ﻿using EscuelaSimple.Aplicacion.Componentes.Negocio;
+using EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -9,7 +10,9 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
     {
         #region Atributos
 
+        private Type _formularioObjetivo;
         private PersonalNegocio _personalNegocio;
+        private Lazy<InasistenciaNegocio> _inasistenciaNegocio;
 
         #endregion
 
@@ -18,39 +21,45 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
         public frmPersonalListado()
         {
             InitializeComponent();
-            this._personalNegocio = new PersonalNegocio();
+            _personalNegocio = new PersonalNegocio();
+            _inasistenciaNegocio = new Lazy<InasistenciaNegocio>();
+        }
+
+        public frmPersonalListado(Type formularioObjetivo) 
+            : this()
+        {
+            _formularioObjetivo = formularioObjetivo;
         }
 
         #endregion
 
         #region Eventos del formulario
 
+        #region Formulario
+
         private void frmListadoPersonal_Load(object sender, EventArgs e)
         {
-            List<EscuelaSimple.Aplicacion.Entidades.Personal> personal = this._personalNegocio.ObtenerTodoPersonal();
-            this.CargarGrilla(personal);
+            List<Aplicacion.Entidades.Personal> personal = _personalNegocio.ObtenerTodoPersonal();
+            CargarGrilla(personal);
         }
 
-        private void lvPersonal_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            this.tsbVerPersonal.Enabled = e.IsSelected;
-            this.tsbBajaPersonal.Enabled = e.IsSelected;
-            this.tsbModificarPersonal.Enabled = e.IsSelected;
-        }
+        #endregion
+
+        #region Menu
 
         private void tsbFiltrarPersonal_Click(object sender, EventArgs e)
         {
             frmPersonalFiltrar frm = new frmPersonalFiltrar();
             if (frm.ShowDialog(this) == DialogResult.OK)
             {
-                List<EscuelaSimple.Aplicacion.Entidades.Personal> personal = frm.Tag as List<EscuelaSimple.Aplicacion.Entidades.Personal>;
-                this.CargarGrilla(personal);
+                List<Aplicacion.Entidades.Personal> personal = frm.Tag as List<Aplicacion.Entidades.Personal>;
+                CargarGrilla(personal);
             }
         }
 
         private void tsbVerPersonal_Click(object sender, EventArgs e)
         {
-            EscuelaSimple.Aplicacion.Entidades.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as EscuelaSimple.Aplicacion.Entidades.Personal;
+            Aplicacion.Entidades.Personal personalSeleccionado = lvPersonal.SelectedItems[0].Tag as Aplicacion.Entidades.Personal;
             frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Ver, personalSeleccionado);
             frm.ShowDialog(this);
         }
@@ -61,44 +70,57 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                this.OnLoad(EventArgs.Empty);
+                OnLoad(EventArgs.Empty);
             }
         }
 
         private void tsbModificarPersonal_Click(object sender, EventArgs e)
         {
-            EscuelaSimple.Aplicacion.Entidades.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as EscuelaSimple.Aplicacion.Entidades.Personal;
+            Aplicacion.Entidades.Personal personalSeleccionado = lvPersonal.SelectedItems[0].Tag as Aplicacion.Entidades.Personal;
             frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Modificar, personalSeleccionado);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                this.OnLoad(EventArgs.Empty);
+                OnLoad(EventArgs.Empty);
             }
         }
 
         private void tsbBajaPersonal_Click(object sender, EventArgs e)
         {
-            EscuelaSimple.Aplicacion.Entidades.Personal personalSeleccionado = this.lvPersonal.SelectedItems[0].Tag as EscuelaSimple.Aplicacion.Entidades.Personal;
+            Aplicacion.Entidades.Personal personalSeleccionado = lvPersonal.SelectedItems[0].Tag as Aplicacion.Entidades.Personal;
             DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este personal?", "Borrar personal", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1);
             if (resultado == DialogResult.OK)
             {
-                this._personalNegocio.BorrarPersonal(personalSeleccionado);
-                this.OnLoad(EventArgs.Empty);
+                _personalNegocio.BorrarPersonal(personalSeleccionado);
+                OnLoad(EventArgs.Empty);
             }
         }
 
         #endregion
 
+        #region Lista
+
+        private void lvPersonal_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            tsbVerPersonal.Enabled = e.IsSelected;
+            tsbBajaPersonal.Enabled = e.IsSelected;
+            tsbModificarPersonal.Enabled = e.IsSelected;
+        }
+
+        #endregion
+        
+        #endregion
+
         #region Metodos Privados
 
-        private void CargarGrilla(List<EscuelaSimple.Aplicacion.Entidades.Personal> personal)
+        private void CargarGrilla(List<Aplicacion.Entidades.Personal> personal)
         {
-            this.lvPersonal.Items.Clear();
-            foreach (EscuelaSimple.Aplicacion.Entidades.Personal item in personal)
+            lvPersonal.Items.Clear();
+            foreach (Aplicacion.Entidades.Personal item in personal)
             {
                 ListViewItem fila = new ListViewItem(new string[] { item.Apellido, item.Nombre });
                 fila.Tag = item;
-                this.lvPersonal.Items.Add(fila);
+                lvPersonal.Items.Add(fila);
             }
         }
 

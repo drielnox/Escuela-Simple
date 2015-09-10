@@ -1,24 +1,36 @@
 ﻿using EscuelaSimple.InterfazDeUsuario.WinForms.Personal;
 using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
-using System.Xml.Serialization;
+using EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos;
 
 namespace EscuelaSimple.InterfazDeUsuario.WinForms
 {
     public partial class frmPrincipal : Form
     {
-        private Lazy<SistemaNegocio> _sistemaNegocio;
+        #region Atributos
+
         private Lazy<PersonalNegocio> _personalNegocio;
+
+        #endregion
+
+        #region Constructores
 
         public frmPrincipal()
         {
             InitializeComponent();
-            this._sistemaNegocio = new Lazy<SistemaNegocio>(() => new SistemaNegocio());
             this._personalNegocio = new Lazy<PersonalNegocio>(() => new PersonalNegocio());
         }
+
+        #endregion
+        
+        #region Eventos
+
+        #region Formulario
+
+        #endregion
+
+        #region Menu
 
         private void tsmiImportar_Click(object sender, EventArgs e)
         {
@@ -51,7 +63,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms
 
         private void tsmiDatosPersonal_Click(object sender, EventArgs e)
         {
-            frmPersonalListado frm = new frmPersonalListado();
+            frmPersonalListado frm = new frmPersonalListado(typeof(frmPersonalCRUD));
             frm.ShowDialog(this);
         }
 
@@ -60,5 +72,9 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms
             frmPersonalListado frm = new frmPersonalListado();
             frm.ShowDialog(this);
         }
+
+        #endregion
+        
+        #endregion
     }
 }

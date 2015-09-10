@@ -3,7 +3,7 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Inasistencias
 {
     public partial class frmPersonalInasistenciaCRUD : Form
     {
@@ -18,14 +18,14 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
         public frmPersonalInasistenciaCRUD()
         {
             InitializeComponent();
-            this._inasistencia = new EscuelaSimple.Aplicacion.Entidades.Inasistencia();
+            _inasistencia = new Inasistencia();
         }
 
-        public frmPersonalInasistenciaCRUD(EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistencia)
+        public frmPersonalInasistenciaCRUD(Inasistencia inasistencia)
             : this()
         {
-            this._inasistencia = inasistencia;
-            this.CargarInasistencia();
+            _inasistencia = inasistencia;
+            CargarInasistencia();
         }
 
         #endregion
@@ -35,82 +35,82 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
         private void txtArticulo_Validating(object sender, CancelEventArgs e)
         {
             string errorMsg;
-            if (!this.ValidarMotivo(this.txtArticulo.Text, out errorMsg))
+            if (!ValidarMotivo(this.txtArticulo.Text, out errorMsg))
             {
                 e.Cancel = true;
-                this.txtArticulo.Select(0, this.txtArticulo.Text.Length);
-                this.epMotivo.SetIconPadding(this.txtArticulo, 5);
-                this.epMotivo.SetError(this.txtArticulo, errorMsg);
+                txtArticulo.Select(0, this.txtArticulo.Text.Length);
+                epMotivo.SetIconPadding(this.txtArticulo, 5);
+                epMotivo.SetError(this.txtArticulo, errorMsg);
             }
         }
 
         private void txtArticulo_Validated(object sender, EventArgs e)
         {
-            this.epMotivo.SetError(this.txtArticulo, string.Empty);
+            epMotivo.SetError(txtArticulo, string.Empty);
         }
 
         private void dtpDesde_Validating(object sender, CancelEventArgs e)
         {
             string errorMsg;
-            if (!this.ValidarRangoDeFechas(this.dtpDesde.Value, this.dtpHasta.Value, out errorMsg))
+            if (!ValidarRangoDeFechas(dtpDesde.Value, dtpHasta.Value, out errorMsg))
             {
                 e.Cancel = true;
-                this.dtpDesde.Select();
-                this.epFecha.SetIconPadding(this.dtpDesde, 5);
-                this.epFecha.SetError(this.dtpDesde, errorMsg);
+                dtpDesde.Select();
+                epFecha.SetIconPadding(dtpDesde, 5);
+                epFecha.SetError(dtpDesde, errorMsg);
             }
         }
 
         private void dtpDesde_Validated(object sender, EventArgs e)
         {
-            this.epFecha.SetError(this.dtpDesde, string.Empty);
+            epFecha.SetError(dtpDesde, string.Empty);
         }
 
         private void dtpHasta_Validating(object sender, CancelEventArgs e)
         {
             string errorMsg;
-            if (!this.ValidarRangoDeFechas(this.dtpDesde.Value, this.dtpHasta.Value, out errorMsg))
+            if (!ValidarRangoDeFechas(dtpDesde.Value, dtpHasta.Value, out errorMsg))
             {
                 e.Cancel = true;
-                this.dtpHasta.Select();
-                this.epFecha.SetIconPadding(this.dtpHasta, 5);
-                this.epFecha.SetError(this.dtpHasta, errorMsg);
+                dtpHasta.Select();
+                epFecha.SetIconPadding(dtpHasta, 5);
+                epFecha.SetError(dtpHasta, errorMsg);
             }
         }
 
         private void dtpHasta_Validated(object sender, EventArgs e)
         {
-            this.epFecha.SetError(this.dtpHasta, string.Empty);
+            epFecha.SetError(dtpHasta, string.Empty);
         }
 
         private void dtpDesde_ValueChanged(object sender, EventArgs e)
         {
-            this.dtpDesde.Format = DateTimePickerFormat.Short;
+            dtpDesde.Format = DateTimePickerFormat.Short;
         }
 
         private void dtpHasta_ValueChanged(object sender, EventArgs e)
         {
-            this.dtpHasta.Format = DateTimePickerFormat.Short;
+            dtpHasta.Format = DateTimePickerFormat.Short;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool valido = this.ValidateChildren();
+            bool valido = ValidateChildren();
             if (valido)
             {
-                this._inasistencia.Motivo = this.txtArticulo.Text.Trim();
-                this._inasistencia.Desde = this.dtpDesde.Value;
-                this._inasistencia.Hasta = this.dtpHasta.Value;
-                this.Tag = this._inasistencia;
-                this.DialogResult = System.Windows.Forms.DialogResult.OK;
-                this.Close();
+                _inasistencia.Motivo = txtArticulo.Text.Trim();
+                _inasistencia.Desde = dtpDesde.Value;
+                _inasistencia.Hasta = dtpHasta.Value;
+                Tag = _inasistencia;
+                DialogResult = DialogResult.OK;
+                Close();
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Close();
+            DialogResult = DialogResult.Cancel;
+            Close();
         }
 
         #endregion
@@ -119,9 +119,9 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
 
         private void CargarInasistencia()
         {
-            this.txtArticulo.Text = this._inasistencia.Motivo;
-            this.dtpDesde.Value = this._inasistencia.Desde;
-            this.dtpHasta.Value = this._inasistencia.Hasta;
+            txtArticulo.Text = _inasistencia.Motivo;
+            dtpDesde.Value = _inasistencia.Desde;
+            dtpHasta.Value = _inasistencia.Hasta;
         }
 
         private bool ValidarRangoDeFechas(DateTime desde, DateTime hasta, out string errorMessage)

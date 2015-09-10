@@ -1,4 +1,4 @@
-﻿namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
+﻿namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Inasistencias
 {
     partial class frmPersonalInasistenciaCRUD
     {

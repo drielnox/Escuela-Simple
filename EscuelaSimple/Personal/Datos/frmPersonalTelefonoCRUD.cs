@@ -1,11 +1,10 @@
-﻿using EscuelaSimple.Aplicacion;
-using EscuelaSimple.Aplicacion.Componentes.Negocio;
+﻿using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
+namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
 {
     public partial class frmPersonalTelefonoCRUD : Form
     {
