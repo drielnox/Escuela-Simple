@@ -82,16 +82,6 @@
             this.dtpIngresoDocencia = new System.Windows.Forms.DateTimePicker();
             this.lblIngresoDocencia = new System.Windows.Forms.Label();
             this.lblCargo = new System.Windows.Forms.Label();
-            this.tpInasistencia = new System.Windows.Forms.TabPage();
-            this.lvInasistencia = new System.Windows.Forms.ListView();
-            this.chArticulo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chDesde = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chHasta = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.chCantDias = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.tsABMInasistencia = new System.Windows.Forms.ToolStrip();
-            this.tsbAltaInasistencia = new System.Windows.Forms.ToolStripButton();
-            this.tsbModificacionInasistencia = new System.Windows.Forms.ToolStripButton();
-            this.tsbBajaInasistencia = new System.Windows.Forms.ToolStripButton();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
@@ -105,8 +95,6 @@
             this.gbFunciones.SuspendLayout();
             this.tsABMFunciones.SuspendLayout();
             this.gbObservacion.SuspendLayout();
-            this.tpInasistencia.SuspendLayout();
-            this.tsABMInasistencia.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +106,6 @@
             this.tcDatosPersonal.Controls.Add(this.tpBasico);
             this.tcDatosPersonal.Controls.Add(this.tbTitulos);
             this.tcDatosPersonal.Controls.Add(this.tpLaboral);
-            this.tcDatosPersonal.Controls.Add(this.tpInasistencia);
             this.tcDatosPersonal.Location = new System.Drawing.Point(12, 12);
             this.tcDatosPersonal.Name = "tcDatosPersonal";
             this.tcDatosPersonal.SelectedIndex = 0;
@@ -665,103 +652,6 @@
             this.lblCargo.TabIndex = 2;
             this.lblCargo.Text = "Cargo";
             // 
-            // tpInasistencia
-            // 
-            this.tpInasistencia.Controls.Add(this.lvInasistencia);
-            this.tpInasistencia.Controls.Add(this.tsABMInasistencia);
-            this.tpInasistencia.Location = new System.Drawing.Point(4, 22);
-            this.tpInasistencia.Name = "tpInasistencia";
-            this.tpInasistencia.Padding = new System.Windows.Forms.Padding(3);
-            this.tpInasistencia.Size = new System.Drawing.Size(478, 424);
-            this.tpInasistencia.TabIndex = 2;
-            this.tpInasistencia.Text = "Inasistencia";
-            this.tpInasistencia.UseVisualStyleBackColor = true;
-            // 
-            // lvInasistencia
-            // 
-            this.lvInasistencia.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.chArticulo,
-            this.chDesde,
-            this.chHasta,
-            this.chCantDias});
-            this.lvInasistencia.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lvInasistencia.FullRowSelect = true;
-            this.lvInasistencia.GridLines = true;
-            this.lvInasistencia.Location = new System.Drawing.Point(3, 28);
-            this.lvInasistencia.MultiSelect = false;
-            this.lvInasistencia.Name = "lvInasistencia";
-            this.lvInasistencia.ShowGroups = false;
-            this.lvInasistencia.Size = new System.Drawing.Size(472, 393);
-            this.lvInasistencia.Sorting = System.Windows.Forms.SortOrder.Descending;
-            this.lvInasistencia.TabIndex = 1;
-            this.lvInasistencia.UseCompatibleStateImageBehavior = false;
-            this.lvInasistencia.View = System.Windows.Forms.View.Details;
-            this.lvInasistencia.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvInasistencia_ItemSelectionChanged);
-            // 
-            // chArticulo
-            // 
-            this.chArticulo.Text = "Articulo";
-            this.chArticulo.Width = 100;
-            // 
-            // chDesde
-            // 
-            this.chDesde.Text = "Desde";
-            this.chDesde.Width = 100;
-            // 
-            // chHasta
-            // 
-            this.chHasta.Text = "Hasta";
-            this.chHasta.Width = 100;
-            // 
-            // chCantDias
-            // 
-            this.chCantDias.Text = "Dias";
-            this.chCantDias.Width = 100;
-            // 
-            // tsABMInasistencia
-            // 
-            this.tsABMInasistencia.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tsbAltaInasistencia,
-            this.tsbModificacionInasistencia,
-            this.tsbBajaInasistencia});
-            this.tsABMInasistencia.Location = new System.Drawing.Point(3, 3);
-            this.tsABMInasistencia.Name = "tsABMInasistencia";
-            this.tsABMInasistencia.Size = new System.Drawing.Size(472, 25);
-            this.tsABMInasistencia.TabIndex = 0;
-            this.tsABMInasistencia.Text = "toolStrip2";
-            // 
-            // tsbAltaInasistencia
-            // 
-            this.tsbAltaInasistencia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbAltaInasistencia.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources._077_AddFile_48x48_72;
-            this.tsbAltaInasistencia.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbAltaInasistencia.Name = "tsbAltaInasistencia";
-            this.tsbAltaInasistencia.Size = new System.Drawing.Size(23, 22);
-            this.tsbAltaInasistencia.Text = "Agregar";
-            this.tsbAltaInasistencia.Click += new System.EventHandler(this.tsbAltaInasistencia_Click);
-            // 
-            // tsbModificacionInasistencia
-            // 
-            this.tsbModificacionInasistencia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbModificacionInasistencia.Enabled = false;
-            this.tsbModificacionInasistencia.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources._126_Edit_48x48_72;
-            this.tsbModificacionInasistencia.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbModificacionInasistencia.Name = "tsbModificacionInasistencia";
-            this.tsbModificacionInasistencia.Size = new System.Drawing.Size(23, 22);
-            this.tsbModificacionInasistencia.Text = "Editar";
-            this.tsbModificacionInasistencia.Click += new System.EventHandler(this.tsbModificacionInasistencia_Click);
-            // 
-            // tsbBajaInasistencia
-            // 
-            this.tsbBajaInasistencia.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.tsbBajaInasistencia.Enabled = false;
-            this.tsbBajaInasistencia.Image = global::EscuelaSimple.InterfazDeUsuario.WinForms.Properties.Resources.delete;
-            this.tsbBajaInasistencia.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.tsbBajaInasistencia.Name = "tsbBajaInasistencia";
-            this.tsbBajaInasistencia.Size = new System.Drawing.Size(23, 22);
-            this.tsbBajaInasistencia.Text = "Borrar";
-            this.tsbBajaInasistencia.Click += new System.EventHandler(this.tsbBajaInasistencia_Click);
-            // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -820,10 +710,6 @@
             this.tsABMFunciones.ResumeLayout(false);
             this.tsABMFunciones.PerformLayout();
             this.gbObservacion.ResumeLayout(false);
-            this.tpInasistencia.ResumeLayout(false);
-            this.tpInasistencia.PerformLayout();
-            this.tsABMInasistencia.ResumeLayout(false);
-            this.tsABMInasistencia.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
 
@@ -834,7 +720,6 @@
         private System.Windows.Forms.TabControl tcDatosPersonal;
         private System.Windows.Forms.TabPage tpBasico;
         private System.Windows.Forms.TabPage tpLaboral;
-        private System.Windows.Forms.TabPage tpInasistencia;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.GroupBox gbTelefonos;
@@ -861,15 +746,6 @@
         private System.Windows.Forms.DateTimePicker dtpIngresoDocencia;
         private System.Windows.Forms.Label lblIngresoDocencia;
         private System.Windows.Forms.Label lblCargo;
-        private System.Windows.Forms.ListView lvInasistencia;
-        private System.Windows.Forms.ToolStrip tsABMInasistencia;
-        private System.Windows.Forms.ToolStripButton tsbAltaInasistencia;
-        private System.Windows.Forms.ToolStripButton tsbModificacionInasistencia;
-        private System.Windows.Forms.ToolStripButton tsbBajaInasistencia;
-        private System.Windows.Forms.ColumnHeader chArticulo;
-        private System.Windows.Forms.ColumnHeader chDesde;
-        private System.Windows.Forms.ColumnHeader chHasta;
-        private System.Windows.Forms.ColumnHeader chCantDias;
         private System.Windows.Forms.ColumnHeader chTipo;
         private System.Windows.Forms.ColumnHeader chNumero;
         private System.Windows.Forms.ToolStripButton tsbAltaTelefono;

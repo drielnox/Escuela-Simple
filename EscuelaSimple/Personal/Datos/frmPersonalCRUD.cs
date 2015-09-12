@@ -103,40 +103,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
                 this.lvTelefonos.Items.Remove(itemSeleccionado);
             }
         }
-
-        private void tsbAltaInasistencia_Click(object sender, EventArgs e)
-        {
-            frmPersonalInasistenciaCRUD frm = new frmPersonalInasistenciaCRUD();
-            DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == DialogResult.OK)
-            {
-                Aplicacion.Entidades.Inasistencia inasistenciaNueva = frm.Tag as Aplicacion.Entidades.Inasistencia;
-                CargarGrillaConInasistencia(inasistenciaNueva);
-            }
-        }
-
-        private void tsbModificacionInasistencia_Click(object sender, EventArgs e)
-        {
-            Aplicacion.Entidades.Inasistencia inasistenciaSeleccionada = lvInasistencia.SelectedItems[0].Tag as Aplicacion.Entidades.Inasistencia;
-            frmPersonalInasistenciaCRUD frm = new frmPersonalInasistenciaCRUD(inasistenciaSeleccionada);
-            DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == DialogResult.OK)
-            {
-                Aplicacion.Entidades.Inasistencia inasistenciaModificada = frm.Tag as Aplicacion.Entidades.Inasistencia;
-                CargarGrillaConInasistencia(inasistenciaModificada);
-            }
-        }
-
-        private void tsbBajaInasistencia_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar esta inasistencia?", "Borrar inasistencia", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (resultado == DialogResult.OK)
-            {
-                ListViewItem itemSeleccionado = this.lvInasistencia.SelectedItems[0];
-                lvInasistencia.Items.Remove(itemSeleccionado);
-            }
-        }
-
+        
         private void tsbAltaTitulo_Click(object sender, EventArgs e)
         {
             frmPersonalTituloCRUD frm = new frmPersonalTituloCRUD();
@@ -285,12 +252,6 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.tsbBajaTelefono.Enabled = e.IsSelected;
         }
 
-        private void lvInasistencia_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            tsbModificacionInasistencia.Enabled = e.IsSelected;
-            tsbBajaInasistencia.Enabled = e.IsSelected;
-        }
-
         private void lvTitulos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
             this.tsbModificacionTitulo.Enabled = e.IsSelected;
@@ -378,7 +339,6 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             dtpIngresoDocencia.Value = _personal.IngresoDocencia.GetValueOrDefault(DateTime.Now);
             dtpIngresoEstablecimiento.Value = _personal.IngresoEstablecimiento.GetValueOrDefault(DateTime.Now);
             rtbObservacion.Text = _personal.Observacion;
-            CargarGrillaConInasistencias(_personal.Inasistencias);
         }
 
         private void BorrarTelefonoEnGrilla(Aplicacion.Entidades.Telefono telefono)
@@ -398,26 +358,6 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             ListViewItem fila = new ListViewItem(new string[] { telefono.Tipo.Descripcion, telefono.Numero.ToString() });
             fila.Tag = telefono;
             this.lvTelefonos.Items.Add(fila);
-        }
-
-        private void BorrarInasistenciaEnGrilla(EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistencia)
-        {
-            ListViewItem item = this.lvInasistencia.Items.Cast<ListViewItem>().Where(x =>
-            {
-                var unaInasistencia = x.Tag as EscuelaSimple.Aplicacion.Entidades.Inasistencia;
-                return unaInasistencia.Equals(inasistencia);
-            }).SingleOrDefault();
-            this.lvInasistencia.Items.Remove(item);
-        }
-
-        private void CargarGrillaConInasistencia(EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistencia)
-        {
-            BorrarInasistenciaEnGrilla(inasistencia);
-
-            int cantDias = inasistencia.Hasta.Subtract(inasistencia.Desde).Days;
-            ListViewItem fila = new ListViewItem(new string[] { inasistencia.Motivo, inasistencia.Desde.ToShortDateString(), inasistencia.Hasta.ToShortDateString(), cantDias.ToString() });
-            fila.Tag = inasistencia;
-            this.lvInasistencia.Items.Add(fila);
         }
 
         private void BorrarTituloEnGrilla(EscuelaSimple.Aplicacion.Entidades.Titulo titulo)
@@ -484,16 +424,6 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvTelefonos.Refresh();
         }
 
-        private void CargarGrillaConInasistencias(IEnumerable<EscuelaSimple.Aplicacion.Entidades.Inasistencia> inasistencias)
-        {
-            this.lvInasistencia.Items.Clear();
-            foreach (EscuelaSimple.Aplicacion.Entidades.Inasistencia item in inasistencias)
-            {
-                this.CargarGrillaConInasistencia(item);
-            }
-            this.lvInasistencia.Refresh();
-        }
-
         private void CargarGrillaConTitulos(IEnumerable<EscuelaSimple.Aplicacion.Entidades.Titulo> titulos)
         {
             this.lvTitulos.Items.Clear();
@@ -533,17 +463,6 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
                 telefonosRegistrados.Add(telefono);
             }
             return telefonosRegistrados;
-        }
-
-        private IEnumerable<EscuelaSimple.Aplicacion.Entidades.Inasistencia> ObtenerInasistenciasDelPersonal()
-        {
-            List<EscuelaSimple.Aplicacion.Entidades.Inasistencia> inasistenciasRegistradas = new List<EscuelaSimple.Aplicacion.Entidades.Inasistencia>();
-            foreach (ListViewItem fila in this.lvInasistencia.Items)
-            {
-                EscuelaSimple.Aplicacion.Entidades.Inasistencia inasistencia = fila.Tag as EscuelaSimple.Aplicacion.Entidades.Inasistencia;
-                inasistenciasRegistradas.Add(inasistencia);
-            }
-            return inasistenciasRegistradas;
         }
 
         private IEnumerable<EscuelaSimple.Aplicacion.Entidades.Titulo> ObtenerTitulosDelPersonal()
@@ -586,7 +505,6 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             nuevoPersonal.DNI = Convert.ToInt32(this.mskDNI.Text.Trim());
             nuevoPersonal.Domicilio = this.txtDomicilio.Text.Trim();
             nuevoPersonal.FechaNacimiento = this.dtpFechaNacimiento.Value;
-            ((List<EscuelaSimple.Aplicacion.Entidades.Inasistencia>)this.ObtenerInasistenciasDelPersonal()).ForEach(x => nuevoPersonal.AgregarInasistencia(x));
             nuevoPersonal.IngresoDocencia = this.dtpIngresoDocencia.Value;
             nuevoPersonal.IngresoEstablecimiento = this.dtpIngresoEstablecimiento.Value;
             nuevoPersonal.Localidad = this.txtLocalidad.Text.Trim();

@@ -12,34 +12,34 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
         public frmPersonalFiltrar()
         {
             InitializeComponent();
-            this._negocio = new PersonalNegocio();
+            _negocio = new PersonalNegocio();
         }
 
         private void frmPersonalFiltrar_Load(object sender, EventArgs e)
         {
-            this.cboTipoFiltro.SelectedIndex = 0;
+            cboTipoFiltro.SelectedIndex = 0;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            List<EscuelaSimple.Aplicacion.Entidades.Personal> personal = new List<EscuelaSimple.Aplicacion.Entidades.Personal>();
-            EscuelaSimple.Aplicacion.Entidades.Personal personalABuscar;
+            List<Aplicacion.Entidades.Personal> personal = new List<Aplicacion.Entidades.Personal>();
+            Aplicacion.Entidades.Personal personalABuscar;
 
-            switch ((string)this.cboTipoFiltro.SelectedItem)
+            switch ((string)cboTipoFiltro.SelectedItem)
             {
                 case "Apellido":
-                    personalABuscar = new EscuelaSimple.Aplicacion.Entidades.Personal() { Apellido = this.txtFiltro.Text.Trim() };
+                    personalABuscar = new Aplicacion.Entidades.Personal() { Apellido = txtFiltro.Text.Trim() };
                     break;
                 case "DNI":
-                    personalABuscar = new EscuelaSimple.Aplicacion.Entidades.Personal() { DNI = Convert.ToInt32(this.txtFiltro.Text.Trim()) };
+                    personalABuscar = new Aplicacion.Entidades.Personal() { DNI = Convert.ToInt32(txtFiltro.Text.Trim()) };
                     break;
                 default:
                     throw new Exception("Tipo de filtro no definido.");
             }
 
-            this.Tag = this._negocio.ObtenerPersonal(personalABuscar);
+            Tag = _negocio.ObtenerPersonal(personalABuscar);
 
-            this.Close();
+            Close();
         }
     }
 }
