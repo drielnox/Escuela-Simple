@@ -190,16 +190,16 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
 
         private void txtNombre_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(this.txtNombre.Text))
+            if (string.IsNullOrWhiteSpace(txtNombre.Text))
             {
                 e.Cancel = true;
-                this.errorProvider.SetError(this.txtNombre, "El contenido no es valido.");
+                errorProvider.SetError(txtNombre, "El contenido no es valido.");
             }
         }
 
         private void txtNombre_Validated(object sender, EventArgs e)
         {
-            this.errorProvider.SetError(this.txtNombre, string.Empty);
+            errorProvider.SetError(txtNombre, string.Empty);
         }
 
         private void txtApellido_Validating(object sender, CancelEventArgs e)
@@ -216,6 +216,20 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.errorProvider.SetError(this.txtApellido, string.Empty);
         }
 
+        private void mskDNI_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(mskDNI.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(mskDNI, "El DNI es mandatorio.");
+            }
+        }
+
+        private void mskDNI_Validated(object sender, EventArgs e)
+        {
+            errorProvider.SetError(mskDNI, string.Empty);
+        }
+        
         private void dtpIngresoDocencia_Validating(object sender, CancelEventArgs e)
         {
             if (this.dtpIngresoDocencia.Value <= this.dtpFechaNacimiento.Value)
@@ -497,21 +511,21 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             return funcionesRegistradas;
         }
 
-        private EscuelaSimple.Aplicacion.Entidades.Personal ObtenerPersonal()
+        private Aplicacion.Entidades.Personal ObtenerPersonal()
         {
-            EscuelaSimple.Aplicacion.Entidades.Personal nuevoPersonal = this._personal ?? new EscuelaSimple.Aplicacion.Entidades.Personal();
+            Aplicacion.Entidades.Personal nuevoPersonal = _personal ?? new Aplicacion.Entidades.Personal();
             nuevoPersonal.Apellido = this.txtApellido.Text.Trim();
-            ((List<EscuelaSimple.Aplicacion.Entidades.Cargo>)this.ObtenerCargosDelPersonal()).ForEach(x => nuevoPersonal.AgregarCargo(x));
+            ((List<Aplicacion.Entidades.Cargo>)ObtenerCargosDelPersonal()).ForEach(x => nuevoPersonal.AgregarCargo(x));
             nuevoPersonal.DNI = Convert.ToInt32(this.mskDNI.Text.Trim());
             nuevoPersonal.Domicilio = this.txtDomicilio.Text.Trim();
             nuevoPersonal.FechaNacimiento = this.dtpFechaNacimiento.Value;
             nuevoPersonal.IngresoDocencia = this.dtpIngresoDocencia.Value;
             nuevoPersonal.IngresoEstablecimiento = this.dtpIngresoEstablecimiento.Value;
             nuevoPersonal.Localidad = this.txtLocalidad.Text.Trim();
-            nuevoPersonal.Nombre = this.txtNombre.Text.Trim();
+            nuevoPersonal.Nombre = txtNombre.Text.Trim();
             nuevoPersonal.Observacion = this.rtbObservacion.Text.Trim();
-            ((List<EscuelaSimple.Aplicacion.Entidades.Telefono>)this.ObtenerTelefonosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTelefono(x));
-            ((List<EscuelaSimple.Aplicacion.Entidades.Titulo>)this.ObtenerTitulosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTitulo(x));
+            ((List<Aplicacion.Entidades.Telefono>)this.ObtenerTelefonosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTelefono(x));
+            ((List<Aplicacion.Entidades.Titulo>)ObtenerTitulosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTitulo(x));
 
             return nuevoPersonal;
         }

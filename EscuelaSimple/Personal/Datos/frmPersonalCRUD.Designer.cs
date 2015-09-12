@@ -305,6 +305,8 @@
             this.mskDNI.RejectInputOnFirstFailure = true;
             this.mskDNI.Size = new System.Drawing.Size(100, 20);
             this.mskDNI.TabIndex = 5;
+            this.mskDNI.Validating += new System.ComponentModel.CancelEventHandler(this.mskDNI_Validating);
+            this.mskDNI.Validated += new System.EventHandler(this.mskDNI_Validated);
             // 
             // lblDNI
             // 
