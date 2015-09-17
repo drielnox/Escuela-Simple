@@ -13,11 +13,11 @@ namespace EscuelaSimple.Aplicacion.Entidades
         public string Domicilio { get; set; }
         public string Barrio { get; set; }
         public string Localidad { get; set; }
-        public virtual ICollection<Telefono> Telefonos { get; protected set; }
+        public ICollection<Telefono> Telefonos { get; protected set; }
         public DateTime? IngresoDocencia { get; set; }
         public DateTime? IngresoEstablecimiento { get; set; }
-        public virtual ICollection<Titulo> Titulos { get; protected set; }
-        public virtual ICollection<Cargo> Cargos { get; protected set; }
+        public ICollection<Titulo> Titulos { get; protected set; }
+        public ICollection<Cargo> Cargos { get; protected set; }
         public string Observacion { get; set; }
         public virtual ICollection<Inasistencia> Inasistencias { get; protected set; }
 
@@ -47,49 +47,49 @@ namespace EscuelaSimple.Aplicacion.Entidades
 
         public virtual void AgregarTitulo(Titulo titulo)
         {
-            if (!this.Titulos.Contains(titulo))
+            if (!Titulos.Contains(titulo))
             {
-                this.Titulos.Add(titulo);
+                Titulos.Add(titulo);
             }
         }
 
         public virtual void QuitarTitulo(Titulo titulo)
         {
-            if (this.Titulos.Contains(titulo))
+            if (Titulos.Contains(titulo))
             {
-                this.Titulos.Remove(titulo);
+                Titulos.Remove(titulo);
             }
         }
 
         public virtual void AgregarCargo(Cargo cargo)
         {
-            if (!this.Cargos.Contains(cargo))
+            if (!Cargos.Contains(cargo))
             {
-                this.Cargos.Add(cargo);
+                Cargos.Add(cargo);
             }
         }
 
         public virtual void QuitarCargo(Cargo cargo)
         {
-            if (this.Cargos.Contains(cargo))
+            if (Cargos.Contains(cargo))
             {
-                this.Cargos.Remove(cargo);
+                Cargos.Remove(cargo);
             }
         }
 
         public virtual void AgregarInasistencia(Inasistencia inasistencia)
         {
-            if (!this.Inasistencias.Contains(inasistencia))
+            if (!Inasistencias.Contains(inasistencia))
             {
-                this.Inasistencias.Add(inasistencia);
+                Inasistencias.Add(inasistencia);
             }
         }
 
         public virtual void QuitarInasistencia(Inasistencia inasistencia)
         {
-            if (this.Inasistencias.Contains(inasistencia))
+            if (Inasistencias.Contains(inasistencia))
             {
-                this.Inasistencias.Remove(inasistencia);
+                Inasistencias.Remove(inasistencia);
             }
         }
 

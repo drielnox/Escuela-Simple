@@ -43,33 +43,35 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
 
         #endregion
 
-        #region Eventos del formulario
+        #region Formulario
 
         private void frmPersonalCRUD_Load(object sender, EventArgs e)
         {
-            this.EstablecerModoFormulario();
+            EstablecerModoFormulario();
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            bool valido = this.ValidateChildren();
+            bool valido = ValidateChildren();
             if (valido)
             {
-                EscuelaSimple.Aplicacion.Entidades.Personal personalAGuardar = this.ObtenerPersonal();
-                if (this.PersistirEvento != null)
+                Aplicacion.Entidades.Personal personalAGuardar = ObtenerPersonal();
+                if (PersistirEvento != null)
                 {
-                    this.PersistirEvento(personalAGuardar);
+                    PersistirEvento(personalAGuardar);
                 }
-                this.DialogResult = DialogResult.OK;
-                this.Close();
+                DialogResult = DialogResult.OK;
+                Close();
             }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Validate(false);
-            this.DialogResult = DialogResult.Cancel;
+            Validate(false);
+            DialogResult = DialogResult.Cancel;
         }
+
+        #region Basico
 
         private void tsbAltaTelefono_Click(object sender, EventArgs e)
         {
@@ -77,20 +79,20 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                EscuelaSimple.Aplicacion.Entidades.Telefono telefonoNuevo = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Telefono;
-                this.CargarGrillaConTelefono(telefonoNuevo);
+                Aplicacion.Entidades.Telefono telefonoNuevo = frm.Tag as Aplicacion.Entidades.Telefono;
+                CargarGrillaConTelefono(telefonoNuevo);
             }
         }
 
         private void tsbModificacionTelefono_Click(object sender, EventArgs e)
         {
-            EscuelaSimple.Aplicacion.Entidades.Telefono telefonoSelecionado = this.lvTelefonos.SelectedItems[0].Tag as EscuelaSimple.Aplicacion.Entidades.Telefono;
+            Aplicacion.Entidades.Telefono telefonoSelecionado = lvTelefonos.SelectedItems[0].Tag as Aplicacion.Entidades.Telefono;
             frmPersonalTelefonoCRUD frm = new frmPersonalTelefonoCRUD(telefonoSelecionado);
             DialogResult resultado = frm.ShowDialog(this);
             if (resultado == DialogResult.OK)
             {
-                EscuelaSimple.Aplicacion.Entidades.Telefono telefonoModificado = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Telefono;
-                this.CargarGrillaConTelefono(telefonoModificado);
+                Aplicacion.Entidades.Telefono telefonoModificado = frm.Tag as Aplicacion.Entidades.Telefono;
+                CargarGrillaConTelefono(telefonoModificado);
             }
         }
 
@@ -99,91 +101,15 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este telefono?", "Borrar telefono", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
             if (resultado == DialogResult.OK)
             {
-                ListViewItem itemSeleccionado = this.lvTelefonos.SelectedItems[0];
-                this.lvTelefonos.Items.Remove(itemSeleccionado);
-            }
-        }
-        
-        private void tsbAltaTitulo_Click(object sender, EventArgs e)
-        {
-            frmPersonalTituloCRUD frm = new frmPersonalTituloCRUD();
-            DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == DialogResult.OK)
-            {
-                EscuelaSimple.Aplicacion.Entidades.Titulo tituloNuevo = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Titulo;
-                this.CargarGrillaConTitulo(tituloNuevo);
+                ListViewItem itemSeleccionado = lvTelefonos.SelectedItems[0];
+                lvTelefonos.Items.Remove(itemSeleccionado);
             }
         }
 
-        private void tsbModificacionTitulo_Click(object sender, EventArgs e)
+        private void lvTelefonos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
         {
-            EscuelaSimple.Aplicacion.Entidades.Titulo tituloSeleccionado = this.lvTitulos.SelectedItems[0].Tag as EscuelaSimple.Aplicacion.Entidades.Titulo;
-            frmPersonalTituloCRUD frm = new frmPersonalTituloCRUD(tituloSeleccionado);
-            DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == DialogResult.OK)
-            {
-                EscuelaSimple.Aplicacion.Entidades.Titulo tituloModificado = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Titulo;
-                this.CargarGrillaConTitulo(tituloModificado);
-            }
-        }
-
-        private void tsbBajaTitulo_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este titulo?", "Borrar titulo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (resultado == DialogResult.OK)
-            {
-                ListViewItem itemSeleccionado = this.lvTitulos.SelectedItems[0];
-                this.lvTitulos.Items.Remove(itemSeleccionado);
-            }
-        }
-
-        private void btnAltaCargo_Click(object sender, EventArgs e)
-        {
-            EscuelaSimple.Aplicacion.Entidades.Cargo cargoNuevo = new EscuelaSimple.Aplicacion.Entidades.Cargo();
-            this.CargarComboConCargo(cargoNuevo);
-        }
-
-        private void btnBajaCargo_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este cargo?", "Borrar cargo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (resultado == DialogResult.OK)
-            {
-                EscuelaSimple.Aplicacion.Entidades.Cargo cargoSeleccionado = this.cboCargo.SelectedItem as EscuelaSimple.Aplicacion.Entidades.Cargo;
-                this.cboCargo.Items.Remove(cargoSeleccionado);
-            }
-        }
-
-        private void tsbAltaFuncion_Click(object sender, EventArgs e)
-        {
-            frmPersonalFuncionCRUD frm = new frmPersonalFuncionCRUD();
-            DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == DialogResult.OK)
-            {
-                EscuelaSimple.Aplicacion.Entidades.Funcion funcionNueva = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Funcion;
-                this.CargarGrillaConFuncion(funcionNueva);
-            }
-        }
-
-        private void tsbModificacionFuncion_Click(object sender, EventArgs e)
-        {
-            EscuelaSimple.Aplicacion.Entidades.Funcion funcionSeleccionada = this.lvFunciones.SelectedItems[0].Tag as EscuelaSimple.Aplicacion.Entidades.Funcion;
-            frmPersonalFuncionCRUD frm = new frmPersonalFuncionCRUD(funcionSeleccionada);
-            DialogResult resultado = frm.ShowDialog(this);
-            if (resultado == DialogResult.OK)
-            {
-                EscuelaSimple.Aplicacion.Entidades.Funcion funcionModificada = frm.Tag as EscuelaSimple.Aplicacion.Entidades.Funcion;
-                this.CargarGrillaConFuncion(funcionModificada);
-            }
-        }
-
-        private void tsbBajaFuncion_Click(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar esta funcion?", "Borrar funcion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
-            if (resultado == DialogResult.OK)
-            {
-                ListViewItem itemSeleccionado = this.lvFunciones.SelectedItems[0];
-                this.lvFunciones.Items.Remove(itemSeleccionado);
-            }
+            tsbModificacionTelefono.Enabled = e.IsSelected;
+            tsbBajaTelefono.Enabled = e.IsSelected;
         }
 
         #region Validaciones
@@ -204,16 +130,16 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
 
         private void txtApellido_Validating(object sender, CancelEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(this.txtApellido.Text))
+            if (string.IsNullOrWhiteSpace(txtApellido.Text))
             {
                 e.Cancel = true;
-                this.errorProvider.SetError(this.txtApellido, "El contenido no es valido.");
+                errorProvider.SetError(txtApellido, "El contenido no es valido.");
             }
         }
 
         private void txtApellido_Validated(object sender, EventArgs e)
         {
-            this.errorProvider.SetError(this.txtApellido, string.Empty);
+            errorProvider.SetError(txtApellido, string.Empty);
         }
 
         private void mskDNI_Validating(object sender, CancelEventArgs e)
@@ -229,61 +155,151 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
         {
             errorProvider.SetError(mskDNI, string.Empty);
         }
-        
+
+        #endregion
+
+        #endregion
+
+        #region Titulos
+
+        private void tsbAltaTitulo_Click(object sender, EventArgs e)
+        {
+            frmPersonalTituloCRUD frm = new frmPersonalTituloCRUD();
+            DialogResult resultado = frm.ShowDialog(this);
+            if (resultado == DialogResult.OK)
+            {
+                Aplicacion.Entidades.Titulo tituloNuevo = frm.Tag as Aplicacion.Entidades.Titulo;
+                CargarGrillaConTitulo(tituloNuevo);
+            }
+        }
+
+        private void tsbModificacionTitulo_Click(object sender, EventArgs e)
+        {
+            Aplicacion.Entidades.Titulo tituloSeleccionado = lvTitulos.SelectedItems[0].Tag as Aplicacion.Entidades.Titulo;
+            frmPersonalTituloCRUD frm = new frmPersonalTituloCRUD(tituloSeleccionado);
+            DialogResult resultado = frm.ShowDialog(this);
+            if (resultado == DialogResult.OK)
+            {
+                Aplicacion.Entidades.Titulo tituloModificado = frm.Tag as Aplicacion.Entidades.Titulo;
+                CargarGrillaConTitulo(tituloModificado);
+            }
+        }
+
+        private void tsbBajaTitulo_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este titulo?", "Borrar titulo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (resultado == DialogResult.OK)
+            {
+                ListViewItem itemSeleccionado = lvTitulos.SelectedItems[0];
+                lvTitulos.Items.Remove(itemSeleccionado);
+            }
+        }
+
+        private void lvTitulos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            tsbModificacionTitulo.Enabled = e.IsSelected;
+            tsbBajaTitulo.Enabled = e.IsSelected;
+        }
+
+        #endregion
+
+        #region Laboral
+
+        private void btnAltaCargo_Click(object sender, EventArgs e)
+        {
+            Aplicacion.Entidades.Cargo cargoNuevo = new Aplicacion.Entidades.Cargo();
+            CargarComboConCargo(cargoNuevo);
+        }
+
+        private void btnBajaCargo_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar este cargo?", "Borrar cargo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (resultado == DialogResult.OK)
+            {
+                Aplicacion.Entidades.Cargo cargoSeleccionado = cboCargo.SelectedItem as Aplicacion.Entidades.Cargo;
+                cboCargo.Items.Remove(cargoSeleccionado);
+            }
+        }
+
+        private void tsbAltaFuncion_Click(object sender, EventArgs e)
+        {
+            frmPersonalFuncionCRUD frm = new frmPersonalFuncionCRUD();
+            DialogResult resultado = frm.ShowDialog(this);
+            if (resultado == DialogResult.OK)
+            {
+                Aplicacion.Entidades.Funcion funcionNueva = frm.Tag as Aplicacion.Entidades.Funcion;
+                CargarGrillaConFuncion(funcionNueva);
+            }
+        }
+
+        private void tsbModificacionFuncion_Click(object sender, EventArgs e)
+        {
+            Aplicacion.Entidades.Funcion funcionSeleccionada = lvFunciones.SelectedItems[0].Tag as Aplicacion.Entidades.Funcion;
+            frmPersonalFuncionCRUD frm = new frmPersonalFuncionCRUD(funcionSeleccionada);
+            DialogResult resultado = frm.ShowDialog(this);
+            if (resultado == DialogResult.OK)
+            {
+                Aplicacion.Entidades.Funcion funcionModificada = frm.Tag as Aplicacion.Entidades.Funcion;
+                CargarGrillaConFuncion(funcionModificada);
+            }
+        }
+
+        private void tsbBajaFuncion_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show(this, "¿Esta seguro que desea borrar esta funcion?", "Borrar funcion", MessageBoxButtons.OKCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1);
+            if (resultado == DialogResult.OK)
+            {
+                ListViewItem itemSeleccionado = lvFunciones.SelectedItems[0];
+                lvFunciones.Items.Remove(itemSeleccionado);
+            }
+        }
+
+        private void cboCargo_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Aplicacion.Entidades.Cargo cargoSeleccionado = cboCargo.SelectedItem as Aplicacion.Entidades.Cargo;
+            CargarGrillaConFunciones(cargoSeleccionado.Funciones);
+        }
+
+        private void lvFunciones_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            tsbModificacionFuncion.Enabled = e.IsSelected;
+            tsbBajaFuncion.Enabled = e.IsSelected;
+        }
+
+        #region Validaciones
+
         private void dtpIngresoDocencia_Validating(object sender, CancelEventArgs e)
         {
-            if (this.dtpIngresoDocencia.Value <= this.dtpFechaNacimiento.Value)
+            if (dtpIngresoDocencia.Value <= dtpFechaNacimiento.Value)
             {
                 e.Cancel = true;
-                this.errorProvider.SetError(this.dtpIngresoDocencia, "La fecha de ingreso a la docencia no puede ser menor o igual a fecha de nacimiento.");
+                errorProvider.SetError(dtpIngresoDocencia, "La fecha de ingreso a la docencia no puede ser menor o igual a fecha de nacimiento.");
             }
         }
 
         private void dtpIngresoDocencia_Validated(object sender, EventArgs e)
         {
-            this.errorProvider.SetError(this.dtpIngresoDocencia, string.Empty);
+            errorProvider.SetError(dtpIngresoDocencia, string.Empty);
         }
 
         private void dtpIngresoEstablecimiento_Validating(object sender, CancelEventArgs e)
         {
-            if (this.dtpIngresoEstablecimiento.Value <= this.dtpFechaNacimiento.Value || this.dtpIngresoEstablecimiento.Value < this.dtpIngresoDocencia.Value)
+            if (dtpIngresoEstablecimiento.Value <= dtpFechaNacimiento.Value || dtpIngresoEstablecimiento.Value < dtpIngresoDocencia.Value)
             {
                 e.Cancel = true;
-                this.errorProvider.SetError(this.dtpIngresoEstablecimiento, "La fecha de ingreso al establecimiento no puede ser menor a la fecha de nacimiento o la fecha de ingreso a la docencia.");
+                errorProvider.SetError(dtpIngresoEstablecimiento, "La fecha de ingreso al establecimiento no puede ser menor a la fecha de nacimiento o la fecha de ingreso a la docencia.");
             }
         }
 
         private void dtpIngresoEstablecimiento_Validated(object sender, EventArgs e)
         {
-            this.errorProvider.SetError(this.dtpIngresoEstablecimiento, string.Empty);
+            errorProvider.SetError(dtpIngresoEstablecimiento, string.Empty);
         }
 
         #endregion
 
-        private void lvTelefonos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            this.tsbModificacionTelefono.Enabled = e.IsSelected;
-            this.tsbBajaTelefono.Enabled = e.IsSelected;
-        }
-
-        private void lvTitulos_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            this.tsbModificacionTitulo.Enabled = e.IsSelected;
-            this.tsbBajaTitulo.Enabled = e.IsSelected;
-        }
-
-        private void cboCargo_SelectionChangeCommitted(object sender, EventArgs e)
-        {
-            EscuelaSimple.Aplicacion.Entidades.Cargo cargoSeleccionado = this.cboCargo.SelectedItem as EscuelaSimple.Aplicacion.Entidades.Cargo;
-            this.CargarGrillaConFunciones(cargoSeleccionado.Funciones);
-        }
-
-        private void lvFunciones_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
-        {
-            this.tsbModificacionFuncion.Enabled = e.IsSelected;
-            this.tsbBajaFuncion.Enabled = e.IsSelected;
-        }
-
+        #endregion
+        
         #endregion
 
         #region Metodos Privados
@@ -374,7 +390,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvTelefonos.Items.Add(fila);
         }
 
-        private void BorrarTituloEnGrilla(EscuelaSimple.Aplicacion.Entidades.Titulo titulo)
+        private void BorrarTituloEnGrilla(Aplicacion.Entidades.Titulo titulo)
         {
             ListViewItem item = this.lvTitulos.Items.Cast<ListViewItem>().Where(x =>
             {
@@ -384,7 +400,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvTitulos.Items.Remove(item);
         }
 
-        private void CargarGrillaConTitulo(EscuelaSimple.Aplicacion.Entidades.Titulo titulo)
+        private void CargarGrillaConTitulo(Aplicacion.Entidades.Titulo titulo)
         {
             BorrarTituloEnGrilla(titulo);
 
@@ -393,7 +409,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvTitulos.Items.Add(fila);
         }
 
-        private void BorrarCargoEnCombo(EscuelaSimple.Aplicacion.Entidades.Cargo cargo)
+        private void BorrarCargoEnCombo(Aplicacion.Entidades.Cargo cargo)
         {
             EscuelaSimple.Aplicacion.Entidades.Cargo item = this.cboCargo.Items.Cast<EscuelaSimple.Aplicacion.Entidades.Cargo>().Where(x =>
             {
@@ -402,14 +418,14 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.cboCargo.Items.Remove(item);
         }
 
-        private void CargarComboConCargo(EscuelaSimple.Aplicacion.Entidades.Cargo cargo)
+        private void CargarComboConCargo(Aplicacion.Entidades.Cargo cargo)
         {
             BorrarCargoEnCombo(cargo);
 
             this.cboCargo.Items.Add(cargo);
         }
 
-        private void BorrarFuncionEnGrilla(EscuelaSimple.Aplicacion.Entidades.Funcion funcion)
+        private void BorrarFuncionEnGrilla(Aplicacion.Entidades.Funcion funcion)
         {
             ListViewItem item = this.lvFunciones.Items.Cast<ListViewItem>().Where(x =>
             {
@@ -419,7 +435,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvFunciones.Items.Remove(item);
         }
 
-        private void CargarGrillaConFuncion(EscuelaSimple.Aplicacion.Entidades.Funcion funcion)
+        private void CargarGrillaConFuncion(Aplicacion.Entidades.Funcion funcion)
         {
             BorrarFuncionEnGrilla(funcion);
 
@@ -428,7 +444,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvFunciones.Items.Add(fila);
         }
 
-        private void CargarGrillaConTelefonos(IEnumerable<EscuelaSimple.Aplicacion.Entidades.Telefono> telefonos)
+        private void CargarGrillaConTelefonos(IEnumerable<Aplicacion.Entidades.Telefono> telefonos)
         {
             this.lvTelefonos.Items.Clear();
             foreach (EscuelaSimple.Aplicacion.Entidades.Telefono item in telefonos)
@@ -438,7 +454,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvTelefonos.Refresh();
         }
 
-        private void CargarGrillaConTitulos(IEnumerable<EscuelaSimple.Aplicacion.Entidades.Titulo> titulos)
+        private void CargarGrillaConTitulos(IEnumerable<Aplicacion.Entidades.Titulo> titulos)
         {
             this.lvTitulos.Items.Clear();
             foreach (EscuelaSimple.Aplicacion.Entidades.Titulo item in titulos)
@@ -448,7 +464,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvTitulos.Refresh();
         }
 
-        private void CargarComboConCargos(IEnumerable<EscuelaSimple.Aplicacion.Entidades.Cargo> cargos)
+        private void CargarComboConCargos(IEnumerable<Aplicacion.Entidades.Cargo> cargos)
         {
             this.cboCargo.Items.Clear();
             foreach (EscuelaSimple.Aplicacion.Entidades.Cargo item in cargos)
@@ -458,7 +474,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.cboCargo.Refresh();
         }
 
-        private void CargarGrillaConFunciones(IEnumerable<EscuelaSimple.Aplicacion.Entidades.Funcion> funciones)
+        private void CargarGrillaConFunciones(IEnumerable<Aplicacion.Entidades.Funcion> funciones)
         {
             this.lvFunciones.Items.Clear();
             foreach (EscuelaSimple.Aplicacion.Entidades.Funcion item in funciones)
@@ -468,7 +484,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             this.lvFunciones.Refresh();
         }
 
-        private IEnumerable<EscuelaSimple.Aplicacion.Entidades.Telefono> ObtenerTelefonosDelPersonal()
+        private IEnumerable<Aplicacion.Entidades.Telefono> ObtenerTelefonosDelPersonal()
         {
             List<EscuelaSimple.Aplicacion.Entidades.Telefono> telefonosRegistrados = new List<EscuelaSimple.Aplicacion.Entidades.Telefono>();
             foreach (ListViewItem fila in this.lvTelefonos.Items)
@@ -479,7 +495,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             return telefonosRegistrados;
         }
 
-        private IEnumerable<EscuelaSimple.Aplicacion.Entidades.Titulo> ObtenerTitulosDelPersonal()
+        private IEnumerable<Aplicacion.Entidades.Titulo> ObtenerTitulosDelPersonal()
         {
             List<EscuelaSimple.Aplicacion.Entidades.Titulo> titulosRegistrados = new List<EscuelaSimple.Aplicacion.Entidades.Titulo>();
             foreach (ListViewItem fila in this.lvTitulos.Items)
@@ -490,7 +506,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             return titulosRegistrados;
         }
 
-        private IEnumerable<EscuelaSimple.Aplicacion.Entidades.Cargo> ObtenerCargosDelPersonal()
+        private IEnumerable<Aplicacion.Entidades.Cargo> ObtenerCargosDelPersonal()
         {
             List<EscuelaSimple.Aplicacion.Entidades.Cargo> cargosRegistrados = new List<EscuelaSimple.Aplicacion.Entidades.Cargo>();
             foreach (EscuelaSimple.Aplicacion.Entidades.Cargo item in this.cboCargo.Items)
@@ -500,7 +516,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
             return cargosRegistrados;
         }
 
-        private IEnumerable<EscuelaSimple.Aplicacion.Entidades.Funcion> ObtenerFuncionesDelPersonal()
+        private IEnumerable<Aplicacion.Entidades.Funcion> ObtenerFuncionesDelPersonal()
         {
             List<EscuelaSimple.Aplicacion.Entidades.Funcion> funcionesRegistradas = new List<EscuelaSimple.Aplicacion.Entidades.Funcion>();
             foreach (ListViewItem fila in this.lvFunciones.Items)
@@ -514,17 +530,17 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos
         private Aplicacion.Entidades.Personal ObtenerPersonal()
         {
             Aplicacion.Entidades.Personal nuevoPersonal = _personal ?? new Aplicacion.Entidades.Personal();
-            nuevoPersonal.Apellido = this.txtApellido.Text.Trim();
+            nuevoPersonal.Apellido = txtApellido.Text.Trim();
             ((List<Aplicacion.Entidades.Cargo>)ObtenerCargosDelPersonal()).ForEach(x => nuevoPersonal.AgregarCargo(x));
-            nuevoPersonal.DNI = Convert.ToInt32(this.mskDNI.Text.Trim());
-            nuevoPersonal.Domicilio = this.txtDomicilio.Text.Trim();
-            nuevoPersonal.FechaNacimiento = this.dtpFechaNacimiento.Value;
-            nuevoPersonal.IngresoDocencia = this.dtpIngresoDocencia.Value;
-            nuevoPersonal.IngresoEstablecimiento = this.dtpIngresoEstablecimiento.Value;
-            nuevoPersonal.Localidad = this.txtLocalidad.Text.Trim();
+            nuevoPersonal.DNI = Convert.ToInt32(mskDNI.Text.Trim());
+            nuevoPersonal.Domicilio = txtDomicilio.Text.Trim();
+            nuevoPersonal.FechaNacimiento = dtpFechaNacimiento.Value;
+            nuevoPersonal.IngresoDocencia = dtpIngresoDocencia.Value;
+            nuevoPersonal.IngresoEstablecimiento = dtpIngresoEstablecimiento.Value;
+            nuevoPersonal.Localidad = txtLocalidad.Text.Trim();
             nuevoPersonal.Nombre = txtNombre.Text.Trim();
-            nuevoPersonal.Observacion = this.rtbObservacion.Text.Trim();
-            ((List<Aplicacion.Entidades.Telefono>)this.ObtenerTelefonosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTelefono(x));
+            nuevoPersonal.Observacion = rtbObservacion.Text.Trim();
+            ((List<Aplicacion.Entidades.Telefono>)ObtenerTelefonosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTelefono(x));
             ((List<Aplicacion.Entidades.Titulo>)ObtenerTitulosDelPersonal()).ForEach(x => nuevoPersonal.AgregarTitulo(x));
 
             return nuevoPersonal;

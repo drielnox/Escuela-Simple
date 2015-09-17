@@ -36,7 +36,7 @@ namespace EscuelaSimple.Aplicacion.Componentes.Negocio
                 using (var contexto = new EscuelaSimpleContext())
                 {
                     listaPersonal = contexto.Personal
-                        .Where<Personal>(x => 
+                        .Where(x => 
                             x.Apellido.ToLower().StartsWith(personal.Apellido.ToLower()) ||
                             x.DNI.ToString().ToLower().StartsWith(personal.DNI.ToString().ToLower())
                             )
@@ -91,7 +91,9 @@ namespace EscuelaSimple.Aplicacion.Componentes.Negocio
             {
                 using (var contexto = new EscuelaSimpleContext())
                 {
-                    var personalAActualizar = contexto.Personal.Where<Personal>(x => x.Identificador == personalAGuardar.Identificador).First<Personal>();
+                    var personalAActualizar = contexto.Personal
+                        .Where(x => x.Identificador == personalAGuardar.Identificador)
+                        .First();
                     personalAActualizar = personalAGuardar;
 
                     contexto.SaveChanges();
