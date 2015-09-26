@@ -2,7 +2,6 @@
 using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using System;
 using System.Windows.Forms;
-using EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos;
 
 namespace EscuelaSimple.InterfazDeUsuario.WinForms
 {
@@ -63,13 +62,13 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms
 
         private void tsmiDatosPersonal_Click(object sender, EventArgs e)
         {
-            frmPersonalListado frm = new frmPersonalListado(typeof(frmPersonalCRUD));
+            frmPersonalListado frm = new frmPersonalListado(FormularioObjetivo.PersonalCrud);
             frm.ShowDialog(this);
         }
 
         private void tsmiInasistenciasPersonal_Click(object sender, EventArgs e)
         {
-            frmPersonalListado frm = new frmPersonalListado();
+            frmPersonalListado frm = new frmPersonalListado(FormularioObjetivo.InasistenciaListado);
             frm.ShowDialog(this);
         }
 

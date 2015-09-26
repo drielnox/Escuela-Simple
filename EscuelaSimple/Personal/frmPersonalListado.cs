@@ -1,5 +1,6 @@
 ﻿using EscuelaSimple.Aplicacion.Componentes.Negocio;
 using EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Datos;
+using EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Inasistencias;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -10,7 +11,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
     {
         #region Atributos
 
-        private Type _formularioObjetivo;
+        private FormularioObjetivo _formularioObjetivo;
         private PersonalNegocio _personalNegocio;
         private Lazy<InasistenciaNegocio> _inasistenciaNegocio;
 
@@ -23,9 +24,10 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
             InitializeComponent();
             _personalNegocio = new PersonalNegocio();
             _inasistenciaNegocio = new Lazy<InasistenciaNegocio>();
+
         }
 
-        public frmPersonalListado(Type formularioObjetivo) 
+        public frmPersonalListado(FormularioObjetivo formularioObjetivo)
             : this()
         {
             _formularioObjetivo = formularioObjetivo;
@@ -60,7 +62,19 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
         private void tsbVerPersonal_Click(object sender, EventArgs e)
         {
             Aplicacion.Entidades.Personal personalSeleccionado = lvPersonal.SelectedItems[0].Tag as Aplicacion.Entidades.Personal;
-            frmPersonalCRUD frm = new frmPersonalCRUD(ModoFormulario.Ver, personalSeleccionado);
+            Form frm = null;
+            switch (_formularioObjetivo)
+            {
+                case FormularioObjetivo.PersonalCrud:
+                    frm = new frmPersonalCRUD(ModoFormulario.Ver, personalSeleccionado);
+                    break;
+                case FormularioObjetivo.InasistenciaListado:
+                    frm = new frmPersonalInasistenciaListado(personalSeleccionado.Inasistencias);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException("_formularioObjetivo");
+            }
+            
             frm.ShowDialog(this);
         }
 
@@ -108,7 +122,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
         }
 
         #endregion
-        
+
         #endregion
 
         #region Metodos Privados

@@ -98,6 +98,7 @@
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="ModoFormulario.cs" />
+    <Compile Include="FormularioObjetivo.cs" />
     <Compile Include="Personal\frmPersonalFiltrar.cs">
       <SubType>Form</SubType>
     </Compile>

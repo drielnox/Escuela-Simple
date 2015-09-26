@@ -11,7 +11,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Inasistencias
         #region Atributos
 
         private InasistenciaNegocio _personalNegocio;
-        private List<Inasistencia> _inasistencias;
+        private ICollection<Inasistencia> _inasistencias;
 
         #endregion
 
@@ -27,7 +27,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Inasistencias
             _personalNegocio = new InasistenciaNegocio();
         }
 
-        public frmPersonalInasistenciaListado(List<Inasistencia> inasistencias)
+        public frmPersonalInasistenciaListado(ICollection<Inasistencia> inasistencias)
             : this()
         {
             _inasistencias = inasistencias;
@@ -129,7 +129,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal.Inasistencias
             BorrarInasistenciaEnGrilla(inasistencia);
 
             int cantDias = inasistencia.Hasta.Subtract(inasistencia.Desde).Days;
-            ListViewItem fila = new ListViewItem(new string[] 
+            ListViewItem fila = new ListViewItem(new string[]
             {
                 inasistencia.Motivo,
                 inasistencia.Desde.ToShortDateString(),
