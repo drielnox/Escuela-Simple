@@ -1,4 +1,0 @@
-C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\bin\Debug\model.dll
-C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\bin\Debug\model.pdb
-C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\obj\Debug\model.dll
-C:\Users\Pablo\Source\Repos\EscuelaSimple\Entidad\obj\Debug\model.pdb

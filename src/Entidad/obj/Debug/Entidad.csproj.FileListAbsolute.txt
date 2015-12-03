@@ -1,5 +1,0 @@
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\bin\Debug\Entidad.dll
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\bin\Debug\Entidad.pdb
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\obj\Debug\Entidad.dll
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\obj\Debug\Entidad.pdb
-C:\Users\Pablo\Documents\Visual Studio 2010\Projects\EscuelaSimple\Entidad\obj\Debug\Entidad.csprojResolveAssemblyReference.cache

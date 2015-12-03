@@ -252,11 +252,11 @@
     <None Include="Resources\remove.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Aplicación\Componentes\Negocio\Negocio.csproj">
+    <ProjectReference Include="..\..\..\Aplicación\Componentes\Negocio\Negocio.csproj">
       <Project>{60cd96d3-0360-44c5-bbb7-413efe86aafa}</Project>
       <Name>Negocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Aplicación\Entidades\Dominio\Dominio.csproj">
+    <ProjectReference Include="..\..\..\Aplicación\Entidades\Dominio\Dominio.csproj">
       <Project>{031bfd86-f311-41c2-bc9a-f625a39cb84f}</Project>
       <Name>Dominio</Name>
     </ProjectReference>

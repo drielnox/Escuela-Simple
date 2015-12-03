@@ -50,7 +50,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Presentación\Modelos\Modelos de la Presentación\Modelos de la Presentación.csproj">
+    <ProjectReference Include="..\..\Modelos\Modelos de la Presentación\Modelos de la Presentación.csproj">
       <Project>{840a6f4e-f76c-481d-8fb7-adb20df73698}</Project>
       <Name>Modelos de la Presentación</Name>
     </ProjectReference>
