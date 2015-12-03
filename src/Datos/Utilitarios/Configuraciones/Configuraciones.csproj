@@ -60,15 +60,6 @@
     <Compile Include="Mapeo\EntityFramework\TelefonoTypeConfiguration.cs" />
     <Compile Include="Mapeo\EntityFramework\TipoTelefonoTypeConfiguration.cs" />
     <Compile Include="Mapeo\EntityFramework\TituloTypeConfiguration.cs" />
-    <Compile Include="Mapeo\NHibernate\CargoMap.cs" />
-    <Compile Include="Mapeo\NHibernate\FuncionMap.cs" />
-    <Compile Include="Mapeo\NHibernate\InasistenciaMap.cs" />
-    <Compile Include="Mapeo\NHibernate\PersonalMap.cs" />
-    <Compile Include="Mapeo\NHibernate\SituacionRevistaMap.cs" />
-    <Compile Include="Mapeo\NHibernate\TareaMap.cs" />
-    <Compile Include="Mapeo\NHibernate\TelefonoMap.cs" />
-    <Compile Include="Mapeo\NHibernate\TipoTelefonoMap.cs" />
-    <Compile Include="Mapeo\NHibernate\TituloMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

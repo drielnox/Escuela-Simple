@@ -16,7 +16,9 @@ namespace EscuelaSimple.Aplicacion.Componentes.Negocio
             {
                 using (var contexto = new EscuelaSimpleContext())
                 {
-                    listaPersonal = contexto.Personal.ToList();
+                    listaPersonal = contexto.Personal
+                        .Include("Inasistencias")
+                        .ToList();
                 }
             }
             catch (Exception ex)

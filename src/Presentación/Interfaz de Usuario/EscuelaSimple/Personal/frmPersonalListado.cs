@@ -74,7 +74,7 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
                 default:
                     throw new ArgumentOutOfRangeException("_formularioObjetivo");
             }
-            
+
             frm.ShowDialog(this);
         }
 
@@ -119,6 +119,14 @@ namespace EscuelaSimple.InterfazDeUsuario.WinForms.Personal
             tsbVerPersonal.Enabled = e.IsSelected;
             tsbBajaPersonal.Enabled = e.IsSelected;
             tsbModificarPersonal.Enabled = e.IsSelected;
+        }
+
+        private void lvPersonal_DoubleClick(object sender, EventArgs e)
+        {
+            if (lvPersonal.SelectedItems.Count > 0)
+            {
+                tsbVerPersonal.PerformClick();
+            }
         }
 
         #endregion

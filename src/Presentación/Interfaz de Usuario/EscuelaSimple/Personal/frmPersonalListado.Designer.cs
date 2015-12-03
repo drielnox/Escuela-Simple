@@ -125,6 +125,7 @@
             this.lvPersonal.UseCompatibleStateImageBehavior = false;
             this.lvPersonal.View = System.Windows.Forms.View.Details;
             this.lvPersonal.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvPersonal_ItemSelectionChanged);
+            this.lvPersonal.DoubleClick += new System.EventHandler(this.lvPersonal_DoubleClick);
             // 
             // chApellido
             // 
